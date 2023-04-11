@@ -11,7 +11,7 @@ export default function CardBeer({ data }) {
       <View style={styles.box}>
         <View style={styles.inner}>
 
-          <Text style={styles.title}>Alexander Keiths</Text>
+          <Text style={styles.title}>{data.title}</Text>
 
           <Image 
             source={{ uri: "https://cdn.shopify.com/s/files/1/0052/0853/9197/products/full_e48f6bab-351d-4b03-9dbc-a3f19c13c761_580x.jpg?v=1543789208" }}
@@ -41,7 +41,7 @@ export default function CardBeer({ data }) {
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    height: '85%',
+    height: '20%',
     padding: 5,
     flexDirection: 'row',
     flexWrap: 'wrap'
