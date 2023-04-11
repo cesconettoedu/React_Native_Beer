@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text, Image } from 'react-native';
 
 export default function CardBeer({ data }) {
-  const beerSize = "60%"
+  const beerSize = 130
   
 
   return (
@@ -28,6 +28,7 @@ export default function CardBeer({ data }) {
             alt="mug url"  
             aspectRatio= {1.5} 
             resizeMode= 'contain' 
+            padding={0}
           />
 
         </View>
