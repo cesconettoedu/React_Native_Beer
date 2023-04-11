@@ -3,6 +3,7 @@ import { StyleSheet, SafeAreaView, FlatList } from 'react-native';
 
 import Header from './src/Header';
 import CardBeer from './src/CardBeer';
+import MenuBottom from './src/MenuBottom';
 
 export default function App() {
 
@@ -75,6 +76,7 @@ export default function App() {
         renderItem={ ({ item }) => <CardBeer data={item}/>}
         numColumns={2}
       />
+      <MenuBottom/>
       
     </SafeAreaView>
   );
@@ -83,9 +85,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // flexDirection: 'row',
     padding: 5,
-    // flexWrap: 'wrap',
     backgroundColor: 'gray',
   },
 

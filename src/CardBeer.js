@@ -29,7 +29,7 @@ export default function CardBeer({ data }) {
             style={styles.mugs}
             source={require("../assets/05mugs.png" )}
             alt="mug url"  
-            aspectRatio= {1.5} 
+            aspectRatio= {1.5}
             resizeMode= 'contain' 
           />
 
@@ -42,7 +42,6 @@ const styles = StyleSheet.create({
  
   box: {
     width: '50%',
-    height: '100%',
     padding: 5,
   },
   inner: {
@@ -55,7 +54,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    marginTop: 30,
+    marginTop: 20,
     marginBottom: 10
   },
   note: {
@@ -63,7 +62,7 @@ const styles = StyleSheet.create({
     marginTop: 20
   },
   mugs: {
-    padding: 0
+    
   }
 
 });
