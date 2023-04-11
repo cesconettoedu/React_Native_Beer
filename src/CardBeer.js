@@ -8,6 +8,7 @@ export default function CardBeer({ data }) {
   return (
     <View style={styles.container}>
      
+
       <View style={styles.box}>
         <View style={styles.inner}>
 
@@ -33,6 +34,10 @@ export default function CardBeer({ data }) {
 
         </View>
       </View>
+
+
+
+      
       
     </View>
   );
@@ -40,15 +45,16 @@ export default function CardBeer({ data }) {
 
 const styles = StyleSheet.create({
   container: {
-    width: '100%',
-    height: '20%',
+    width: '50%',
+    height: '40%',
     padding: 5,
     flexDirection: 'row',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
+    backgroundColor: 'black',
   },
   box: {
-    width: '50%',
-    height: '50%',
+    width: '100%',
+    height: '100%',
     padding: 5,
   },
   inner: {
