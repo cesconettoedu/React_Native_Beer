@@ -82,9 +82,9 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
+    flex: 1,
     // flexDirection: 'row',
-    // padding: 5,
+    padding: 5,
     // flexWrap: 'wrap',
     // backgroundColor: 'black',
   },
