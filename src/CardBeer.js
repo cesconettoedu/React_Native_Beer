@@ -11,7 +11,7 @@ export default function CardBeer({ data }) {
       <View style={styles.box}>
         <View style={styles.inner}>
 
-          <Text>Alexander Keiths</Text>
+          <Text style={styles.title}>Alexander Keiths</Text>
 
           <Image 
             source={{ uri: "https://cdn.shopify.com/s/files/1/0052/0853/9197/products/full_e48f6bab-351d-4b03-9dbc-a3f19c13c761_580x.jpg?v=1543789208" }}
@@ -21,7 +21,7 @@ export default function CardBeer({ data }) {
             alt="avatar url"
           />
 
-          <Text>ok, i can drink all day</Text>
+          <Text style={styles.note}>ok, i can drink all day</Text>
 
           <Image 
             source={require("../assets/05mugs.png" )}
@@ -57,6 +57,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 10,
-  }
+    padding: 6
+    
+  },
+  title: {
+    fontSize: 20,
+    marginTop: 30,
+    marginBottom: 10
+  },
+  note: {
+    fontSize: 12,
+    marginTop: 20
+  },
 
 });
