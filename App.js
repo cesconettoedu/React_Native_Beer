@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, FlatList } from 'react-native';
+import { StyleSheet, SafeAreaView, FlatList } from 'react-native';
 
 import Header from './src/Header';
 import CardBeer from './src/CardBeer';
@@ -67,22 +67,26 @@ export default function App() {
   ];
 
   return (
-    <View style={styles.container}>
+
+    <SafeAreaView style={styles.container}>
       <Header />
       <FlatList 
         data={data}
         renderItem={ ({ item }) => <CardBeer data={item}/>}
+        numColumns={2}
       />
       
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     // flex: 1,
-    // alignItems: 'center',
-    // justifyContent: 'center',
+    // flexDirection: 'row',
+    // padding: 5,
+    // flexWrap: 'wrap',
+    // backgroundColor: 'black',
   },
 
 
