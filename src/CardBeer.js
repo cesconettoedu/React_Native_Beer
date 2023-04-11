@@ -2,19 +2,34 @@ import React from 'react';
 import { StyleSheet, View, Text, Image } from 'react-native';
 
 export default function CardBeer({ data }) {
+  const beerSize = "60%"
+  
+
   return (
     <View style={styles.container}>
      
       <View style={styles.box}>
         <View style={styles.inner}>
-          <Text>box 1</Text>
-          {/* <Image 
-            source = {{uri:data.imageUrl}}
-            style = {{ width: 100, height: 100 }} 
-            borderRadius={8}  
-            resizeMode= 'contain'
-          /> */}
-          {/* <Text>{data.note}</Text> */}
+
+          <Text>Alexander Keiths</Text>
+
+          <Image 
+            source={{ uri: "https://cdn.shopify.com/s/files/1/0052/0853/9197/products/full_e48f6bab-351d-4b03-9dbc-a3f19c13c761_580x.jpg?v=1543789208" }}
+            width={beerSize}
+            height={beerSize}
+            borderRadius={8}
+            alt="avatar url"
+          />
+
+          <Text>ok, i can drink all day</Text>
+
+          <Image 
+            source={require("../assets/05mugs.png" )}
+            alt="mug url"  
+            aspectRatio= {1.5} 
+            resizeMode= 'contain' 
+          />
+
         </View>
       </View>
       
