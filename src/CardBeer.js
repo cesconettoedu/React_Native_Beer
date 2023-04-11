@@ -15,31 +15,26 @@ export default function CardBeer({ data }) {
           <Text style={styles.title}>{data.title}</Text>
 
           <Image 
-            source={{ uri: "https://cdn.shopify.com/s/files/1/0052/0853/9197/products/full_e48f6bab-351d-4b03-9dbc-a3f19c13c761_580x.jpg?v=1543789208" }}
+            source={{ uri: data.imageUrl }}
             width={beerSize}
             height={beerSize}
             borderRadius={8}
+            resizeMode= 'contain'
             alt="avatar url"
           />
 
-          <Text style={styles.note}>ok, i can drink all day</Text>
+          <Text style={styles.note}>{data.note}</Text>
 
           <Image 
+            style={styles.mugs}
             source={require("../assets/05mugs.png" )}
             alt="mug url"  
             aspectRatio= {1.5} 
             resizeMode= 'contain' 
-            padding={0}
           />
 
         </View>
-      </View>
-
-
-
-      
-      
-    
+      </View>   
   );
 }
 
@@ -56,7 +51,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 10,
-    padding: 6 
+    padding: 1 
   },
   title: {
     fontSize: 20,
@@ -67,5 +62,8 @@ const styles = StyleSheet.create({
     fontSize: 12,
     marginTop: 20
   },
+  mugs: {
+    padding: 0
+  }
 
 });

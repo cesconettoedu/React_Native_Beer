@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     // flexDirection: 'row',
     padding: 5,
     // flexWrap: 'wrap',
-    // backgroundColor: 'black',
+    backgroundColor: 'gray',
   },
 
 
