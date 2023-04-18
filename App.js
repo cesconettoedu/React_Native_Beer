@@ -6,7 +6,7 @@ import Header from './src/Header';
 import CardBeer from './src/CardBeer';
 import MenuBottom from './src/MenuBottom';
 
-export default function App() {
+export default function App(props) {
 
 
   const data = [
@@ -71,7 +71,7 @@ export default function App() {
   return (
 
     <SafeAreaView style={styles.container}>
-      <Header />
+      <Header quantity={data.length}/>
       <FlatList 
         data={data}
         renderItem={ ({ item }) => <CardBeer data={item}/>}

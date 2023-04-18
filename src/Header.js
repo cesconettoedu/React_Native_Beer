@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image } from 'react-native';
 
-export default function Header() {
+export default function Header(props) {
   return (
     <View style={styles.header}>
       <Image 
@@ -12,7 +12,7 @@ export default function Header() {
       <Text style = {{ marginRight: 30, fontSize: 20, fontWeight: 900 }}>Ed's Beer List</Text>
 
       <View>
-        <Text> 29 Beers</Text>
+        <Text> {props.quantity} Beers</Text>
       </View>
 
     </View>
