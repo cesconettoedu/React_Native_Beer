@@ -7,7 +7,7 @@ import Ionic from 'react-native-vector-icons/Ionicons';
 
 export default MenuBottom = () => {
 
-const sizeIcon = 50;
+const sizeIcon = 45;
 
 
   return (
@@ -38,7 +38,7 @@ const sizeIcon = 50;
       <TouchableOpacity onPress={() => alert('This is a button will add beer!')} >
         <Image 
           source = {require('../assets/menuBottom/add.png')} 
-          style = {{ width: 70, height: 70 }}
+          style = {{ width: 65, height: 65 }}
         />
       </TouchableOpacity>
 
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
   MenuBottom: {
     flexDirection: "row",
     width: '100%',
-    height: '8%',
+    height: '10%',
     alignItems: 'center',
     justifyContent: 'space-around',
     backgroundColor: 'purple',
