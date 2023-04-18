@@ -29,7 +29,7 @@ export default function CardBeer({ data }) {
             style={styles.mugs}
             source={require("../assets/05mugs.png" )}
             alt="mug url"  
-            aspectRatio= {1.5}
+            aspectRatio= {1.2}
             resizeMode= 'contain' 
           />
 

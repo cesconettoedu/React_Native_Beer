@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, SafeAreaView, FlatList } from 'react-native';
+import { StyleSheet, FlatList } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context'
 
 import Header from './src/Header';
 import CardBeer from './src/CardBeer';
@@ -86,6 +87,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 5,
     backgroundColor: 'gray',
+    marginTop: "13%"
   },
 
 
