@@ -77,7 +77,6 @@ export default function App() {
         numColumns={2}
       />
       <MenuBottom/>
-      
     </SafeAreaView>
   );
 }
