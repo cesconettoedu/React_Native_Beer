@@ -7,36 +7,41 @@ import Ionic from 'react-native-vector-icons/Ionicons';
 
 export default MenuBottom = () => {
 
-
+const sizeIcon = 50;
 
 
   return (
     <View style={styles.MenuBottom}>
      
       {/* <Ionic name="list" size={40}/> */}
-      <TouchableOpacity 
-        onPress={() => alert('This is a button will list beers alphabetical order!')}
-      >
+      <TouchableOpacity onPress={() => alert('This is a button will list beers alphabetical order!')} >
         <Image 
-          source = {require('../assets/az.png')} 
-          style = {{ width: 50, height: 50 }}
-         
+          source = {require('../assets/menuBottom/az.png')} 
+          style = {{ width: sizeIcon, height: sizeIcon }}
         />
       </TouchableOpacity>
       
-      <TouchableOpacity
-        onPress={() => alert('This is a button will list beers best rating!')}
-
-      >
+      <TouchableOpacity onPress={() => alert('This is a button will list beers best rating!')} >
         <Image 
-          source = {require('../assets/bests.png')} 
-          style = {{ width: 50, height: 50 }}
+          source = {require('../assets/menuBottom/bests.png')} 
+          style = {{ width: sizeIcon, height: sizeIcon }}
         />
       </TouchableOpacity>
      
-      <Ionic name="add-circle-outline" size={60}  onPress={() => alert('This is a button to add beer!')}/>
-           
-      <Ionic name="camera-outline"size={40} onPress={() => alert('This will be to open Camera!')}/>
+      <TouchableOpacity onPress={() => alert('This is a button will search for beer!')} >
+        <Image 
+          source = {require('../assets/menuBottom/search.png')} 
+          style = {{ width: sizeIcon, height: sizeIcon }}
+        />
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={() => alert('This is a button will add beer!')} >
+        <Image 
+          source = {require('../assets/menuBottom/add.png')} 
+          style = {{ width: 70, height: 70 }}
+        />
+      </TouchableOpacity>
+
     </View>
   );
 };
