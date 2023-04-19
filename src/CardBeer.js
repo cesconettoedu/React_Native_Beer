@@ -23,7 +23,7 @@ export default function CardBeer({ data }) {
             alt="avatar url"
           />
 
-          <Text style={styles.note}>{data.note}</Text>
+          <Text style={styles.note} numberOfLines={2}>{data.note}</Text>
 
           <Image 
             style={styles.mugs}

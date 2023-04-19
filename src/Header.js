@@ -12,7 +12,12 @@ export default function Header(props) {
       <Text style = {{ marginRight: 30, fontSize: 20, fontWeight: 900 }}>Ed's Beer List</Text>
 
       <View>
-        <Text> {props.quantity} Beers</Text>
+        <Text> 
+          <Text style={{ fontSize: 20, fontWeight: 700  }}>
+            {props.quantity} 
+          </Text>  
+         {' '}Beers
+        </Text>
       </View>
 
     </View>
@@ -27,7 +32,10 @@ const styles = StyleSheet.create({
     height: '8%',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#eee',
+    backgroundColor: '#808080',
+    borderRadius:10,
+    borderWidth:2,
+    borderColor: '#212427',
   },
 
 
