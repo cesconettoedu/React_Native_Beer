@@ -1,9 +1,12 @@
-import React from 'react';
-import { StyleSheet, View, Text, Image } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, View, Text, Image, TouchableOpacity, Modal } from 'react-native';
+import { ActionModal } from './ActionModal' ;
+
+import Ionic from 'react-native-vector-icons/Ionicons';
 
 export default function CardBeer({ data }) {
   const beerSize = 130
-  
+  const [visibleModal, setVisibleModal] = useState(false);
 
   return (
     
@@ -11,6 +14,23 @@ export default function CardBeer({ data }) {
 
       <View style={styles.box}>
         <View style={styles.inner}>
+
+          <TouchableOpacity onPress={ () => setVisibleModal(true)}>
+            <Ionic name="list" size={30} />
+          </TouchableOpacity>
+
+          <Modal
+            visible={visibleModal}
+            transparent={true}
+            onRequestClose={ () => setVisibleModal(false)}
+            animationType='slide'
+          >
+            <ActionModal
+              handleClose={ () => setVisibleModal(false)}
+              handleEdit={ () => alert('will EDIT the card')}
+              handleDelete={ () => alert('will DELETE the card')}
+            />
+          </Modal>
 
           <Text style={styles.title}>{data.title}</Text>
 
@@ -31,6 +51,8 @@ export default function CardBeer({ data }) {
             aspectRatio= {1.2}
             resizeMode= 'contain' 
           />
+
+
 
         </View>
       </View>   
