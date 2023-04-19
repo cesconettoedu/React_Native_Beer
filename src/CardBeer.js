@@ -26,7 +26,6 @@ export default function CardBeer({ data }) {
           <Text style={styles.note} numberOfLines={2}>{data.note}</Text>
 
           <Image 
-            style={styles.mugs}
             source={require("../assets/05mugs.png" )}
             alt="mug url"  
             aspectRatio= {1.2}
@@ -42,7 +41,7 @@ const styles = StyleSheet.create({
  
   box: {
     width: '50%',
-    padding: 5,
+    padding: 3,
   },
   inner: {
     flex: 1,
@@ -61,8 +60,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     marginTop: 20
   },
-  mugs: {
-    
-  }
+
 
 });

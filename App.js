@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, FlatList } from 'react-native';
+import { StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context'
 
 import Header from './src/Header';
@@ -74,7 +74,17 @@ export default function App(props) {
       <Header quantity={data.length}/>
       <FlatList 
         data={data}
-        renderItem={ ({ item }) => <CardBeer data={item}/>}
+        renderItem={ ({ item }) => (
+          
+          // <TouchableOpacity 
+          //   key={data.id} 
+          //   onPress={() => alert("clicked")}
+          // >
+           <CardBeer data={item}/>
+
+          // </TouchableOpacity>      
+        
+        )}
         numColumns={2}
       />
       <MenuBottom/>
