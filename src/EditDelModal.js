@@ -1,7 +1,7 @@
 import React from "react";
 import { SafeAreaView, View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 
-export function ActionModal( { handleClose, handleEdit, handleDelete }) {
+export function EditDelModal( { handleClose, handleEdit, handleDelete }) {
   return (
     <SafeAreaView style={styles.container}>
       <TouchableOpacity style={{ flex: 1, zIndex:9}} onPress={handleClose}></TouchableOpacity>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity, Modal } from 'react-native';
-import { ActionModal } from './ActionModal' ;
+import { EditDelModal } from './EditDelModal' ;
 
 import Ionic from 'react-native-vector-icons/Ionicons';
 
@@ -25,7 +25,7 @@ export default function CardBeer({ data }) {
             onRequestClose={ () => setVisibleModal(false)}
             animationType='slide'
           >
-            <ActionModal
+            <EditDelModal
               handleClose={ () => setVisibleModal(false)}
               handleEdit={ () => alert('will EDIT the card')}
               handleDelete={ () => alert('will DELETE the card')}
