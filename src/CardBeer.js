@@ -45,13 +45,15 @@ export default function CardBeer({ data }) {
         <Text style={styles.note} numberOfLines={2}>
           {data.note}
         </Text>
-
-        <Image
-          source={require("../assets/05mugs.png")}
-          alt="mug url"
-          aspectRatio={1.2}
-          resizeMode="contain"
-        />
+        <View style={styles.imgMug}>
+          <Image
+            
+            source={require("../assets/05mugs.png")}
+            alt="mug url"
+            aspectRatio={1.2}
+            resizeMode="contain"
+          />
+        </View>
       </View>
     </View>
   );
@@ -80,4 +82,8 @@ const styles = StyleSheet.create({
     fontSize: 12,
     marginTop: 20,
   },
+  imgMug: {
+    padding: 0,
+    margin: 0
+  }
 });

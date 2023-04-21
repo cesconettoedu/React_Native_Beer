@@ -1,11 +1,7 @@
 import React from "react";
 import { StyleSheet, View, TouchableOpacity, Image } from 'react-native';
 
-
-import Ionic from 'react-native-vector-icons/Ionicons';
-
-
-export default MenuBottom = () => {
+const MenuBottom = () => {
 
 const sizeIcon = 45;
 
@@ -45,6 +41,8 @@ const sizeIcon = 45;
     </View>
   );
 };
+
+export default MenuBottom;
 
 
 const styles = StyleSheet.create({
