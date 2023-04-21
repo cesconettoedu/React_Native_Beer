@@ -6,8 +6,8 @@ const HomeScreen = ({navigation}) => {
     <View style={styles.container}>
       <Text>Home Screen</Text>
       <Button
-        title="Click Here"
-        onPress={() => alert('Button clicke')}
+        title="ENTER"
+        onPress={() => navigation.navigate('ListBeerScreen')}
       />
     </View>
   )
