@@ -22,6 +22,7 @@ export default function CardBeer({ data }) {
           animationType="slide"
         >
           <EditDelModal
+            title= {data.title}
             handleClose={() => setVisibleModal(false)}
             handleEdit={() => alert("will EDIT the card")}
             handleDelete={() => alert("will DELETE the card")}
@@ -30,7 +31,7 @@ export default function CardBeer({ data }) {
 
         <Text style={styles.title}>{data.title}</Text>
 
-        <TouchableOpacity>
+      
           <Image
             source={{ uri: data.imageUrl }}
             width={beerSize}
@@ -39,7 +40,7 @@ export default function CardBeer({ data }) {
             resizeMode="contain"
             alt="avatar url"
           />
-        </TouchableOpacity>
+ 
 
         <Text style={styles.note} numberOfLines={2}>
           {data.note}
