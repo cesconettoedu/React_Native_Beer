@@ -83,7 +83,6 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   imgMug: {
-    padding: 0,
-    margin: 0
+   
   }
 });

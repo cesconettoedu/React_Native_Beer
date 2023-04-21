@@ -10,15 +10,23 @@ const ListBeerScreen = (props) => {
 
   const data = [
     {
-    id: 130,
+    id: 1,
     title: "Alexander Keiths",
     imageUrl: "https://cdn.shopify.com/s/files/1/0052/0853/9197/products/full_e48f6bab-351d-4b03-9dbc-a3f19c13c761_580x.jpg?v=1543789208",
     note: "ok, i can drink all day",
     star: 4,
     mugs: "../assets/05mugs.png"
     },
+     {
+    id: 2,
+    title: "Creemore Lager",
+    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShg01AmibJ3TKmfiVXr_ao9VSBvydAVVwlwQ&usqp=CAU",
+    note: "good, ",
+    star: 4,
+    mugs: "../assets/05mugs.png"
+    },
     {
-    id: 131,
+    id: 3,
     title: "Blue Moon",
     imageUrl: "https://www.bluemoonbrewingcompany.com/sites/bluemoon/files/styles/beers/public/beers/2018-06/BlueMoon-BelgianWhite.png?itok=AonO8W6_",
     note: "great beer ",
@@ -26,7 +34,7 @@ const ListBeerScreen = (props) => {
     mugs: "../assets/05mugs.png"
     },
     {
-    id: 129,
+    id: 4,
     title: "Brahma",
     imageUrl: "https://www.wine-searcher.com/images/labels/80/19/10608019.jpg",
     note: "can drink, but not a lot",
@@ -34,7 +42,7 @@ const ListBeerScreen = (props) => {
     mugs: "../assets/05mugs.png"
     },
     {
-    id: 122,
+    id: 5,
     title: "Budweiser",
     imageUrl: "https://aem.lcbo.com/content/dam/lcbo/products/9/0/2/6/902619.jpg.thumb.1280.1280.jpg",
     note: "light beer, cheap to drink all day",
@@ -42,7 +50,7 @@ const ListBeerScreen = (props) => {
     mugs: "../assets/05mugs.png"
     },
     {
-    id: 121,
+    id: 6,
     title: "Coors light",
     imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvXV4cm80sdH8KK6rqABqxud2bm70o9UOLmg&usqp=CAU",
     note: "Like water, just if not have other",
@@ -50,21 +58,14 @@ const ListBeerScreen = (props) => {
     mugs: "../assets/05mugs.png"
     },
     {
-    id: 124,
+    id: 7,
     title: "Corona",
     imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQbfdQL_spsHJv-2qV97aAATlfmKzMtlRBAg&usqp=CAU",
     note: "good , light , can drink all day",
     star: 4,
     mugs: "../assets/05mugs.png"
     },
-    {
-    id: 123,
-    title: "Creemore Lager",
-    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShg01AmibJ3TKmfiVXr_ao9VSBvydAVVwlwQ&usqp=CAU",
-    note: "good, ",
-    star: 4,
-    mugs: "../assets/05mugs.png"
-    }
+   
   ];
 
   return (
