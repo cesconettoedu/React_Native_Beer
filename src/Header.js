@@ -12,7 +12,7 @@ export default function Header(props) {
       <Text style = {styles.appName}>Ed's Beer List</Text>
 
       <View style={styles.quantity}>
-        <Text> 
+        <Text style={styles.numbers}> 
           <Text style={{ fontSize: 20, fontWeight: 700 }}>
             {props.quantity} 
           </Text>  
@@ -41,10 +41,15 @@ const styles = StyleSheet.create({
     marginRight: 30, 
     fontSize: 20, 
     fontWeight: 900, 
-    color: '#FFF' 
+    color: '#69e9f5' 
+    
   },
   quantity: {
-    backgroundColor: 'orange',
+    backgroundColor: '#ff9a3c',
     borderRadius: 5,
   },
+  numbers: {
+    marginLeft: 5,
+    marginRight: 5
+  }
 });

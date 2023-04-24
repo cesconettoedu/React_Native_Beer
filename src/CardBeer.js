@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
   },
   dots: {
     left: 15,
-    top: 13
+    top: 25
   },
   title: {
     textAlign: 'center',
