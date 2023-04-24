@@ -22,9 +22,6 @@ export default function CardBeer({ data }) {
               />
         </View>
         <View style={styles.info}>
-            <TouchableOpacity style={styles.dots} onPress={() => setVisibleModal(true)}>
-              <Ionic name="list" size={30} />
-            </TouchableOpacity>
 
             <Modal
               visible={visibleModal}
@@ -43,16 +40,21 @@ export default function CardBeer({ data }) {
             <Text style={styles.title}>{data.title}</Text>
 
             <Text style={styles.note} numberOfLines={2}>
-              {data.note}
+              "{data.note}"
             </Text>
-            <View style={styles.imgMug}>
-              <Image
-                
-                source={require("../assets/05mugs1.png")}
-                alt="mug url"
-                aspectRatio={3}
-                resizeMode="contain"
-              />
+            <View style={styles.mugPoint}>
+                <View style={styles.imgMug}>
+                  <Image
+                    
+                    source={require("../assets/05mugs1.png")}
+                    alt="mug url"
+                    aspectRatio={2.3}
+                    resizeMode="contain"
+                  />
+                </View>
+                <TouchableOpacity style={styles.dots} onPress={() => setVisibleModal(true)}>
+                  <Ionic name="list" size={30} />
+                </TouchableOpacity>
             </View>
                    
         </View>  
@@ -82,9 +84,11 @@ const styles = StyleSheet.create({
     flex:1,
   },
   dots: {
-    left: 120
+    left: 15,
+    top: 13
   },
   title: {
+    textAlign: 'center',
     fontSize: 20,
     marginTop: 2,
     marginBottom: 2,
@@ -92,11 +96,14 @@ const styles = StyleSheet.create({
   note: {
     height: 30,
     fontSize: 12,
-    marginTop: 10,
+    marginTop: 5,
     marginRight: 3
   },
   imgMug: {
    
             
+  },
+  mugPoint: {
+    flexDirection: 'row',
   }
 });
