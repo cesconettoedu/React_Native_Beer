@@ -9,14 +9,14 @@ export default function Header(props) {
           style = {{ width: 50, height: 50, marginRight: 30 }}
         />
       
-      <Text style = {{ marginRight: 30, fontSize: 20, fontWeight: 900 }}>Ed's Beer List</Text>
+      <Text style = {styles.appName}>Ed's Beer List</Text>
 
-      <View>
+      <View style={styles.quantity}>
         <Text> 
-          <Text style={{ fontSize: 20, fontWeight: 700  }}>
+          <Text style={{ fontSize: 20, fontWeight: 700 }}>
             {props.quantity} 
           </Text>  
-         {' '}Beers
+         {' '}Beers 
         </Text>
       </View>
 
@@ -37,6 +37,14 @@ const styles = StyleSheet.create({
     borderWidth:2,
     borderColor: '#212427',
   },
-
-
+  appName: { 
+    marginRight: 30, 
+    fontSize: 20, 
+    fontWeight: 900, 
+    color: '#FFF' 
+  },
+  quantity: {
+    backgroundColor: 'orange',
+    borderRadius: 5,
+  },
 });
