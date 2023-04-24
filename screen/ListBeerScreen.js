@@ -88,7 +88,7 @@ const [single, setSingle] = useState({})
           
           </TouchableOpacity>      
         )}
-        numColumns={2}
+        
       />
 
       <Modal
