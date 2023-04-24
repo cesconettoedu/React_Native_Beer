@@ -1,12 +1,13 @@
-import React from 'react';
-import { StyleSheet, FlatList, TouchableOpacity, View } from 'react-native';
-
+import React, { useState } from "react";
+import { StyleSheet, FlatList, TouchableOpacity,Image, View , Modal} from 'react-native';
 import Header from '../src/Header';
 import CardBeer from '../src/CardBeer';
 import MenuBottom from '../src/MenuBottom';
+import ImgModal from "../src/ImgModal";
 
-const ListBeerScreen = (props) => {
-
+const ListBeerScreen = ({props}) => {
+const [visibImgleModal, setVisibleImgModal] = useState(false);
+const [single, setSingle] = useState({})
 
   const data = [
     {
@@ -81,14 +82,27 @@ const ListBeerScreen = (props) => {
         renderItem={ ({ item }) => (
           <TouchableOpacity 
             key={data.id} 
-            onPress={() => alert(`You clicked on ${item.title}`)}
+            onPress={() => {setVisibleImgModal(true); setSingle(item)}}
           >
-           <CardBeer data={item}/>
-
-           </TouchableOpacity>      
+          <CardBeer data={item}/>
+          
+          </TouchableOpacity>      
         )}
         numColumns={2}
       />
+
+      <Modal
+          visible={visibImgleModal}
+          transparent={true}
+          onRequestClose={() => setVisibleImgModal(false)}
+          animationType="slide"
+      >
+        <ImgModal
+          data={single}
+          handleClose={() => setVisibleImgModal(false)}
+        />
+      </Modal>
+
 
       <MenuBottom/>
 
