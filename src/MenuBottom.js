@@ -1,14 +1,11 @@
 import React from "react";
 import { StyleSheet, View, TouchableOpacity, Image } from 'react-native';
-import { Navigation } from "react-native-navigation";
 import { useNavigation } from '@react-navigation/native';
 
 const MenuBottom = () => {
 
 const navigation = useNavigation();
 const sizeIcon = 45;
-
-
 
 
   return (
