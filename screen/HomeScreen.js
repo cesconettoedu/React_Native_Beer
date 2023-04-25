@@ -4,6 +4,7 @@ import { View, Text, Button, StyleSheet } from "react-native";
 const HomeScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
+      
       <Text>Home Screen</Text>
       <Button
         title="ENTER"

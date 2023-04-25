@@ -11,6 +11,7 @@ const AddScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
+   
       
         
         <Text style={styles.title}>Add Beer Screen</Text>
