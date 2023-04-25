@@ -61,7 +61,7 @@ const [single, setSingle] = useState({})
     {
     id: 7,
     title: "Corona",
-    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQbfdQL_spsHJv-2qV97aAATlfmKzMtlRBAg&usqp=CAU",
+    imageUrl: "https://aem.lcbo.com/content/dam/lcbo/products/0/2/2/6/022683.jpg.thumb.1280.1280.jpg",
     note: "Good , light , can drink all day",
     star: 4,
     mugs: "../assets/05mugs.png"

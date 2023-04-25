@@ -88,7 +88,6 @@ const styles = StyleSheet.create({
     top: 25
   },
   title: {
-    textAlign: 'center',
     fontSize: 20,
     marginTop: 2,
     marginBottom: 2,
