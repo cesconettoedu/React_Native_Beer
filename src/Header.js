@@ -1,13 +1,22 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image } from 'react-native';
+import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
 
 export default function Header(props) {
+
+  const navigation = useNavigation();
+
   return (
     <View style={styles.header}>
-      <Image 
-          source = {require('../assets/eulogo.png')} 
-          style = {{ width: 50, height: 50, marginRight: 30 }}
-        />
+      
+      <TouchableOpacity onPress={() =>  navigation.navigate('HomeScreen')} >  
+        <Image 
+            source = {require('../assets/eulogo.png')} 
+            style = {{ width: 50, height: 50, marginRight: 30 }}
+          />
+      </TouchableOpacity>
+
       
       <Text style = {styles.appName}>Ed's Beer List</Text>
 
