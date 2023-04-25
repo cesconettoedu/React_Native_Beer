@@ -6,6 +6,7 @@ const MenuBottom = () => {
 const sizeIcon = 45;
 
 
+
   return (
     <View style={styles.MenuBottom}>
      

@@ -1,7 +1,7 @@
 import React from "react";
 import { SafeAreaView, View, TouchableOpacity, Text, StyleSheet, Image } from 'react-native';
 
-const ImgModal = ( {data, handleClose }) => {
+const CardForm = ( {}) => {
 
   const beerSize = 200;
 
@@ -16,6 +16,7 @@ const ImgModal = ( {data, handleClose }) => {
       
        <Image
             style={styles.imgOpen}  
+            // source={{ uri: 'https://thumbs.dreamstime.com/z/bottles-famous-global-beer-brands-poznan-pol-mar-including-heineken-becks-bud-miller-corona-stella-artois-san-miguel-143170440.jpg'}}
             source={{ uri: data.imageUrl }}
             width={beerSize}
             height={beerSize}
@@ -31,7 +32,7 @@ const ImgModal = ( {data, handleClose }) => {
 }
 
 
-export default ImgModal;
+export default CardForm;
 
 
 const styles = StyleSheet.create({

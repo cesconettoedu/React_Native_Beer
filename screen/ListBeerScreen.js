@@ -22,7 +22,7 @@ const [single, setSingle] = useState({})
     id: 2,
     title: "Creemore Lager",
     imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShg01AmibJ3TKmfiVXr_ao9VSBvydAVVwlwQ&usqp=CAU",
-    note: "Good, ",
+    note: "Good",
     star: 4,
     mugs: "../assets/05mugs.png"
     },
