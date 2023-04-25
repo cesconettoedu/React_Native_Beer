@@ -1,9 +1,13 @@
 import React from "react";
 import { StyleSheet, View, TouchableOpacity, Image } from 'react-native';
+import { Navigation } from "react-native-navigation";
+import { useNavigation } from '@react-navigation/native';
 
 const MenuBottom = () => {
 
+const navigation = useNavigation();
 const sizeIcon = 45;
+
 
 
 
@@ -32,7 +36,7 @@ const sizeIcon = 45;
         />
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => alert('This is a button will add beer!')} >
+      <TouchableOpacity onPress={() =>  navigation.navigate('AddScreen')} >
         <Image 
           source = {require('../assets/menuBottom/add.png')} 
           style = {{ width: 65, height: 65 }}
