@@ -5,6 +5,8 @@ import HomeScreen from './screen/HomeScreen';
 import ListBeerScreen from './screen/ListBeerScreen'
 import AddScreen from './screen/AddScreen';
 
+import 'react-native-url-polyfill/auto';
+
 const Stack = createNativeStackNavigator();
 
 function MyStack () {

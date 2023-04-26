@@ -1,13 +1,16 @@
-import React, { useState } from "react";
-import { StyleSheet, FlatList, TouchableOpacity,Image, View , Modal} from 'react-native';
+import React, { useState, useEffect } from "react";
+import { StyleSheet, FlatList, TouchableOpacity,Image, View , Modal, Text} from 'react-native';
 import Header from '../src/Header';
 import CardBeer from '../src/CardBeer';
 import MenuBottom from '../src/MenuBottom';
 import ImgModal from "../src/ImgModal";
+import { supabase } from "../supabase/supabase";
 
 const ListBeerScreen = ({props}) => {
 const [visibImgleModal, setVisibleImgModal] = useState(false);
 const [single, setSingle] = useState({})
+
+const [beer, setBeer] = useState()
 
   const data = [
     {
@@ -69,16 +72,34 @@ const [single, setSingle] = useState({})
    
   ];
 
+
+
+  const getItems = async () => {
+      let { data: Beer, error } = await supabase
+      .from('Beer')
+      .select('*')
+      setBeer(Beer)
+      return Beer
+  }
+
+  useEffect(() => {
+    getItems()
+    .then(() => {
+      // console.log("aquiii:", Beer)
+    })
+  },[])
+
+
   return (
 
     <View style={styles.container}>
       
-      <Header quantity={data.length} 
+      <Header quantity={beer.length} 
         onPress={() => navigation.navigate('HomeScreen')}
       />
       
       <FlatList 
-        data={data}
+        data={beer}
         renderItem={ ({ item }) => (
           <TouchableOpacity 
             key={data.id} 
