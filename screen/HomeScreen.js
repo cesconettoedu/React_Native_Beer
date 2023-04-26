@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, Button, StyleSheet, Image, TouchableOpacity } from "react-native";
-import { useIsFocused } from '@react-navigation/native'
+import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 
 const HomeScreen = ({navigation}) => {
 
   const [showLogo, setShowLogo] = useState(true);
   const [btn, setBtn] = useState ('ENTER');
-  const isFocused = useIsFocused();
 
   const press = () => {
     setShowLogo(false);
@@ -17,8 +15,8 @@ const HomeScreen = ({navigation}) => {
   }
   
   useEffect(() => {
-    isFocused
-  },[isFocused]);
+    
+  },[]);
 
   return (
     <View style={styles.container}>
