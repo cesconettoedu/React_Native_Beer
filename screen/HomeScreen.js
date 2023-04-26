@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { useIsFocused } from '@react-navigation/native';
 
 const HomeScreen = ({navigation}) => {
 
@@ -14,9 +15,12 @@ const HomeScreen = ({navigation}) => {
     },3000)
   }
   
+
+  const isFocused = useIsFocused();
+
   useEffect(() => {
-    
-  },[]);
+    setShowLogo(true)
+  },[isFocused]);
 
   return (
     <View style={styles.container}>
