@@ -72,8 +72,9 @@ const [beer, setBeer] = useState()
    
   ];
 
+console.log(beer);
 
-
+  //get all beers from supabase
   const getItems = async () => {
       let { data: Beer, error } = await supabase
       .from('Beer')
@@ -82,10 +83,14 @@ const [beer, setBeer] = useState()
       return Beer
   }
 
+  //use to find number of beers or lenght
+  let count = 0;
+  for (var k in beer) if (beer.hasOwnProperty(k)) ++count;
+
+
   useEffect(() => {
     getItems()
     .then(() => {
-      // console.log("aquiii:", Beer)
     })
   },[])
 
@@ -94,7 +99,8 @@ const [beer, setBeer] = useState()
 
     <View style={styles.container}>
       
-      <Header quantity={beer.length} 
+      <Header 
+        quantity={count}
         onPress={() => navigation.navigate('HomeScreen')}
       />
       
