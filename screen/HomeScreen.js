@@ -68,14 +68,18 @@ const styles = StyleSheet.create({
     fontWeight: 600
   },
   enterContainer: {
-
+    opacity: 0.2,
+    
   },
   enter: {
+    alignSelf: 'center',
     color: '#69e9f5',
     fontSize: 40,
     fontWeight: 600,
     borderRadius:10,
-    backgroundColor: '#8fcbbc'
+    backgroundColor: '#8fcbbc',
+    paddingRight: 10,
+    paddingLeft: 10
   },
   myLogo: {
     width: 320, 
