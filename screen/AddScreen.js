@@ -33,6 +33,14 @@ const AddScreen = () => {
       <View style={styles.content}>
    
                 <View style = {styles.container}>
+                    <TouchableOpacity onPress={() =>  navigation.navigate('ListBeerScreen')} style={styles.close}>
+                      <Text style={styles.title}>close Add Beer Screen X</Text>
+                    </TouchableOpacity>
+
+                    <View style={styles.imagePrev}>
+                      
+                    </View>
+
                       <TextInput style = {styles.input}
                         underlineColorAndroid = "transparent"
                         placeholder = " BeerName"
@@ -108,9 +116,7 @@ const AddScreen = () => {
         
         
       
-        <TouchableOpacity onPress={() =>  navigation.navigate('ListBeerScreen')} style={styles.close}>
-            <Text style={styles.title}>X close Add Beer Screen</Text>
-        </TouchableOpacity>
+       
 
       </View>
     </SafeAreaView>
@@ -121,13 +127,22 @@ export default AddScreen;
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 23,    
+    paddingTop: 20,    
+  },
+  imagePrev: {
+    height: '40%',
+    borderColor: '#7a42f4',
+    borderWidth: 1,
+    margin: 15,
+    borderRadius: 5,
+
   },
   input: {
-      margin: 15,
-      height: 40,
-      borderColor: '#7a42f4',
-      borderWidth: 1
+    borderRadius: 5,
+    margin: 15,
+    height: 40,
+    borderColor: '#7a42f4',
+    borderWidth: 1
   },
   mugs: {
     flexDirection: 'row',
@@ -136,13 +151,14 @@ const styles = StyleSheet.create({
     marginRight: 10
   },
   submitButton: {
-      backgroundColor: '#7a42f4',
-      padding: 10,
-      margin: 15,
-      height: 40,
+    borderRadius: 5,
+    backgroundColor: '#7a42f4',
+    padding: 10,
+    margin: 15,
+    height: 40,
   },
   submitButtonText:{
-      color: 'white'
+    color: 'white'
   },
   close: {
     backgroundColor: 'orange'
@@ -151,8 +167,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "#FFF",
     fontSize: 30,
-    marginTop: 20,
-    marginBottom: 40,
+    marginTop: 10,
+    marginBottom: 10,
     fontWeight: 500,
   },
 });
