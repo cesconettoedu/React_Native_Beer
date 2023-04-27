@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SafeAreaView, View, TouchableOpacity, Text, TextInput, StyleSheet, Image } from "react-native";
+import { SafeAreaView, View, TouchableOpacity, Text, TextInput, StyleSheet, Image, KeyboardAvoidingView } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import { supabase } from "../supabase/supabase";
 import mug from "../assets/mugsStar/beerIconFull.png"
@@ -32,9 +32,9 @@ const AddScreen = () => {
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
    
-                <View style = {styles.container}>
-                    <TouchableOpacity onPress={() =>  navigation.navigate('ListBeerScreen')} style={styles.close}>
-                      <Text style={styles.title}>close Add Beer Screen X</Text>
+                
+                    <TouchableOpacity onPress={() =>  navigation.navigate('ListBeerScreen')}>
+                      <Text style={styles.closeX}>X</Text>
                     </TouchableOpacity>
 
                    
@@ -59,7 +59,7 @@ const AddScreen = () => {
                     </View>
 
 
-
+                    <KeyboardAvoidingView style={styles.keyboardAvoid} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
                       <TextInput style = {styles.input}
                         underlineColorAndroid = "transparent"
                         placeholder = " BeerName"
@@ -75,7 +75,7 @@ const AddScreen = () => {
                         autoCapitalize = "none"
                         value={newNote}
                         onChangeText={setNewNote}/>
-
+                    </KeyboardAvoidingView>
 
                       <View style={styles.mugs}>
                         <TouchableOpacity onPress = {() => setStars(1)} >
@@ -126,11 +126,8 @@ const AddScreen = () => {
                         onPress = {() => {addNewBeer(); navigation.navigate('ListBeerScreen')} }>
                         <Text style = {styles.submitButtonText}> Press to Add Beer </Text>
                       </TouchableOpacity>
-                  </View>
+
         
-        
-      
-       
 
       </View>
     </SafeAreaView>
@@ -140,8 +137,13 @@ const AddScreen = () => {
 export default AddScreen;
 
 const styles = StyleSheet.create({
-  container: {
-    paddingTop: 20,    
+  container: {   
+    flex:1,
+    alignItems: 'center',
+    justifyContent: 'center' 
+  },
+  content: {
+    paddingTop: 20,
   },
   imagePrev: {
     height: '30%',
@@ -177,15 +179,12 @@ const styles = StyleSheet.create({
   submitButtonText:{
     color: 'white'
   },
-  close: {
-    backgroundColor: 'orange'
-  },
-   title: {
-    textAlign: "center",
-    color: "#FFF",
+   closeX: {
+    textAlign: "right",
+    right: 10,
+    color: '#7a42f4',
     fontSize: 30,
-    marginTop: 10,
-    marginBottom: 10,
+   backgroundColor: 'orange',
     fontWeight: 500,
   },
 });
