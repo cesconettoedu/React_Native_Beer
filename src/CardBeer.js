@@ -1,12 +1,26 @@
 import React, { useState } from "react";
 import { StyleSheet, View, Text, Image, TouchableOpacity, Modal } from "react-native";
 import { EditDelModal } from "./EditDelModal";
+import { supabase } from "../supabase/supabase"
+
 
 import Ionic from "react-native-vector-icons/Ionicons";
 
 export default function CardBeer({ data }) {
   const beerSize = 140;
   const [visibleModal, setVisibleModal] = useState(false);
+
+
+
+  const deleteBeer = async (id) => {
+    console.log(id);
+    const { data: Beer, error } = await supabase
+      .from('Beer')
+      .delete()
+      .eq('id', id)
+  }
+  
+
 
   return (
     <View style={styles.box}>
@@ -33,7 +47,7 @@ export default function CardBeer({ data }) {
                 title= {data.title}
                 handleClose={() => setVisibleModal(false)}
                 handleEdit={() => alert("will EDIT the card")}
-                handleDelete={() => alert("will DELETE the card")}
+                handleDelete={() => deleteBeer(data.id)}
               />
             </Modal>
 
