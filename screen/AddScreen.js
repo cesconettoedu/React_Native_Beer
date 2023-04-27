@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SafeAreaView, View, TouchableOpacity, Text, TextInput, StyleSheet, Image, KeyboardAvoidingView } from "react-native";
+import { SafeAreaView, View, TouchableOpacity, Text, TextInput, StyleSheet, Image, KeyboardAvoidingView, Pressable } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import { supabase } from "../supabase/supabase";
 import mug from "../assets/mugsStar/beerIconFull.png"
@@ -33,11 +33,15 @@ const AddScreen = () => {
       <View style={styles.content}>
    
                 
-                    <TouchableOpacity onPress={() =>  navigation.navigate('ListBeerScreen')}>
-                      <Text style={styles.closeX}>X</Text>
-                    </TouchableOpacity>
+                    {/* <TouchableOpacity>
+                      <Text style={styles.closeX}  onPress={() =>  navigation.navigate('ListBeerScreen')}>X</Text>
+                    </TouchableOpacity> */}
 
-                   
+                   <Pressable style={styles.closeBtn}  onPress={() =>  navigation.navigate('ListBeerScreen')}>
+                     <Text style={styles.closeText}> X </Text>
+                   </Pressable>
+
+
 
                     <View style={styles.imagePrev}>
                       
@@ -145,6 +149,24 @@ const styles = StyleSheet.create({
   content: {
     paddingTop: 20,
   },
+
+  closeBtn: {
+    left: 285,
+    width: '20%',
+    paddingVertical: 5,
+    paddingHorizontal: 5,
+    borderRadius: 4,
+    backgroundColor: 'black',
+  },
+  closeText: {
+    fontSize: 16,
+    lineHeight: 21,
+    fontWeight: 'bold',
+    letterSpacing: 0.25,
+    color: 'white',
+  },
+
+
   imagePrev: {
     height: '30%',
     borderColor: '#7a42f4',
