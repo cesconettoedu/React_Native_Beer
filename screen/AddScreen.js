@@ -3,6 +3,7 @@ import { SafeAreaView, View, TouchableOpacity, Text, TextInput, StyleSheet, Imag
 import { useNavigation } from '@react-navigation/native';
 import { supabase } from "../supabase/supabase";
 import mug from "../assets/mugsStar/beerIconFull.png"
+import CardBeer from '../src/CardBeer'
 
 
 
@@ -14,7 +15,7 @@ const AddScreen = () => {
   
   const ratio = 0.5
   const navigation = useNavigation();
-
+  // const ima = 'https://www.searchenginejournal.com/wp-content/uploads/2020/08/404-pages-sej-5f3ee7ff4966b-1520x800.webp'
 
   const addNewBeer = async () => {
     console.log("AAAAAAAAAAAAAAAAAAAAA",stars);
@@ -37,9 +38,28 @@ const AddScreen = () => {
                       <Text style={styles.title}>close Add Beer Screen X</Text>
                     </TouchableOpacity>
 
+                   
+
                     <View style={styles.imagePrev}>
                       
                     </View>
+
+                    <View style={styles.btnImage}>
+                      <TouchableOpacity onPress={() => alert('This is a button will open CAMERA')} >
+                        <Image 
+                          source = {require('../assets/menuBottom/add.png')} 
+                          style = {{ width: 65, height: 65 }}
+                        />
+                      </TouchableOpacity>
+                      <TouchableOpacity onPress={() => alert('This is a button will open FILES')} >
+                        <Image 
+                          source = {require('../assets/menuBottom/add.png')} 
+                          style = {{ width: 65, height: 65 }}
+                        />
+                      </TouchableOpacity>
+                    </View>
+
+
 
                       <TextInput style = {styles.input}
                         underlineColorAndroid = "transparent"
@@ -125,12 +145,15 @@ const styles = StyleSheet.create({
     paddingTop: 20,    
   },
   imagePrev: {
-    height: '40%',
+    height: '30%',
     borderColor: '#7a42f4',
     borderWidth: 1,
     margin: 15,
     borderRadius: 5,
-
+  },
+  btnImage: {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
   },
   input: {
     borderRadius: 5,
