@@ -13,7 +13,7 @@ export default function CardBeer({ data }) {
 
 
   const deleteBeer = async (id) => {
-    console.log(id);
+    //add a confirmation later
     const { data: Beer, error } = await supabase
       .from('Beer')
       .delete()
