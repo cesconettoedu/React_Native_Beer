@@ -19,7 +19,7 @@ const AddScreen = () => {
     .from('Beer')
     .insert([
        { title: newTitle, note: newNote, star:1 },
-     // { newTitle, newNote },
+     
     ])   
     return Beer
   }

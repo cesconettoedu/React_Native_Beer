@@ -6,6 +6,7 @@ import MenuBottom from '../src/MenuBottom';
 import ImgModal from "../src/ImgModal";
 import { supabase } from "../supabase/supabase";
 
+
 const ListBeerScreen = ({props}) => {
 const [visibImgleModal, setVisibleImgModal] = useState(false);
 const [single, setSingle] = useState({})
@@ -72,8 +73,6 @@ const [beer, setBeer] = useState()
    
   ];
 
-console.log(beer);
-
   //get all beers from supabase
   const getItems = async () => {
       let { data: Beer, error } = await supabase
@@ -92,7 +91,7 @@ console.log(beer);
     getItems()
     .then(() => {
     })
-  },[])
+  },[beer])
 
 
   return (
