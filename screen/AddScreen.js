@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { SafeAreaView, View, TouchableOpacity, Text, TextInput, StyleSheet, Image } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import { supabase } from "../supabase/supabase";
@@ -59,49 +59,44 @@ const AddScreen = () => {
 
 
                       <View style={styles.mugs}>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress = {() => setStars(1)} >
                           <Image  
                             source={mug}
                             aspectRatio={ratio}
                             resizeMode="contain"
-                            alt="mug1"
-                            onPress = {() => setStars(1)}                            
+                            alt="mug1"                                                    
                           />
                         </TouchableOpacity>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress = {() => setStars(2)}>
                           <Image  
                             source={mug}
                             aspectRatio={ratio}
                             resizeMode="contain"
                             alt="mug2"
-                            onPress = {() => setStars(2)}
                           />
                         </TouchableOpacity>
-                         <TouchableOpacity>
+                         <TouchableOpacity onPress = {() => setStars(3)}>
                           <Image  
                             source={mug}
                             aspectRatio={ratio}
                             resizeMode="contain"
                             alt="mug3"
-                            onPress = {() => setStars(3)}
                           />
                         </TouchableOpacity>
-                         <TouchableOpacity>
+                         <TouchableOpacity onPress = {() => setStars(4)}>
                           <Image  
                             source={mug}
                             aspectRatio={ratio}
                             resizeMode="contain"
                             alt="mug4"
-                            onPress = {() => setStars(4)}
                           />
                         </TouchableOpacity>
-                         <TouchableOpacity>
+                         <TouchableOpacity onPress = {() => setStars(5)}>
                           <Image  
                             source={mug}
                             aspectRatio={ratio}
                             resizeMode="contain"
                             alt="mug5"
-                            onPress = {() => setStars(5)}
                           />
                         </TouchableOpacity>
                       </View>
