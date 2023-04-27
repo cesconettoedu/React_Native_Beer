@@ -36,7 +36,6 @@ const AddScreen = () => {
                         placeholderTextColor = "#9a73ef"
                         autoCapitalize = "none"
                         value={newTitle}
-                        //  onChangeText={(e) => setTitle(e.target.value)}/>
                         onChangeText={setNewTitle}/>
                       
                       <TextInput style = {styles.input}
@@ -46,7 +45,11 @@ const AddScreen = () => {
                         autoCapitalize = "none"
                         value={newNote}
                         onChangeText={setNewNote}/>
-                        {/* onChangeText={(e) => setNote(e.target.value)}/> */}
+
+                      <View>
+                        {/* Mugs */}
+                      </View>
+
                       
                       <TouchableOpacity
                         style = {styles.submitButton}
