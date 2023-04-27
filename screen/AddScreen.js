@@ -3,7 +3,6 @@ import { SafeAreaView, View, TouchableOpacity, Text, TextInput, StyleSheet, Imag
 import { useNavigation } from '@react-navigation/native';
 import { supabase } from "../supabase/supabase";
 import mug from "../assets/mugsStar/beerIconFull.png"
-import CardBeer from '../src/CardBeer'
 
 
 
