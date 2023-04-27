@@ -2,23 +2,26 @@ import React, {useState} from "react";
 import { SafeAreaView, View, TouchableOpacity, Text, TextInput, StyleSheet, Image } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import { supabase } from "../supabase/supabase";
+import mug from "../assets/mugsStar/beerIconFull.png"
 
 
 
 const AddScreen = () => {
 
-  [newTitle, setNewTitle] = useState('');
-  [newNote, setNewNote] = useState('');
+  const [newTitle, setNewTitle] = useState('');
+  const [newNote, setNewNote] = useState('');
+  const [stars, setStars] = useState(0);
   
-  const beerSize = 200;
+  const ratio = 0.5
   const navigation = useNavigation();
 
 
   const addNewBeer = async () => {
+    console.log("AAAAAAAAAAAAAAAAAAAAA",stars);
     const { data: Beer, error } = await supabase
     .from('Beer')
     .insert([
-       { title: newTitle, note: newNote, star:1 },
+       { title: newTitle, note: newNote, star: stars },
      
     ])   
     return Beer
@@ -46,8 +49,53 @@ const AddScreen = () => {
                         value={newNote}
                         onChangeText={setNewNote}/>
 
-                      <View>
-                        {/* Mugs */}
+
+                      <View style={styles.mugs}>
+                        <TouchableOpacity>
+                          <Image  
+                            source={mug}
+                            aspectRatio={ratio}
+                            resizeMode="contain"
+                            alt="mug1"
+                            onPress = {() => setStars(1)}                            
+                          />
+                        </TouchableOpacity>
+                        <TouchableOpacity>
+                          <Image  
+                            source={mug}
+                            aspectRatio={ratio}
+                            resizeMode="contain"
+                            alt="mug2"
+                            onPress = {() => setStars(2)}
+                          />
+                        </TouchableOpacity>
+                         <TouchableOpacity>
+                          <Image  
+                            source={mug}
+                            aspectRatio={ratio}
+                            resizeMode="contain"
+                            alt="mug3"
+                            onPress = {() => setStars(3)}
+                          />
+                        </TouchableOpacity>
+                         <TouchableOpacity>
+                          <Image  
+                            source={mug}
+                            aspectRatio={ratio}
+                            resizeMode="contain"
+                            alt="mug4"
+                            onPress = {() => setStars(4)}
+                          />
+                        </TouchableOpacity>
+                         <TouchableOpacity>
+                          <Image  
+                            source={mug}
+                            aspectRatio={ratio}
+                            resizeMode="contain"
+                            alt="mug5"
+                            onPress = {() => setStars(5)}
+                          />
+                        </TouchableOpacity>
                       </View>
 
                       
@@ -73,13 +121,19 @@ export default AddScreen;
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 23
+    paddingTop: 23,    
   },
   input: {
       margin: 15,
       height: 40,
       borderColor: '#7a42f4',
       borderWidth: 1
+  },
+  mugs: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginLeft: 10,
+    marginRight: 10
   },
   submitButton: {
       backgroundColor: '#7a42f4',
@@ -90,7 +144,10 @@ const styles = StyleSheet.create({
   submitButtonText:{
       color: 'white'
   },
-  title: {
+  close: {
+    backgroundColor: 'orange'
+  },
+   title: {
     textAlign: "center",
     color: "#FFF",
     fontSize: 30,
@@ -98,7 +155,4 @@ const styles = StyleSheet.create({
     marginBottom: 40,
     fontWeight: 500,
   },
-  close: {
-    backgroundColor: 'orange'
-  }
 });
