@@ -5,11 +5,9 @@ import { useIsFocused } from '@react-navigation/native';
 const HomeScreen = ({navigation}) => {
 
   const [showLogo, setShowLogo] = useState(true);
-  const [btn, setBtn] = useState ('ENTER');
 
   const press = () => {
     setShowLogo(false);
-    setBtn('WELCOME')
     setTimeout(() => {
       navigation.navigate('ListBeerScreen')
     },3000)
@@ -43,7 +41,7 @@ const HomeScreen = ({navigation}) => {
 
       <TouchableOpacity 
         style={[styles.enterContainer]}
-        title={btn}
+        title="ENTER"
         onPress={press}
       >
         <Text style={[styles.enter, { display: showLogo ? 'flex' : 'none' }]}>ENTER</Text>

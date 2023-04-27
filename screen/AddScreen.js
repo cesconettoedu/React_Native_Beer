@@ -6,6 +6,7 @@ import { supabase } from "../supabase/supabase";
 
 
 const AddScreen = () => {
+
   [newTitle, setNewTitle] = useState('');
   [newNote, setNewNote] = useState('');
   
@@ -14,13 +15,12 @@ const AddScreen = () => {
 
 
   const addNewBeer = async () => {
-    console.log(newTitle, newNote);
     const { data: Beer, error } = await supabase
     .from('Beer')
     .insert([
        { title: newTitle, note: newNote, star:1 },
      // { newTitle, newNote },
-    ])
+    ])   
     return Beer
   }
 
@@ -50,7 +50,7 @@ const AddScreen = () => {
                       
                       <TouchableOpacity
                         style = {styles.submitButton}
-                        onPress = {() => addNewBeer()}>
+                        onPress = {() => {addNewBeer(); navigation.navigate('ListBeerScreen')} }>
                         <Text style = {styles.submitButtonText}> Press to Add Beer </Text>
                       </TouchableOpacity>
                   </View>
