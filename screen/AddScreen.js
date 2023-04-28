@@ -183,15 +183,14 @@ const styles = StyleSheet.create({
     letterSpacing: 0.25,
     color: 'white',
   },
-
-
   imagePrev: {
-    height: '30%',
+    left: 44,
+    height: 210,
+    width: 210,
     borderColor: '#7a42f4',
     borderWidth: 5,
     margin: 15,
     borderRadius: 7,
-    zIndex: 1
   },
   btnImage: {
     flexDirection: 'row',
