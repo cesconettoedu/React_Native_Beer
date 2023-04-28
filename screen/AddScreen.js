@@ -36,7 +36,7 @@ const AddScreen = () => {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: true,
-      aspect: [4, 3],
+      aspect: [4, 4],
       quality: 1,
     });
     if (!result.canceled) {
@@ -62,7 +62,7 @@ const AddScreen = () => {
 
 
                     <View style={styles.imagePrev}>
-                      {newImageUrl && <Image source={{ uri: newImageUrl }} style={{ width: 297, height: 195, borderRadius: 2 }} />}
+                      {newImageUrl && <Image source={{ uri: newImageUrl }} style={{ width: 200, height: 200, borderRadius: 2 }} />}
                     </View>
 
                     <View style={styles.btnImage}>
