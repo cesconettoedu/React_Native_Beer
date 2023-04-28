@@ -3,6 +3,7 @@ import { SafeAreaView, View, TouchableOpacity, Text, TextInput, StyleSheet, Imag
 import { useNavigation } from '@react-navigation/native';
 import { supabase } from "../supabase/supabase";
 import mug from "../assets/mugsStar/beerIconFull.png"
+import * as ImagePicker from 'expo-image-picker';
 
 
 
@@ -11,6 +12,7 @@ const AddScreen = () => {
   const [newTitle, setNewTitle] = useState('');
   const [newNote, setNewNote] = useState('');
   const [stars, setStars] = useState(0);
+  const [newImageUrl, setNewImageUrl] = useState(null);
   
   const ratio = 0.5
   const navigation = useNavigation();
@@ -21,11 +23,27 @@ const AddScreen = () => {
     const { data: Beer, error } = await supabase
     .from('Beer')
     .insert([
-       { title: newTitle, note: newNote, star: stars },
+       { title: newTitle, imageUrl: newImageUrl, note: newNote, star: stars },
      
     ])   
     return Beer
   }
+
+ 
+  //to get image from device
+  const pickImage = async () => {
+    // No permissions request is necessary for launching the image library
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+    if (!result.canceled) {
+      setNewImageUrl(result.assets[0].uri);
+    }
+  };
+
 
 
   return (
@@ -44,7 +62,7 @@ const AddScreen = () => {
 
 
                     <View style={styles.imagePrev}>
-                      
+                      {newImageUrl && <Image source={{ uri: newImageUrl }} style={{ width: 200, height: 200 }} />}
                     </View>
 
                     <View style={styles.btnImage}>
@@ -54,7 +72,7 @@ const AddScreen = () => {
                           style = {{ width: 65, height: 65 }}
                         />
                       </TouchableOpacity>
-                      <TouchableOpacity onPress={() => alert('This is a button will open FILES')} >
+                      <TouchableOpacity onPress={pickImage} >
                         <Image 
                           source = {require('../assets/menuBottom/add.png')} 
                           style = {{ width: 65, height: 65 }}
