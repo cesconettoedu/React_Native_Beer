@@ -13,6 +13,7 @@ const [single, setSingle] = useState({})
 const [beer, setBeer] = useState()
 const [byStar, setByStar] = useState(false)
 
+
 //why cant delte data, find where is connceted
 const data ={}
   

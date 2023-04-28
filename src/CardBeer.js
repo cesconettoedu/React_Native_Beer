@@ -1,14 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { StyleSheet, View, Text, Image, TouchableOpacity, Modal } from "react-native";
 import { EditDelModal } from "./EditDelModal";
 import { supabase } from "../supabase/supabase"
 
+import mug0 from "../assets/mugsStar/000mugs.png"
+import mug1 from "../assets/mugsStar/01mugs.png"
+import mug2 from "../assets/mugsStar/02mugs.png"
+import mug3 from "../assets/mugsStar/03mugs.png"
+import mug4 from "../assets/mugsStar/04mugs.png"
+import mug5 from "../assets/mugsStar/05mugs.png"
 
 import Ionic from "react-native-vector-icons/Ionicons";
 
 export default function CardBeer({ data }) {
   const beerSize = 140;
   const [visibleModal, setVisibleModal] = useState(false);
+  const [mugStar, setMugStar] = useState(mug0)
+
+
+  const StarClick = (x) => {
+    if(data.star == 0) {
+      setMugStar(mug0)
+    }
+    if(data.star == 1) {
+      setMugStar(mug1)
+    }
+    if(data.star == 2) {
+      setMugStar(mug2)
+    }
+    if(data.star == 3) {
+      setMugStar(mug3)
+    }
+    if(data.star == 4) {
+      setMugStar(mug4)
+    }
+    if(data.star == 5) {
+      setMugStar(mug5)
+    }
+  }
+
 
 
 
@@ -20,7 +50,10 @@ export default function CardBeer({ data }) {
       .eq('id', id)
   }
   
-
+  useEffect(() => {
+    StarClick(data.star)
+    
+  }, []);
 
   return (
     <View style={styles.box}>
@@ -59,8 +92,7 @@ export default function CardBeer({ data }) {
             <View style={styles.mugPoint}>
                 <View style={styles.imgMug}>
                   <Image
-                    
-                    source={require("../assets/05mugs1.png")}
+                    source={mugStar}
                     alt="mug url"
                     aspectRatio={2.3}
                     resizeMode="contain"
