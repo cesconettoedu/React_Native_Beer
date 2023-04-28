@@ -62,7 +62,7 @@ const AddScreen = () => {
 
 
                     <View style={styles.imagePrev}>
-                      {newImageUrl && <Image source={{ uri: newImageUrl }} style={{ width: 200, height: 200 }} />}
+                      {newImageUrl && <Image source={{ uri: newImageUrl }} style={{ width: 297, height: 195, borderRadius: 2 }} />}
                     </View>
 
                     <View style={styles.btnImage}>
@@ -188,9 +188,10 @@ const styles = StyleSheet.create({
   imagePrev: {
     height: '30%',
     borderColor: '#7a42f4',
-    borderWidth: 1,
+    borderWidth: 5,
     margin: 15,
-    borderRadius: 5,
+    borderRadius: 7,
+    zIndex: 1
   },
   btnImage: {
     flexDirection: 'row',
