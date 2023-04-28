@@ -16,7 +16,7 @@ const [asc, setAsc] = useState(true)
 
 
 //why cant delte data, find where is connceted
-const data ={}
+
   
 
   const orderBy = (typeOrder) => {
@@ -62,7 +62,7 @@ const data ={}
         data={beer}
         renderItem={ ({ item }) => (
           <TouchableOpacity 
-            key={data.id} 
+            key={item.id} 
             onPress={() => {setVisibleImgModal(true); setSingle(item)}}
           >
           <CardBeer data={item}/>
