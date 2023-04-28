@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
   },
   imgBeer: {
     flex: 1,
-    paddingLeft:5,
+    paddingLeft:1,
   },
   info: {
     flex:1,
