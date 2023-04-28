@@ -11,23 +11,21 @@ const ListBeerScreen = ({props}) => {
 const [visibImgleModal, setVisibleImgModal] = useState(false);
 const [single, setSingle] = useState({})
 const [beer, setBeer] = useState()
-const [byStar, setByStar] = useState(false)
+const [order, setOrder] = useState('title')
+const [asc, setAsc] = useState(true)
 
 
 //why cant delte data, find where is connceted
 const data ={}
   
 
-  const getItemsByStar = async () => {
-    let { data: Beer, error } = await supabase
-    .from('Beer')
-    .select('*')
-    .order('star',  { ascending: false })
-    .order('title')
-    setBeer(Beer)
-    return Beer
+  const orderBy = (typeOrder) => {
+      setOrder(typeOrder)
+      setAsc(false)
+      if(typeOrder === 'title'){
+        setAsc(true)
+      }
   }
-
 
 
   //get all beers from supabase
@@ -35,6 +33,7 @@ const data ={}
       let { data: Beer, error } = await supabase
       .from('Beer')
       .select('*')
+      .order(order ,  { ascending: asc })
       .order('title')
       setBeer(Beer)
       return Beer
@@ -46,13 +45,8 @@ const data ={}
 
 
   useEffect(() => {
-    if(byStar){
-      getItemsByStar()
-    } else{
-      getItems()
-    }
-   
-  },[beer])
+    getItems() 
+  },[beer, order])
 
 
   return (
@@ -91,9 +85,11 @@ const data ={}
       </Modal>
 
 
-      <MenuBottom
+      <MenuBottom>
+        {{orderBy: orderBy}}
+      </MenuBottom>
+   
 
-      />
 
     </View>
   );

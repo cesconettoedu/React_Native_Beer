@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, View, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-const MenuBottom = () => {
+const MenuBottom = (orderBy) => {
 
 const navigation = useNavigation();
 const sizeIcon = 45;
@@ -12,14 +12,14 @@ const sizeIcon = 45;
     <View style={styles.MenuBottom}>
      
       {/* <Ionic name="list" size={40}/> */}
-      <TouchableOpacity onPress={() => alert('This is a button will list beers alphabetical order!')} >
+      <TouchableOpacity onPress={() => orderBy.children.orderBy('title')} >
         <Image 
           source = {require('../assets/menuBottom/az.png')} 
           style = {{ width: sizeIcon, height: sizeIcon }}
         />
       </TouchableOpacity>
       
-      <TouchableOpacity onPress={() => alert('This is a button will list beers best rating!')} >
+      <TouchableOpacity onPress={() => orderBy.children.orderBy('star')} >
         <Image 
           source = {require('../assets/menuBottom/bests.png')} 
           style = {{ width: sizeIcon, height: sizeIcon }}
