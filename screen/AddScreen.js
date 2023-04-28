@@ -12,11 +12,10 @@ const AddScreen = () => {
   const [newTitle, setNewTitle] = useState('');
   const [newNote, setNewNote] = useState('');
   const [stars, setStars] = useState(0);
-  const [newImageUrl, setNewImageUrl] = useState(null);
+  const [newImageUrl, setNewImageUrl] = useState('https://t4.ftcdn.net/jpg/04/99/93/31/360_F_499933117_ZAUBfv3P1HEOsZDrnkbNCt4jc3AodArl.jpg');
   
   const ratio = 0.5
   const navigation = useNavigation();
-  // const ima = 'https://www.searchenginejournal.com/wp-content/uploads/2020/08/404-pages-sej-5f3ee7ff4966b-1520x800.webp'
 
   const addNewBeer = async () => {
     const { data: Beer, error } = await supabase
