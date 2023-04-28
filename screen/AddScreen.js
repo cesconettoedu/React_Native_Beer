@@ -19,7 +19,6 @@ const AddScreen = () => {
   // const ima = 'https://www.searchenginejournal.com/wp-content/uploads/2020/08/404-pages-sej-5f3ee7ff4966b-1520x800.webp'
 
   const addNewBeer = async () => {
-    console.log("AAAAAAAAAAAAAAAAAAAAA",stars);
     const { data: Beer, error } = await supabase
     .from('Beer')
     .insert([
