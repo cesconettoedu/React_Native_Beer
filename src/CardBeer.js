@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, Image, TouchableOpacity, Modal } from "react-na
 import { EditDelModal } from "./EditDelModal";
 import { supabase } from "../supabase/supabase"
 
-import mug0 from "../assets/mugsStar/000mugs.png"
+import mug0 from "../assets/mugsStar/00mugs.png"
 import mug1 from "../assets/mugsStar/01mugs.png"
 import mug2 from "../assets/mugsStar/02mugs.png"
 import mug3 from "../assets/mugsStar/03mugs.png"
