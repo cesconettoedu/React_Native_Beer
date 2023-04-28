@@ -10,11 +10,23 @@ import { supabase } from "../supabase/supabase";
 const ListBeerScreen = ({props}) => {
 const [visibImgleModal, setVisibleImgModal] = useState(false);
 const [single, setSingle] = useState({})
-
 const [beer, setBeer] = useState()
+const [byStar, setByStar] = useState(false)
 
 //why cant delte data, find where is connceted
 const data ={}
+  
+
+  const getItemsByStar = async () => {
+    let { data: Beer, error } = await supabase
+    .from('Beer')
+    .select('*')
+    .order('star',  { ascending: false })
+    .order('title')
+    setBeer(Beer)
+    return Beer
+  }
+
 
 
   //get all beers from supabase
@@ -22,12 +34,7 @@ const data ={}
       let { data: Beer, error } = await supabase
       .from('Beer')
       .select('*')
-      .order('title') // this have to insert when click o AZ butoon///////////////////////////////////////////////////
-     
-      // when click on List by Star
-      // .order('star',  { ascending: false })
-      // .order('title')
-
+      .order('title')
       setBeer(Beer)
       return Beer
   }
@@ -38,9 +45,12 @@ const data ={}
 
 
   useEffect(() => {
-    getItems()
-    .then(() => {
-    })
+    if(byStar){
+      getItemsByStar()
+    } else{
+      getItems()
+    }
+   
   },[beer])
 
 
