@@ -86,6 +86,7 @@ export default function CardBeer({ data }) {
               <EditDelModal
                 title= {data.title}
                 handleClose={() => setVisibleModal(false)}
+                //handleEdit={() => alert("will EDIT the card")}
                 handleEdit={() => alert("will EDIT the card")}
                 handleDelete={() => setVisibleModalConf(true)}
               />
