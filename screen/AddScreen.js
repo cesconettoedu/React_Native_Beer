@@ -52,6 +52,11 @@ const AddScreen = () => {
     }
   };
 
+
+  const getFromCamera = (image) => {
+    setNewImageUrl(image)
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
@@ -87,9 +92,10 @@ const AddScreen = () => {
               onRequestClose={() => setVisibleModal(false)}
               animationType="slide"
             >
-              <CameraPhoto
-                
-              />
+              <CameraPhoto>
+                {{getFromCamera: getFromCamera}}
+              </CameraPhoto>
+              
             </Modal>
 
 

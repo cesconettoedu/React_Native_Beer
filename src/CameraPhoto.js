@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet ,Text, View, Button, Image, Pressable} from 'react-native';
 import { Camera } from 'expo-camera';
 
-const CameraPhoto = () => {
+const CameraPhoto = (getFromCamera) => {
   
   
 const [hasCameraPermission, setHasCameraPermission] = useState(null);
@@ -15,12 +15,12 @@ const takePicture = async () => {
   if(camera){
       const data = await camera.takePictureAsync(null)
       setImage(data.uri);
+      getFromCamera.children.getFromCamera(data.uri)
   }
 }
 if (hasCameraPermission === false) {
   return <Text>No access to camera</Text>;
 }
-
 
 
 useEffect(() => {
