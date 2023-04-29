@@ -9,17 +9,22 @@ import {
   Image,
   KeyboardAvoidingView,
   Pressable,
+  Modal
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { supabase } from "../supabase/supabase";
 import mug from "../assets/mugsStar/beerIconFull.png";
 import * as ImagePicker from "expo-image-picker";
+import CameraPhoto from '../src/CameraPhoto'
 
 const AddScreen = () => {
   const [newTitle, setNewTitle] = useState("");
   const [newNote, setNewNote] = useState("");
   const [stars, setStars] = useState(0);
   const [newImageUrl, setNewImageUrl] = useState("https://t4.ftcdn.net/jpg/04/99/93/31/360_F_499933117_ZAUBfv3P1HEOsZDrnkbNCt4jc3AodArl.jpg");
+  const [visibleModal, setVisibleModal] = useState(false);
+
+
 
   const ratio = 0.5;
   const navigation = useNavigation();
@@ -69,13 +74,26 @@ const AddScreen = () => {
 
         <View style={styles.btnImage}>
           <TouchableOpacity
-            onPress={() => alert("This is a button will open CAMERA")}
+            onPress={() => setVisibleModal(true)}
           >
             <Image
               source={require("../assets/menuBottom/add.png")}
               style={{ width: 65, height: 65 }}
             />
           </TouchableOpacity>
+          <Modal
+              visible={visibleModal}
+              transparent={true}
+              onRequestClose={() => setVisibleModal(false)}
+              animationType="slide"
+            >
+              <CameraPhoto
+              />
+            </Modal>
+
+
+
+
           <TouchableOpacity onPress={pickImage}>
             <Image
               source={require("../assets/menuBottom/add.png")}
