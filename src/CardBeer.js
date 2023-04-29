@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, View, Text, Image, TouchableOpacity, Modal } from "react-native";
 import { EditDelModal } from "./EditDelModal";
+import { ConfModal } from "./ConfModal";
 import { supabase } from "../supabase/supabase"
 
 import mug0 from "../assets/mugsStar/00mugs.png"
@@ -15,6 +16,7 @@ import Ionic from "react-native-vector-icons/Ionicons";
 export default function CardBeer({ data }) {
   const beerSize = 140;
   const [visibleModal, setVisibleModal] = useState(false);
+  const [visibleModalConf, setVisibleModalConf] = useState(false);
   const [mugStar, setMugStar] = useState(mug0)
 
 
@@ -40,6 +42,10 @@ export default function CardBeer({ data }) {
   }
 
 
+  const cleanModal = () => {
+    setVisibleModalConf(false)
+    setVisibleModal(false);
+  }
 
 
   const deleteBeer = async (id) => {
@@ -70,6 +76,7 @@ export default function CardBeer({ data }) {
         </View>
         <View style={styles.info}>
 
+            {/* Modal to Edit or Delete */}
             <Modal
               visible={visibleModal}
               transparent={true}
@@ -79,8 +86,24 @@ export default function CardBeer({ data }) {
               <EditDelModal
                 title= {data.title}
                 handleClose={() => setVisibleModal(false)}
+                //handleEdit={() => alert("will EDIT the card")}
                 handleEdit={() => alert("will EDIT the card")}
-                handleDelete={() => deleteBeer(data.id)}
+                handleDelete={() => setVisibleModalConf(true)}
+              />
+            </Modal>
+
+            {/* Modal to confirm Delete */}
+            <Modal
+              visible={visibleModalConf}
+              transparent={true}
+              onRequestClose={() => setVisibleModalConf(false)}
+              animationType="slide"
+            >
+              <ConfModal
+                title= {data.title}
+                handleClose={() =>  cleanModal()}
+                handleCancel={() => cleanModal()}
+                handleYes={() => deleteBeer(data.id)}
               />
             </Modal>
 

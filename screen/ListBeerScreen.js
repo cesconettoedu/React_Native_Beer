@@ -15,9 +15,7 @@ const [order, setOrder] = useState('title')
 const [asc, setAsc] = useState(true)
 
 
-//why cant delte data, find where is connceted
 
-  
 
   const orderBy = (typeOrder) => {
       setOrder(typeOrder)
