@@ -95,6 +95,7 @@ const AddScreen = () => {
             >
               <CameraPhoto>
                 {{getFromCamera: getFromCamera}}
+            
               </CameraPhoto>
               
             </Modal>

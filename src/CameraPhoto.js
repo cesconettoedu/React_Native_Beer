@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet ,Text, View, Image, Pressable, TouchableOpacity } from 'react-native';
 import { Camera } from 'expo-camera';
 
-const CameraPhoto = ({getFromCamera}) => {
+const CameraPhoto = (getFromCamera) => {
   
   
 const [hasCameraPermission, setHasCameraPermission] = useState(null);
@@ -21,6 +21,7 @@ const takePicture = async () => {
 if (hasCameraPermission === false) {
   return <Text>No access to camera</Text>;
 }
+
 
 useEffect(() => {
     (async () => {
@@ -82,7 +83,7 @@ useEffect(() => {
             </TouchableOpacity>
           }
           {image && 
-            <TouchableOpacity  onPress={() => alert('close camera')} >
+            <TouchableOpacity  onPress={() => close()} >
               <Image
                 source={require("../assets/cameraBtn/check.png")}
                 style={{ width: 45, height: 45 }}
