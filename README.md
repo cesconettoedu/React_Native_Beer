@@ -40,14 +40,6 @@ DB Example
     mugs: "../assets/05mugs.png"
     },
     {
-    id: 4,
-    title: "Brahma",
-    imageUrl: "https://www.ambev.com.br/sites/g/files/wnfebl5836/files/styles/webp/public/paragraphs/product_size/2022-09/PRODUTOS_10.png.webp?itok=3K1kJjA0",
-    note: "Can drink, but not a lot",
-    star: 2,
-    mugs: "../assets/05mugs.png"
-    },
-    {
     id: 5,
     title: "Budweiser",
     imageUrl: "https://aem.lcbo.com/content/dam/lcbo/products/9/0/2/6/902619.jpg.thumb.1280.1280.jpg",
