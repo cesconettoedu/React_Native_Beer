@@ -73,22 +73,22 @@ useEffect(() => {
           />
         </TouchableOpacity>
 
-        <TouchableOpacity>
           {!image &&
-          <Image
-            source={require("../assets/cameraBtn/FlipCamera.png")}
-            style={{ width: 45, height: 45 }}
-          />
-          }
-          {image && 
-            <TouchableOpacity  onPress={() => alert('close camera')} >
+            <TouchableOpacity onPress={() => alert('take a photo first')}>
               <Image
-                source={require("../assets/cameraBtn/file.png")}
+                source={require("../assets/cameraBtn/uncheck.png")}
                 style={{ width: 45, height: 45 }}
               />
             </TouchableOpacity>
           }
-        </TouchableOpacity>
+          {image && 
+            <TouchableOpacity  onPress={() => alert('close camera')} >
+              <Image
+                source={require("../assets/cameraBtn/check.png")}
+                style={{ width: 45, height: 45 }}
+              />
+            </TouchableOpacity>
+          }
 
       </View>
     </View>
