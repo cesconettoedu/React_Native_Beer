@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet ,Text, View, Button, Image, Pressable} from 'react-native';
+import { StyleSheet ,Text, View, Button, Image, Pressable, TouchableOpacity } from 'react-native';
 import { Camera } from 'expo-camera';
 
 const CameraPhoto = (getFromCamera) => {
@@ -25,7 +25,7 @@ if (hasCameraPermission === false) {
 
 useEffect(() => {
     (async () => {
-      const cameraStatus = await Camera.requestCmeraPermissionsAsync();
+      const cameraStatus = await Camera.requestCameraPermissionsAsync();
       setHasCameraPermission(cameraStatus.status === 'granted');
 })();
   }, []);
@@ -52,17 +52,28 @@ useEffect(() => {
       
         {image && <Image source={{uri: image}} style={{flex:1}}/>}
       
-      <Button
-                title="Flip Image"
-                onPress={() => {
-                  setType(
-                    type === Camera.Constants.Type.back
-                      ? Camera.Constants.Type.front
-                      : Camera.Constants.Type.back
-                  );
-                }}>
-      </Button>
-      <Button title="Take Picture" onPress={() => takePicture()} />
+
+      <TouchableOpacity                
+        onPress={() => {
+          setType(
+            type === Camera.Constants.Type.back
+            ? Camera.Constants.Type.front
+            : Camera.Constants.Type.back
+          );
+        }}>
+        <Image
+          source={require("../assets/cameraBtn/FlipCamera.png")}
+          style={{ width: 65, height: 65 }}
+        />
+      </TouchableOpacity>
+
+      <TouchableOpacity title="Take Picture" onPress={() => takePicture()} >
+        <Image
+          source={require("../assets/cameraBtn/TakePic.png")}
+          style={{ width: 65, height: 65 }}
+        />
+      </TouchableOpacity>
+      
     </View>
 
   );

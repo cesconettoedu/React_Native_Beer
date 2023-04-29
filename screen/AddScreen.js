@@ -82,7 +82,7 @@ const AddScreen = () => {
             onPress={() => setVisibleModal(true)}
           >
             <Image
-              source={require("../assets/menuBottom/add.png")}
+              source={require("../assets/cameraBtn/camera.png")}
               style={{ width: 65, height: 65 }}
             />
           </TouchableOpacity>
@@ -103,7 +103,7 @@ const AddScreen = () => {
 
           <TouchableOpacity onPress={pickImage}>
             <Image
-              source={require("../assets/menuBottom/add.png")}
+              source={require("../assets/cameraBtn/file.png")}
               style={{ width: 65, height: 65 }}
             />
           </TouchableOpacity>
