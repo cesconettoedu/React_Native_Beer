@@ -57,6 +57,7 @@ const AddScreen = () => {
     setNewImageUrl(image)
   }
 
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet ,Text, View, Button, Image, Pressable, TouchableOpacity } from 'react-native';
+import { StyleSheet ,Text, View, Image, Pressable, TouchableOpacity } from 'react-native';
 import { Camera } from 'expo-camera';
 
-const CameraPhoto = (getFromCamera) => {
+const CameraPhoto = ({getFromCamera}) => {
   
   
 const [hasCameraPermission, setHasCameraPermission] = useState(null);
@@ -21,7 +21,6 @@ const takePicture = async () => {
 if (hasCameraPermission === false) {
   return <Text>No access to camera</Text>;
 }
-
 
 useEffect(() => {
     (async () => {
@@ -52,28 +51,46 @@ useEffect(() => {
       
         {image && <Image source={{uri: image}} style={{flex:1}}/>}
       
+      <View style={styles.camButton}>
+        <TouchableOpacity                
+          onPress={() => {
+            setType(
+              type === Camera.Constants.Type.back
+              ? Camera.Constants.Type.front
+              : Camera.Constants.Type.back
+            );
+          }}>
+          <Image
+            source={require("../assets/cameraBtn/FlipCamera.png")}
+            style={{ width: 45, height: 45 }}
+          />
+        </TouchableOpacity>
 
-      <TouchableOpacity                
-        onPress={() => {
-          setType(
-            type === Camera.Constants.Type.back
-            ? Camera.Constants.Type.front
-            : Camera.Constants.Type.back
-          );
-        }}>
-        <Image
-          source={require("../assets/cameraBtn/FlipCamera.png")}
-          style={{ width: 65, height: 65 }}
-        />
-      </TouchableOpacity>
+        <TouchableOpacity  onPress={() => takePicture()} >
+          <Image
+            source={require("../assets/cameraBtn/TakePic.png")}
+            style={{ width: 80, height: 80 }}
+          />
+        </TouchableOpacity>
 
-      <TouchableOpacity title="Take Picture" onPress={() => takePicture()} >
-        <Image
-          source={require("../assets/cameraBtn/TakePic.png")}
-          style={{ width: 65, height: 65 }}
-        />
-      </TouchableOpacity>
-      
+        <TouchableOpacity>
+          {!image &&
+          <Image
+            source={require("../assets/cameraBtn/FlipCamera.png")}
+            style={{ width: 45, height: 45 }}
+          />
+          }
+          {image && 
+            <TouchableOpacity  onPress={() => alert('close camera')} >
+              <Image
+                source={require("../assets/cameraBtn/file.png")}
+                style={{ width: 45, height: 45 }}
+              />
+            </TouchableOpacity>
+          }
+        </TouchableOpacity>
+
+      </View>
     </View>
 
   );
@@ -112,4 +129,13 @@ const styles = StyleSheet.create({
     letterSpacing: 0.25,
     color: "black",
   },
+  camButton: {
+    flexDirection: "row",
+    height: 60,
+    justifyContent: "space-evenly",
+    alignItems: 'flex-end',
+    marginLeft: 10,
+    marginRight: 10,
+    paddingBottom: 10
+  }
 })
