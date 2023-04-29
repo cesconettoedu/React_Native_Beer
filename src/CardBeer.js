@@ -76,6 +76,7 @@ export default function CardBeer({ data }) {
         </View>
         <View style={styles.info}>
 
+            {/* Modal to Edit or Delete */}
             <Modal
               visible={visibleModal}
               transparent={true}
@@ -90,9 +91,7 @@ export default function CardBeer({ data }) {
               />
             </Modal>
 
-
-
-
+            {/* Modal to confirm Delete */}
             <Modal
               visible={visibleModalConf}
               transparent={true}
