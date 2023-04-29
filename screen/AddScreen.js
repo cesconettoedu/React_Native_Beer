@@ -48,11 +48,6 @@ const AddScreen = () => {
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
    
-                
-                    {/* <TouchableOpacity>
-                      <Text style={styles.closeX}  onPress={() =>  navigation.navigate('ListBeerScreen')}>X</Text>
-                    </TouchableOpacity> */}
-
                    <Pressable style={styles.closeBtn}  onPress={() =>  navigation.navigate('ListBeerScreen')}>
                      <Text style={styles.closeText}> X </Text>
                    </Pressable>
