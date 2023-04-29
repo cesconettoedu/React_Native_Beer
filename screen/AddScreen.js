@@ -88,6 +88,7 @@ const AddScreen = () => {
               animationType="slide"
             >
               <CameraPhoto
+                
               />
             </Modal>
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet ,Text, View, Button, Image} from 'react-native';
+import { StyleSheet ,Text, View, Button, Image, Pressable} from 'react-native';
 import { Camera } from 'expo-camera';
 
 const CameraPhoto = () => {
@@ -25,22 +25,34 @@ if (hasCameraPermission === false) {
 
 useEffect(() => {
     (async () => {
-      const cameraStatus = await Camera.requestPermissionsAsync();
+      const cameraStatus = await Camera.requestCmeraPermissionsAsync();
       setHasCameraPermission(cameraStatus.status === 'granted');
 })();
   }, []);
   
 
   return (
-    <View style={{ flex: 1}}>
+    <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,1)',}}>
+      
+      <Pressable
+          style={styles.closeBtn}
+          onPress={() => alert("CLose")}
+        >
+        <Text style={styles.closeText}> X </Text>
+      </Pressable>
+
+
       <View style={styles.cameraContainer}>
           <Camera 
                 ref={ref => setCamera(ref)}
                 style={styles.fixedRatio} 
                 type={type}
-                ratio={'1:1'} />
-        </View>
-        <Button
+                 />
+      </View>
+      
+        {image && <Image source={{uri: image}} style={{flex:1}}/>}
+      
+      <Button
                 title="Flip Image"
                 onPress={() => {
                   setType(
@@ -49,9 +61,8 @@ useEffect(() => {
                       : Camera.Constants.Type.back
                   );
                 }}>
-        </Button>
-        <Button title="Take Picture" onPress={() => takePicture()} />
-        {image && <Image source={{uri: image}} style={{flex:1}}/>}
+      </Button>
+      <Button title="Take Picture" onPress={() => takePicture()} />
     </View>
 
   );
@@ -62,10 +73,32 @@ export default CameraPhoto;
 const styles = StyleSheet.create({
   cameraContainer: {
       flex: 1,
-      flexDirection: 'row'
+    
+      alignItems: "center",
+      justifyContent: "center",
+      width: '95%',
+      borderColor: "orange",
+      borderRadius: 4, 
   },
   fixedRatio:{
       flex: 1,
-      aspectRatio: 1
-  }
+      aspectRatio: 1,
+     
+  },
+  closeBtn: {
+    left: 320,
+    width: "8%",
+    paddingVertical: 5,
+    paddingHorizontal: 5,
+    borderRadius: 4,
+    backgroundColor: "#FFF",
+    margin: 10
+  },
+  closeText: {
+    fontSize: 16,
+    lineHeight: 21,
+    fontWeight: "bold",
+    letterSpacing: 0.25,
+    color: "black",
+  },
 })
