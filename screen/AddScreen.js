@@ -242,6 +242,7 @@ const styles = StyleSheet.create({
     height: 40,
     borderColor: "#7a42f4",
     borderWidth: 1,
+    paddingLeft: 10
   },
   mugs: {
     flexDirection: "row",
