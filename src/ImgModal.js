@@ -17,8 +17,8 @@ const ImgModal = ( {data, handleClose }) => {
        <Image
             style={styles.imgOpen}  
             source={{ uri: data.imageUrl }}
-            width={beerSize}
-            height={beerSize}
+            // width={beerSize}
+            // height={beerSize}
             borderRadius={5}
             resizeMode="contain"
             alt="avatar url"
