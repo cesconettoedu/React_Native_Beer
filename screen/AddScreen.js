@@ -44,7 +44,7 @@ const AddScreen = () => {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: true,
-      aspect: [9, 16],
+      aspect: [12, 16],
       quality: 1,
     });
     if (!result.canceled) {
@@ -209,12 +209,13 @@ const styles = StyleSheet.create({
   },
 
   closeBtn: {
-    left: 285,
+    left: 300,
     width: "20%",
     paddingVertical: 5,
     paddingHorizontal: 5,
     borderRadius: 4,
     backgroundColor: "black",
+    bottom: 5,
   },
   closeText: {
     fontSize: 16,
