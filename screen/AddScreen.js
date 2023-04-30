@@ -259,14 +259,7 @@ const styles = StyleSheet.create({
     height: 40,
   },
   submitButtonText: {
-    color: "white",
-  },
-  closeX: {
-    textAlign: "right",
-    right: 10,
-    color: "#7a42f4",
-    fontSize: 30,
-    backgroundColor: "orange",
-    fontWeight: 500,
+    color: "#FFF",
+    textAlign: 'center',
   },
 });

@@ -4,6 +4,7 @@ import { EditDelModal } from "./EditDelModal";
 import { ConfModal } from "./ConfModal";
 import { supabase } from "../supabase/supabase"
 
+
 import mug0 from "../assets/mugsStar/00mugs.png"
 import mug1 from "../assets/mugsStar/01mugs.png"
 import mug2 from "../assets/mugsStar/02mugs.png"
@@ -18,6 +19,8 @@ export default function CardBeer({ data }) {
   const [visibleModal, setVisibleModal] = useState(false);
   const [visibleModalConf, setVisibleModalConf] = useState(false);
   const [mugStar, setMugStar] = useState(mug0)
+
+
 
 
   const StarClick = (x) => {
@@ -49,13 +52,13 @@ export default function CardBeer({ data }) {
 
 
   const deleteBeer = async (id) => {
-    //add a confirmation later
     const { data: Beer, error } = await supabase
       .from('Beer')
       .delete()
       .eq('id', id)
   }
   
+
   useEffect(() => {
     StarClick(data.star)
     
@@ -87,7 +90,7 @@ export default function CardBeer({ data }) {
                 title= {data.title}
                 handleClose={() => setVisibleModal(false)}
                 //handleEdit={() => alert("will EDIT the card")}
-                handleEdit={() => alert("will EDIT the card")}
+                handleEdit={() => alert("will EDIT the card")} /////////////////////////////
                 handleDelete={() => setVisibleModalConf(true)}
               />
             </Modal>

@@ -16,7 +16,6 @@ const CardForm = ( {}) => {
       
        <Image
             style={styles.imgOpen}  
-            // source={{ uri: 'https://thumbs.dreamstime.com/z/bottles-famous-global-beer-brands-poznan-pol-mar-including-heineken-becks-bud-miller-corona-stella-artois-san-miguel-143170440.jpg'}}
             source={{ uri: data.imageUrl }}
             width={beerSize}
             height={beerSize}
