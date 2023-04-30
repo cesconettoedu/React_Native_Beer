@@ -123,7 +123,7 @@ const AddScreen = () => {
             underlineColorAndroid="transparent"
             placeholder=" BeerName"
             placeholderTextColor="#9a73ef"
-            autoCapitalize="none"
+            autoCapitalize='words'
             value={newTitle}
             onChangeText={setNewTitle}
           />
@@ -133,7 +133,7 @@ const AddScreen = () => {
             underlineColorAndroid="transparent"
             placeholder=" Note"
             placeholderTextColor="#9a73ef"
-            autoCapitalize="none"
+            autoCapitalize='words'
             value={newNote}
             onChangeText={setNewNote}
           />
