@@ -22,6 +22,10 @@ if (hasCameraPermission === false) {
   return <Text>No access to camera</Text>;
 }
 
+const goBack = () => {
+  getFromCamera.children.closeCamera(false)
+}
+
 
 useEffect(() => {
     (async () => {
@@ -36,7 +40,7 @@ useEffect(() => {
       
       <Pressable
           style={styles.closeBtn}
-          onPress={() => alert("CLose")}
+          onPress={() => goBack()}
         >
         <Text style={styles.closeText}> X </Text>
       </Pressable>
@@ -83,7 +87,7 @@ useEffect(() => {
             </TouchableOpacity>
           }
           {image && 
-            <TouchableOpacity  onPress={() => close()} >
+            <TouchableOpacity  onPress={() => goBack()} >
               <Image
                 source={require("../assets/cameraBtn/check.png")}
                 style={{ width: 45, height: 45 }}
