@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     // backgroundColor: '#8fcbbc'
-    backgroundColor: 'black'
+    backgroundColor: 'black',
   },
   title: {
     color: '#69e9f5',
@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
   },
   enterContainer: {
     opacity: 0.2,
+    top: 40
     
   },
   enter: {
