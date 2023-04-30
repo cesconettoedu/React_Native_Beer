@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView, View, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { SafeAreaView, View, TouchableOpacity, Text, StyleSheet, Image } from 'react-native';
 
 export function ConfModal( {title, handleClose, handleCancel, handleYes }) {
   return (
@@ -8,15 +8,24 @@ export function ConfModal( {title, handleClose, handleCancel, handleYes }) {
 
       <View style={styles.content}>
       
-      <Text style={styles.title}>Do you want to delete {title}?</Text>
+        <Text style={styles.title}>Do you want to delete {title}?</Text>
       
-        <TouchableOpacity activeOpacity={0.9} style={styles.actionButton} onPress={handleCancel}>
-          <Text style={styles.actionText}>Cancel</Text>
-        </TouchableOpacity>
+        <View style={styles.yesNo}>
+          <TouchableOpacity activeOpacity={0.9} style={styles.actionButton} onPress={handleYes}>
+            <Image
+              source={require("../assets/menuBottom/yes.png")}
+              style={{ width: 60, height: 60 }}
+            />
+          </TouchableOpacity>
+          
+          <TouchableOpacity activeOpacity={0.9} style={styles.actionButton} onPress={handleCancel}>
+            <Image
+              source={require("../assets/menuBottom/no.png")}
+              style={{ width: 60, height: 60 }}
+            />
+          </TouchableOpacity>
+        </View>
 
-        <TouchableOpacity activeOpacity={0.9} style={styles.actionButton} onPress={handleYes}>
-          <Text style={[styles.actionText, styles.deleteText]}>Yes</Text>
-        </TouchableOpacity>
       </View>
 
     </SafeAreaView>
@@ -34,9 +43,8 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginRight: 10,
     marginBottom: 5,
-    backgroundColor: 'rgba(0,0,0,0.9)',
+    backgroundColor: 'rgba(0,0,0,1)',
     borderRadius: 6,
-    
   },
   title: {
     textAlign: 'center',
@@ -46,24 +54,19 @@ const styles = StyleSheet.create({
     marginBottom: 40,
     fontWeight: 500,
   },
-  actionButton: {
-    zIndex: 99,
-    backgroundColor: '#FFF',
-    borderRadius: 6,
-    margin: 5,
-    padding: 8,
-    borderWidth: 1,
-    borderColor: 'rgba(0,0,0, 0.2)',
-
-    shadowColor: 'rgba(0,0,0, 1)',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    elevation: 5,
-    shadowOpacity: 0,
-    shadowRadius: 4,
+  yesNo: {
+    flexDirection: 'row',
+    justifyContent: "center",
+    justifyContent: "space-evenly",
   },
+
+  actionButton: {
+    backgroundColor: '#69e9f5',
+    borderRadius: 45,
+    margin: 2,
+    padding: 2,
+  },
+
   actionText: {
     textAlign: 'center',
     fontWeight: 'bold',

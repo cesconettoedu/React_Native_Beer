@@ -1,7 +1,10 @@
 import React from "react";
-import { SafeAreaView, View, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { SafeAreaView, View, TouchableOpacity, Text, StyleSheet, Image } from 'react-native';
 
 export function EditDelModal( {title, handleClose, handleEdit, handleDelete }) {
+
+  
+
   return (
     <SafeAreaView style={styles.container}>
       <TouchableOpacity style={{ flex: 1, zIndex:9}} onPress={handleClose}></TouchableOpacity>
@@ -10,13 +13,22 @@ export function EditDelModal( {title, handleClose, handleEdit, handleDelete }) {
       
       <Text style={styles.title}>{title}</Text>
       
-        <TouchableOpacity activeOpacity={0.9} style={styles.actionButton} onPress={handleEdit}>
-          <Text style={styles.actionText}>EDIT</Text>
-        </TouchableOpacity>
+        <View style={styles.editdelBtn}>
+          <TouchableOpacity activeOpacity={0.9} style={styles.actionButton} onPress={handleEdit}>
+            <Image
+                source={require("../assets/menuBottom/editWord.png")}
+                style={{ width: 80, height: 80 }}
+            />
+          </TouchableOpacity>
 
-        <TouchableOpacity activeOpacity={0.9} style={styles.actionButton} onPress={handleDelete}>
-          <Text style={[styles.actionText, styles.deleteText]}>DELETE</Text>
-        </TouchableOpacity>
+          <TouchableOpacity activeOpacity={0.9} style={styles.actionButton} onPress={handleDelete}>
+            <Image
+                source={require("../assets/menuBottom/deleteWord.png")}
+                style={{ width: 80, height: 80 }}
+            />
+          </TouchableOpacity>
+
+        </View>
       </View>
 
     </SafeAreaView>
@@ -46,23 +58,16 @@ const styles = StyleSheet.create({
     marginBottom: 40,
     fontWeight: 500,
   },
+  editdelBtn: {
+    flexDirection: 'row',
+    justifyContent: "center",
+    justifyContent: "space-evenly",
+  },
   actionButton: {
-    zIndex: 99,
-    backgroundColor: '#FFF',
-    borderRadius: 6,
-    margin: 5,
-    padding: 8,
-    borderWidth: 1,
-    borderColor: 'rgba(0,0,0, 0.2)',
-
-    shadowColor: 'rgba(0,0,0, 1)',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    elevation: 5,
-    shadowOpacity: 0,
-    shadowRadius: 4,
+    backgroundColor: '#69e9f5',
+    borderRadius: 45,
+    margin: 2,
+    padding: 2,
   },
   actionText: {
     textAlign: 'center',
