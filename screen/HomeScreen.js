@@ -29,13 +29,11 @@ const HomeScreen = ({navigation}) => {
       
       <Image 
         style={[styles.myLogo, { display: showLogo ? 'flex' : 'none' }]}
-        // style={styles.myLogo}
         source={require('../assets/eulogo.png')}
       />
       
       <Image 
         style={[styles.cheers, { display: showLogo ? 'none' : 'flex' }]}
-      //  style={styles.cheers}
         source={require('../assets/cheers.gif')}
       />
 

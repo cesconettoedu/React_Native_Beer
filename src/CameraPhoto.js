@@ -51,11 +51,12 @@ useEffect(() => {
                 ref={ref => setCamera(ref)}
                 style={styles.fixedRatio} 
                 type={type}
-                 />
+          />
       </View>
       
-        {image && <Image source={{uri: image}} style={{flex:1}}/>}
+        {image && <Image source={{uri: image}} style={styles.photoPrev}/>}
       
+
       <View style={styles.camButton}>
         <TouchableOpacity                
           onPress={() => {
@@ -113,10 +114,16 @@ const styles = StyleSheet.create({
       borderColor: "orange",
       borderRadius: 4, 
   },
+  photoPrev : {
+    flex:1, 
+    margin: 10,
+    borderRadius: 4,
+    borderColor: "#7a42f4",
+    borderWidth: 2,
+  },
   fixedRatio:{
       flex: 1,
-      aspectRatio: 1,
-     
+      aspectRatio: 1,   
   },
   closeBtn: {
     left: 320,
