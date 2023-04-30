@@ -47,6 +47,7 @@ useEffect(() => {
 
 
       <View style={styles.cameraContainer}>
+          <Text style={styles.live}> ● Live</Text>
           <Camera 
                 ref={ref => setCamera(ref)}
                 style={styles.fixedRatio} 
@@ -107,12 +108,13 @@ export default CameraPhoto;
 const styles = StyleSheet.create({
   cameraContainer: {
       flex: 1,
-    
       alignItems: "center",
-      justifyContent: "center",
-      width: '95%',
-      borderColor: "orange",
-      borderRadius: 4, 
+      justifyContent: "center", 
+  },
+  live: {
+    color: 'red',
+    zIndex: 99,
+    top: 20
   },
   photoPrev : {
     flex:1, 
