@@ -46,7 +46,7 @@ const AddScreen = ({route}) => {
     .from('Beer')
     .update({ title: newTitle, imageUrl: newImageUrl, note: newNote, star: stars })
     .eq('id', idUpdate)
-
+    return Beer;
   };
 
 

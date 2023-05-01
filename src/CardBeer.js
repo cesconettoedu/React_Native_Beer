@@ -16,6 +16,7 @@ import mug5 from "../assets/mugsStar/05mugs.png"
 import Ionic from "react-native-vector-icons/Ionicons";
 
 export default function CardBeer({ data }) {
+  
   const beerSize = 120;
   const [visibleModal, setVisibleModal] = useState(false);
   const [visibleModalConf, setVisibleModalConf] = useState(false);
@@ -63,7 +64,7 @@ export default function CardBeer({ data }) {
   useEffect(() => {
     StarClick(data.star)
     
-  }, []);
+  }, [data.star]);
 
   return (
     <View style={styles.box}>
