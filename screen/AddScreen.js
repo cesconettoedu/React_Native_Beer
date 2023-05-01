@@ -23,7 +23,8 @@ const AddScreen = ({route}) => {
   const [stars, setStars] = useState(0);
   const [newImageUrl, setNewImageUrl] = useState("https://t4.ftcdn.net/jpg/04/99/93/31/360_F_499933117_ZAUBfv3P1HEOsZDrnkbNCt4jc3AodArl.jpg");
   const [visibleModal, setVisibleModal] = useState(false);
-  const [editB, setEditB] = useState(false)
+  const [editB, setEditB] = useState(false);
+  const [idUpdate, setIdUpdate] = useState(0);
 
  
 
@@ -39,6 +40,14 @@ const AddScreen = ({route}) => {
     return Beer;
   };
 
+
+  const updateNewBeer = async () => { 
+    const { data: Beer, error } = await supabase
+    .from('Beer')
+    .update({ title: newTitle, imageUrl: newImageUrl, note: newNote, star: stars })
+    .eq('id', idUpdate)
+
+  };
 
 
   //to get image from device
@@ -60,7 +69,7 @@ const AddScreen = ({route}) => {
   const editBeer = () => {
     if(route.params !== undefined) {
       setEditB(true);
-
+      setIdUpdate(route.params.paramKey.id)
       setNewImageUrl(route.params.paramKey.imageUrl)
       setNewTitle(route.params.paramKey.title)
       setNewNote(route.params.paramKey.note)
@@ -205,7 +214,8 @@ const AddScreen = ({route}) => {
             />
           </TouchableOpacity>
         </View>
-
+       
+        {!editB && 
         <TouchableOpacity
           style={styles.submitButton}
           onPress={() => {
@@ -213,8 +223,21 @@ const AddScreen = ({route}) => {
             navigation.navigate("ListBeerScreen");
           }}
         >
-          <Text style={styles.submitButtonText}> Press to Add Beer </Text>
+        <Text style={styles.submitButtonText}> Press to Add Beer </Text> 
         </TouchableOpacity>
+        }
+        {editB && 
+        <TouchableOpacity
+          style={styles.submitButton}
+          onPress={() => {
+            updateNewBeer();
+            navigation.navigate("ListBeerScreen");
+          }}
+        >
+        <Text style={styles.submitButtonText}> Press to Update Beer </Text> 
+        </TouchableOpacity>
+        }
+
       </View>
     </SafeAreaView>
   );
