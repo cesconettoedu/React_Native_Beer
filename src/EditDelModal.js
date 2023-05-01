@@ -14,14 +14,18 @@ export function EditDelModal( {title, handleClose, handleEdit, handleDelete }) {
       <Text style={styles.title}>{title}</Text>
       
         <View style={styles.editdelBtn}>
-          <TouchableOpacity activeOpacity={0.9} style={styles.actionButton} onPress={handleEdit}>
+          <TouchableOpacity activeOpacity={0.9} style={styles.actionButton} 
+            onPress={handleEdit}
+            
+            >
             <Image
                 source={require("../assets/menuBottom/editWord.png")}
                 style={{ width: 80, height: 80 }}
             />
           </TouchableOpacity>
 
-          <TouchableOpacity activeOpacity={0.9} style={styles.actionButton} onPress={handleDelete}>
+          <TouchableOpacity activeOpacity={0.9} style={styles.actionButton} 
+            onPress={handleDelete}>
             <Image
                 source={require("../assets/menuBottom/deleteWord.png")}
                 style={{ width: 80, height: 80 }}

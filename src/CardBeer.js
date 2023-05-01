@@ -80,35 +80,6 @@ export default function CardBeer({ data }) {
         </View>
         <View style={styles.info}>
 
-            {/* Modal to Edit or Delete */}
-            <Modal
-              visible={visibleModal}
-              transparent={true}
-              onRequestClose={() => setVisibleModal(false)}
-              animationType="slide"
-            >
-              <EditDelModal
-                title= {data.title}
-                handleClose={() => setVisibleModal(false)}
-                handleEdit={() => navigation.navigate('EditScreen', { paramKey: data  })} ////////////////////////////////
-                handleDelete={() => setVisibleModalConf(true)}
-              />
-            </Modal>
-
-            {/* Modal to confirm Delete */}
-            <Modal
-              visible={visibleModalConf}
-              transparent={true}
-              onRequestClose={() => setVisibleModalConf(false)}
-              animationType="slide"
-            >
-              <ConfModal
-                title= {data.title}
-                handleClose={() =>  cleanModal()}
-                handleCancel={() => cleanModal()}
-                handleYes={() => deleteBeer(data.id)}
-              />
-            </Modal>
 
             <Text style={styles.title}>{data.title}</Text>
 
@@ -127,6 +98,37 @@ export default function CardBeer({ data }) {
                 <TouchableOpacity style={styles.dots} onPress={() => setVisibleModal(true)}>
                   <Ionic name="list" size={30} />
                 </TouchableOpacity>
+            
+              {/* Modal to Edit or Delete */}
+              <Modal
+                visible={visibleModal}
+                transparent={true}
+                onRequestClose={() => setVisibleModal(false)}
+                animationType="slide"
+              >
+                <EditDelModal
+                  title= {data.title}
+                  handleClose={() => setVisibleModal(false)}
+                  handleEdit={() => navigation.navigate('EditScreen', { paramKey: data  })} ////////////////////////////////
+                  handleDelete={() => setVisibleModalConf(true)}
+                />
+              </Modal>
+
+              {/* Modal to confirm Delete */}
+              <Modal
+                visible={visibleModalConf}
+                transparent={true}
+                onRequestClose={() => setVisibleModalConf(false)}
+                animationType="slide"
+              >
+                <ConfModal
+                  title= {data.title}
+                  handleClose={() =>  cleanModal()}
+                  handleCancel={() => cleanModal()}
+                  handleYes={() => deleteBeer(data.id)}
+                />
+              </Modal>
+            
             </View>
                    
         </View>  
