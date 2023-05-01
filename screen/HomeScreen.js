@@ -23,27 +23,35 @@ const HomeScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
 
-      <Text
-        style={[styles.title, { display: showLogo ? 'flex' : 'none' }]}
-      > Ed's Beer List</Text>
+      {showLogo &&
+
+      <View >
+        <Text
+          style={styles.title}
+        > Ed's Beer List</Text>
+        
+        <Image 
+          style={styles.myLogo}
+          source={require('../assets/eulogo.png')}
+        />
       
-      <Image 
-        style={[styles.myLogo, { display: showLogo ? 'flex' : 'none' }]}
-        source={require('../assets/eulogo.png')}
-      />
+        <TouchableOpacity 
+          style={[styles.enterContainer]}
+          title="ENTER"
+          onPress={press}
+        >
+          <Text style={styles.enter}>ENTER</Text>
+        </TouchableOpacity>
       
+      </View>
+      }
+      {!showLogo &&
       <Image 
-        style={[styles.cheers, { display: showLogo ? 'none' : 'flex' }]}
+        style={styles.cheers}
         source={require('../assets/cheers.gif')}
       />
+      }
 
-      <TouchableOpacity 
-        style={[styles.enterContainer]}
-        title="ENTER"
-        onPress={press}
-      >
-        <Text style={[styles.enter, { display: showLogo ? 'flex' : 'none' }]}>ENTER</Text>
-      </TouchableOpacity>
 
     </View>
   )
