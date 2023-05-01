@@ -3,6 +3,7 @@ import { StyleSheet, View, Text, Image, TouchableOpacity, Modal } from "react-na
 import { EditDelModal } from "./EditDelModal";
 import { ConfModal } from "./ConfModal";
 import { supabase } from "../supabase/supabase"
+import { useNavigation } from '@react-navigation/native';
 
 
 import mug0 from "../assets/mugsStar/00mugs.png"
@@ -20,7 +21,7 @@ export default function CardBeer({ data }) {
   const [visibleModalConf, setVisibleModalConf] = useState(false);
   const [mugStar, setMugStar] = useState(mug0)
 
-
+  const navigation = useNavigation();
 
 
   const StarClick = (x) => {
@@ -90,7 +91,7 @@ export default function CardBeer({ data }) {
                 title= {data.title}
                 handleClose={() => setVisibleModal(false)}
                 //handleEdit={() => alert("will EDIT the card")}
-                handleEdit={() => alert("will EDIT the card")} /////////////////////////////
+                handleEdit={() => navigation.navigate('EditScreen', { paramKey: data  })} ////////////////////////////////
                 handleDelete={() => setVisibleModalConf(true)}
               />
             </Modal>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   SafeAreaView,
   View,
@@ -17,14 +17,15 @@ import mug from "../assets/mugsStar/beerIconFull.png";
 import * as ImagePicker from "expo-image-picker";
 import CameraPhoto from '../src/CameraPhoto'
 
-const AddScreen = () => {
+const AddScreen = ({route}) => {
   const [newTitle, setNewTitle] = useState("");
   const [newNote, setNewNote] = useState("");
   const [stars, setStars] = useState(0);
   const [newImageUrl, setNewImageUrl] = useState("https://t4.ftcdn.net/jpg/04/99/93/31/360_F_499933117_ZAUBfv3P1HEOsZDrnkbNCt4jc3AodArl.jpg");
   const [visibleModal, setVisibleModal] = useState(false);
+  const [editB, setEditB] = useState(false)
 
-
+ 
 
   const ratio = 0.5;
   const navigation = useNavigation();
@@ -37,6 +38,8 @@ const AddScreen = () => {
       ]);
     return Beer;
   };
+
+
 
   //to get image from device
   const pickImage = async () => {
@@ -52,6 +55,15 @@ const AddScreen = () => {
     }
   };
 
+
+
+  const editBeer = () => {
+    if(route.params !== undefined) {
+      setEditB(true)
+    }
+  }
+
+
   
   const getFromCamera = (image) => {
     setNewImageUrl(image)
@@ -61,10 +73,17 @@ const AddScreen = () => {
     setVisibleModal(false)
   }
 
+
+  useEffect(() => {
+    editBeer() 
+  },[])
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
-        
+
+      {editB && <Text>{route.params.paramKey.note}</Text> }  
+
         <Pressable
           style={styles.closeBtn}
           onPress={() => navigation.navigate("ListBeerScreen")}
@@ -138,6 +157,7 @@ const AddScreen = () => {
             onChangeText={setNewNote}
           />
         </KeyboardAvoidingView>
+
 
         <View style={styles.mugs}>
           <TouchableOpacity onPress={() => setStars(1)}>
