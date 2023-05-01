@@ -122,6 +122,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     borderColor: "#7a42f4",
     borderWidth: 2,
+    resizeMode: "stretch"
   },
   fixedRatio:{
       flex: 1,

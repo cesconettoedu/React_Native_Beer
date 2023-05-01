@@ -16,7 +16,7 @@ import mug5 from "../assets/mugsStar/05mugs.png"
 import Ionic from "react-native-vector-icons/Ionicons";
 
 export default function CardBeer({ data }) {
-  const beerSize = 140;
+  const beerSize = 120;
   const [visibleModal, setVisibleModal] = useState(false);
   const [visibleModalConf, setVisibleModalConf] = useState(false);
   const [mugStar, setMugStar] = useState(mug0)
@@ -90,7 +90,6 @@ export default function CardBeer({ data }) {
               <EditDelModal
                 title= {data.title}
                 handleClose={() => setVisibleModal(false)}
-                //handleEdit={() => alert("will EDIT the card")}
                 handleEdit={() => navigation.navigate('EditScreen', { paramKey: data  })} ////////////////////////////////
                 handleDelete={() => setVisibleModalConf(true)}
               />
@@ -158,7 +157,7 @@ const styles = StyleSheet.create({
   },
   dots: {
     left: 15,
-    top: 25
+    top: 15
   },
   title: {
     fontSize: 20,

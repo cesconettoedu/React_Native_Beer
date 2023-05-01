@@ -59,21 +59,3 @@ const styles = StyleSheet.create({
   },
 });
 
-
-// MenuBottom: {
-//     position: 'absolute',
-//     flexDirection: 'row',
-//     justifyContent: 'space-around',
-//     alignItems: "flex-end",
-//     bottom: 5,
-//     left: 20,
-//     right: 20,
-//     elevation: 0,
-//     backgroundColor: 'yellow',
-//     borderRadius: 15,
-//     height: 60,
-//   },
-//   shadow: {
-//     shadowColor: '#7F5DF0',
-//     shadowOffset: {}
-//   }

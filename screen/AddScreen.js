@@ -107,7 +107,7 @@ const AddScreen = ({route}) => {
           {newImageUrl && (
             <Image
               source={{ uri: newImageUrl }}
-              style={{ width: 200, height: 200, borderRadius: 2 }}
+              style={styles.imageOnPrev}
             />
           )}
           
@@ -279,6 +279,12 @@ const styles = StyleSheet.create({
     borderWidth: 5,
     margin: 15,
     borderRadius: 7,
+  },
+  imageOnPrev: {
+    width: 200, 
+    height: 200, 
+    borderRadius: 2,
+    resizeMode:"contain"
   },
   btnImage: {
     flexDirection: "row",
