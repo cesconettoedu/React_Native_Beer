@@ -59,7 +59,12 @@ const AddScreen = ({route}) => {
 
   const editBeer = () => {
     if(route.params !== undefined) {
-      setEditB(true)
+      setEditB(true);
+
+      setNewImageUrl(route.params.paramKey.imageUrl)
+      setNewTitle(route.params.paramKey.title)
+      setNewNote(route.params.paramKey.note)
+      setStars(route.params.paramKey.star)
     }
   }
 
@@ -76,13 +81,11 @@ const AddScreen = ({route}) => {
 
   useEffect(() => {
     editBeer() 
-  },[])
+  },[route])
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
-
-      {editB && <Text>{route.params.paramKey.note}</Text> }  
 
         <Pressable
           style={styles.closeBtn}
@@ -98,6 +101,7 @@ const AddScreen = ({route}) => {
               style={{ width: 200, height: 200, borderRadius: 2 }}
             />
           )}
+          
         </View>
 
         <View style={styles.btnImage}>
@@ -152,7 +156,7 @@ const AddScreen = ({route}) => {
             underlineColorAndroid="transparent"
             placeholder=" Note"
             placeholderTextColor="#9a73ef"
-            autoCapitalize='words'
+            autoCapitalize='sentences'
             value={newNote}
             onChangeText={setNewNote}
           />
