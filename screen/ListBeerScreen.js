@@ -49,7 +49,6 @@ const [searchList, setSearchList] = useState ('')
   
   
   const handleSearch = (typing) => { 
-   console.log('AQQQ', typing); 
    if(typing !== null) {
     setSearchList(typing)
    }
@@ -61,20 +60,7 @@ const [searchList, setSearchList] = useState ('')
     let { data: Beer, error } = await supabase
     .from('Beer')
     .select("*")
-    // Filters
-    //.eq('title', searchList)
-    // .gt('column', 'Greater than')
-    // .lt('column', 'Less than')
-    // .gte('column', 'Greater than or equal to')
-    // .lte('column', 'Less than or equal to')
-    // .like('column', '%CaseSensitive%')
-     .ilike('title', `%${searchList}%`)
-    // .is('column', null)
-    // .in('column', ['Array', 'Values'])
-    // .neq('column', 'Not equal to')
-    // // Arrays
-    // .cs('array_column', ['array', 'contains'])
-    // .cd('array_column', ['contained', 'by'])
+    .ilike('title', `%${searchList}%`)
     setBeer(Beer)
       return Beer
   }
