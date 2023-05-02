@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { TextInput, SafeAreaView, View, TouchableOpacity, Text, StyleSheet, Image } from 'react-native';
 
 
 const Search = () => {
+
+  const [searchWord, setSearchWord] = useState('')
+
+  const handleSearch = () => {
+    
+  }
+
+  // useEffect(() => {
+  //   console.log(searchWord);
+  // }, [searchWord]);
+
   return (
     <SafeAreaView style={styles.container}>
       <TouchableOpacity style={{ flex: 1, zIndex:9}}></TouchableOpacity>
@@ -19,17 +30,15 @@ const Search = () => {
           <TextInput
               style={styles.input1}
               underlineColorAndroid="transparent"
-              placeholder=" BeerName"
+              placeholder="BeerName"
               placeholderTextColor="#9a73ef"
               autoCapitalize='words'
               
-              // value={newTitle}
-              // onChangeText={setNewTitle}
+              value={searchWord}
+              onChangeText={setSearchWord}
             />
 
         </View>
-
-      
 
       </View>
 
@@ -70,7 +79,6 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginTop: 15,
     marginLeft: 5,
-    marginRight: 5,
     height: 40,
     borderColor: "#7a42f4",
     borderWidth: 1,
