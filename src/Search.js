@@ -2,17 +2,16 @@ import React, { useState, useEffect } from "react";
 import { TextInput, SafeAreaView, View, TouchableOpacity, Text, StyleSheet, Image } from 'react-native';
 
 
-const Search = () => {
-
+const Search = (handleSearch) => {
+  
   const [searchWord, setSearchWord] = useState('')
 
-  const handleSearch = () => {
-    
+  const handleChange = (e) => {
+    setSearchWord(e)
+    handleSearch.children.handleSearch(e)
   }
 
-  // useEffect(() => {
-  //   console.log(searchWord);
-  // }, [searchWord]);
+  
 
   return (
     <SafeAreaView style={styles.container}>
@@ -33,9 +32,8 @@ const Search = () => {
               placeholder="BeerName"
               placeholderTextColor="#9a73ef"
               autoCapitalize='words'
-              
               value={searchWord}
-              onChangeText={setSearchWord}
+              onChangeText={text => handleChange(text)}
             />
 
         </View>

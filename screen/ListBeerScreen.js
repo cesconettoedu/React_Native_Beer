@@ -16,6 +16,7 @@ const [order, setOrder] = useState('title')
 const [asc, setAsc] = useState(true)
 
 const [searchModal, setSearchModal] = useState (false)
+const [searchList, setSearchList] = useState ('')
 
   const openSearch = (x) => {
     setSearchModal(true)
@@ -45,10 +46,50 @@ const [searchModal, setSearchModal] = useState (false)
   let count = 0;
   for (var k in beer) if (beer.hasOwnProperty(k)) ++count;
 
+  
+  
+  const handleSearch = (typing) => { 
+   console.log('AQQQ', typing); 
+   if(typing !== null) {
+    setSearchList(typing)
+   }
+   
+  }
+    
+  //Try to get search Beer from supabase
+  const getSearchBeer = async () => {
+    let { data: Beer, error } = await supabase
+    .from('Beer')
+    .select("*")
+    // Filters
+    //.eq('title', searchList)
+    // .gt('column', 'Greater than')
+    // .lt('column', 'Less than')
+    // .gte('column', 'Greater than or equal to')
+    // .lte('column', 'Less than or equal to')
+    // .like('column', '%CaseSensitive%')
+     .ilike('title', `%${searchList}%`)
+    // .is('column', null)
+    // .in('column', ['Array', 'Values'])
+    // .neq('column', 'Not equal to')
+    // // Arrays
+    // .cs('array_column', ['array', 'contains'])
+    // .cd('array_column', ['contained', 'by'])
+    setBeer(Beer)
+      return Beer
+  }
 
+
+
+  
   useEffect(() => {
-    getItems() 
-  },[beer, order])
+    if(searchList){
+      getSearchBeer()
+    }else{
+      getItems() 
+
+    }
+  },[beer, order, searchList])
 
 
   return (
@@ -60,20 +101,21 @@ const [searchModal, setSearchModal] = useState (false)
         onPress={() => navigation.navigate('HomeScreen')}
       />
       
+      
       <FlatList 
-        data={beer}
-        renderItem={ ({ item }) => (
-          <TouchableOpacity 
-            key={item.id} 
-            onPress={() => {setVisibleImgModal(true); setSingle(item)}}
-          >
+      data={beer}
+      renderItem={ ({ item }) => (
+        <TouchableOpacity 
+        key={item.id} 
+        onPress={() => {setVisibleImgModal(true); setSingle(item)}}
+        >
           <CardBeer data={item}/>
           
           </TouchableOpacity>      
         )}
         
-      />
-
+        />
+     
       <Modal
           visible={visibImgleModal}
           transparent={true}
@@ -100,9 +142,9 @@ const [searchModal, setSearchModal] = useState (false)
           onRequestClose={() => setSearchModal(false)}
           animationType="slide"
       >
-        <Search
-          handleClose={() => setSearchModal(false)}
-        />
+        <Search> 
+          {{handleSearch: handleSearch}}
+        </Search>
       </Modal>    
 
     </View>
