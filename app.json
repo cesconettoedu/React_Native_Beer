@@ -1,13 +1,14 @@
 {
   "expo": {
-    "name": "beer",
-    "slug": "beer",
+    "name": "Eds Beers List",
+    "slug": "eds-beer-list",
+    "description": "This is my list of Beers",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/eulogoSquare.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/eulogo.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -25,6 +26,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "7ab30a96-cc00-482c-9308-7286602ae5cc"
+      }
+    },
+    "owner": "cesconettoedu"
   }
 }
