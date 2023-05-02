@@ -64,10 +64,10 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    // backgroundColor: '#8fcbbc'
     backgroundColor: 'black',
   },
   title: {
+    textAlign: 'center',
     color: '#69e9f5',
     fontSize: 40,
     fontWeight: 600
