@@ -17,7 +17,10 @@ const HomeScreen = ({navigation}) => {
   const isFocused = useIsFocused();
 
   useEffect(() => {
-    setShowLogo(true)
+    setTimeout(() => {
+      setShowLogo(true)
+    },1000)
+    
   },[isFocused]);
 
   return (
