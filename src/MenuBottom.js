@@ -1,12 +1,9 @@
 import React from "react";
-import { Pressable, TextInput, StyleSheet, View, TouchableOpacity, Text, Image } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { useState } from "react";
 
 const MenuBottom = (orderBy) => {
 
-const [open, setOpen] = useState(false)
-const [nome, setNewnome] = useState('')
 
 const navigation = useNavigation();
 const sizeIcon = 45;
@@ -16,30 +13,7 @@ const sizeIcon = 45;
 
     
     <View style={styles.MenuBottom}>
-      {open &&
-        <View style={styles.searchContainer}>
-
-          <TextInput
-              style={styles.input}
-              underlineColorAndroid="transparent"
-              placeholder=" BeerName"
-              placeholderTextColor="#9a73ef"
-              autoCapitalize='words'
-              value={nome}
-              onChangeText={setNewnome}
-          />
-
-          <Pressable
-            style={styles.closeBtn}
-            onPress={() =>setOpen(false)}
-            >
-            <Text style={styles.closeText}> X </Text>
-          </Pressable>
-      </View>
-      }
-      {!open &&
-     <> 
-     
+         
       <TouchableOpacity onPress={() => orderBy.children.orderBy('title')} >
         <Image 
           source = {require('../assets/menuBottom/az.png')} 
@@ -54,7 +28,7 @@ const sizeIcon = 45;
           />
       </TouchableOpacity>
      
-      <TouchableOpacity onPress={() => setOpen(true)} >
+      <TouchableOpacity onPress={() => orderBy.children.openSearch()} >
         <Image 
           source = {require('../assets/menuBottom/search.png')} 
           style = {{ width: sizeIcon, height: sizeIcon }}
@@ -67,9 +41,7 @@ const sizeIcon = 45;
           style = {{ width: 65, height: 65 }}
           />
       </TouchableOpacity>
-  </>
-}
-
+  
     </View>
   );
 };
@@ -89,16 +61,19 @@ const styles = StyleSheet.create({
   },
   searchContainer: {
     flexDirection: "row",
+    justifyContent: "space-evenly",
   },
   input: {
+    width: '60%',
     borderRadius: 5,
     borderColor: "#7a42f4",
     borderWidth: 1,
     paddingLeft: 5,
-    paddingRight: 5
+    paddingRight: 5,
+    color: '#69e9f5'
   },
   closeBtn: {
-    width: "20%",
+    width: "11%",
     paddingVertical: 2,
     paddingHorizontal: 2,
     borderRadius: 4,

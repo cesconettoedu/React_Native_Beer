@@ -5,6 +5,7 @@ import CardBeer from '../src/CardBeer';
 import MenuBottom from '../src/MenuBottom';
 import ImgModal from "../src/ImgModal";
 import { supabase } from "../supabase/supabase";
+import Search from "../src/Search";
 
 
 const ListBeerScreen = ({props}) => {
@@ -14,8 +15,11 @@ const [beer, setBeer] = useState()
 const [order, setOrder] = useState('title')
 const [asc, setAsc] = useState(true)
 
+const [searchModal, setSearchModal] = useState (false)
 
-
+  const openSearch = (x) => {
+    setSearchModal(true)
+  }
 
   const orderBy = (typeOrder) => {
       setOrder(typeOrder)
@@ -82,12 +86,24 @@ const [asc, setAsc] = useState(true)
         />
       </Modal>
 
-
+      
+    
       <MenuBottom>
-        {{orderBy: orderBy}}
-      </MenuBottom>
-   
+        {{orderBy: orderBy, openSearch:openSearch}}
 
+      </MenuBottom>
+
+
+      <Modal
+          visible={searchModal}
+          transparent={true}
+          onRequestClose={() => setSearchModal(false)}
+          animationType="slide"
+      >
+        <Search
+          handleClose={() => setSearchModal(false)}
+        />
+      </Modal>    
 
     </View>
   );
