@@ -10,21 +10,22 @@ const Search = () => {
       <View style={styles.content}>
 
         <View style={styles.line}>
-          <TextInput
-              style={styles.input1}
-              underlineColorAndroid="transparent"
-              placeholder=" BeerName"
-              placeholderTextColor="#9a73ef"
-              autoCapitalize='words'
-              // value={newTitle}
-              // onChangeText={setNewTitle}
-            />
             <TouchableOpacity activeOpacity={0.9} style={styles.actionButton1} >
             <Image
               source={require('../assets/menuBottom/search.png')}
               style={{ width: 60, height: 60  }}
             />
           </TouchableOpacity>
+          <TextInput
+              style={styles.input1}
+              underlineColorAndroid="transparent"
+              placeholder=" BeerName"
+              placeholderTextColor="#9a73ef"
+              autoCapitalize='words'
+              
+              // value={newTitle}
+              // onChangeText={setNewTitle}
+            />
 
         </View>
 
@@ -65,15 +66,17 @@ const styles = StyleSheet.create({
     padding: 2,
   },
   input1: {
+    fontSize: 25,
     borderRadius: 5,
     marginTop: 15,
-    marginLeft: 15,
+    marginLeft: 5,
     marginRight: 5,
     height: 40,
     borderColor: "#7a42f4",
     borderWidth: 1,
     paddingLeft: 10,
-    width: '74%'
+    width: '74%',
+    
   }
 
 
