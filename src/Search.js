@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Keyboard, TextInput, SafeAreaView, View, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import {TextInput, SafeAreaView, View, TouchableOpacity, StyleSheet, Image } from 'react-native';
 
 
 const Search = (handleSearch) => {
