@@ -19,8 +19,7 @@ link do video: https://www.youtube.com/watch?v=2ICOVstF6rU
 tem que:
   eas login (logar)
     depois
-  eas update --branch preview --message "test update"
-
+  eas update --branch preview --message "commit what you did"
 
 
 DB Example

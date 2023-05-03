@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TextInput, SafeAreaView, View, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { Keyboard, TextInput, SafeAreaView, View, TouchableOpacity, StyleSheet, Image } from 'react-native';
 
 
 const Search = (handleSearch) => {
@@ -12,6 +12,7 @@ const Search = (handleSearch) => {
   }
 
 
+
   return (
     <SafeAreaView style={styles.container}>
       <TouchableOpacity style={{ flex: 1, zIndex:9}} ></TouchableOpacity>
@@ -22,7 +23,7 @@ const Search = (handleSearch) => {
             <TouchableOpacity activeOpacity={0.9} style={styles.actionButton1} >
             <Image
               source={require('../assets/menuBottom/search.png')}
-              style={{ width: 60, height: 60  }}
+              style={{ width: 45, height: 45  }}
             />
           </TouchableOpacity>
           <TextInput
@@ -34,6 +35,14 @@ const Search = (handleSearch) => {
               value={searchWord}
               onChangeText={text => handleChange(text)}
             />
+            <TouchableOpacity activeOpacity={0.9} style={styles.actionButton1} 
+              onPress={() => closeSearch}
+            >
+            <Image
+              source={require('../assets/cameraBtn/check.png')}
+              style={{ width: 45, height: 45  }}
+            />
+          </TouchableOpacity>
 
         </View>
 
@@ -74,13 +83,13 @@ const styles = StyleSheet.create({
   input1: {
     fontSize: 25,
     borderRadius: 5,
-    marginTop: 15,
+    marginTop: 7,
     marginLeft: 5,
     height: 40,
     borderColor: "#7a42f4",
     borderWidth: 1,
     paddingLeft: 10,
-    width: '74%',
+    width: '67%',
     
   }
 

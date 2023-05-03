@@ -88,17 +88,18 @@ const [fullListBtn, setFullListBtn] = useState(false)
 
 
   //make the search field close when press Ok on keyboard.
+  ////but make a bug, anywhere in app when i use the keyboard open Full list BTN
   useEffect(() => {
      const keyboardDidHideListener = Keyboard.addListener(
        'keyboardDidHide',
        () => {
-        setSearchModal(false); // or some other action
+        setSearchModal(false); 
         setFullListBtn(true)
        }
      );
  
    }, []);
-
+  
 
   return (
 
