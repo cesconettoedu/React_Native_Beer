@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, FlatList, TouchableOpacity,Image, View , Modal, Text} from 'react-native';
+import {Keyboard, StyleSheet, FlatList, TouchableOpacity,Image, View , Modal, Text} from 'react-native';
 import Header from '../src/Header';
 import CardBeer from '../src/CardBeer';
 import MenuBottom from '../src/MenuBottom';
@@ -76,6 +76,25 @@ const [searchList, setSearchList] = useState ('')
 
     }
   },[beer, order, searchList])
+
+
+
+
+  //make the search field close when press Ok on keyboard.
+  useEffect(() => {
+     const keyboardDidHideListener = Keyboard.addListener(
+       'keyboardDidHide',
+       () => {
+        setSearchModal(false); // or some other action
+       }
+     );
+ 
+  
+   }, []);
+
+
+
+
 
 
   return (
