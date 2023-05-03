@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { TextInput, SafeAreaView, View, TouchableOpacity, Text, StyleSheet, Image } from 'react-native';
+import React, { useState } from "react";
+import { TextInput, SafeAreaView, View, TouchableOpacity, StyleSheet, Image } from 'react-native';
 
 
 const Search = (handleSearch) => {
@@ -11,11 +11,10 @@ const Search = (handleSearch) => {
     handleSearch.children.handleSearch(e)
   }
 
-  
 
   return (
     <SafeAreaView style={styles.container}>
-      <TouchableOpacity style={{ flex: 1, zIndex:9}}></TouchableOpacity>
+      <TouchableOpacity style={{ flex: 1, zIndex:9}} ></TouchableOpacity>
 
       <View style={styles.content}>
 

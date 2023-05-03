@@ -1,33 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, View, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const MenuBottom = (orderBy) => {
+const [ azVisible, setAzVisible] = useState(false)
 
 
 const navigation = useNavigation();
 const sizeIcon = 45;
 
+const az = (x) => {
+  orderBy.children.orderBy('title')
+  setAzVisible(x)
+}
+const bests = (y) => {
+  orderBy.children.orderBy('star')
+  setAzVisible(y)
+}
 
   return (
 
     
     <View style={styles.MenuBottom}>
-         
-      <TouchableOpacity onPress={() => orderBy.children.orderBy('title')} >
-        <Image 
-          source = {require('../assets/menuBottom/az.png')} 
-          style = {{ width: sizeIcon, height: sizeIcon }}
-          />
-      </TouchableOpacity>
-      
-      <TouchableOpacity onPress={() => orderBy.children.orderBy('star')} >
-        <Image 
-          source = {require('../assets/menuBottom/bests.png')} 
-          style = {{ width: sizeIcon, height: sizeIcon }}
-          />
-      </TouchableOpacity>
+      {azVisible &&
+        <TouchableOpacity onPress={() => az(false)} >
+          <Image 
+            source = {require('../assets/menuBottom/az.png')} 
+            style = {{ width: sizeIcon, height: sizeIcon }}
+            />
+        </TouchableOpacity>
+      }  
+      {!azVisible &&
+        <TouchableOpacity onPress={() => bests(true)} >
+          <Image 
+            source = {require('../assets/menuBottom/bests.png')} 
+            style = {{ width: sizeIcon, height: sizeIcon }}
+            />
+        </TouchableOpacity>
+      }
      
+
+
       <TouchableOpacity onPress={() => orderBy.children.openSearch()} >
         <Image 
           source = {require('../assets/menuBottom/search.png')} 
