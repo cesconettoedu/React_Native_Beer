@@ -22,7 +22,7 @@ const Search = (handleSearch) => {
         <View style={styles.line}>
             <TouchableOpacity activeOpacity={0.9} style={styles.actionButton1} >
             <Image
-              source={require('../assets/menuBottom/search.png')}
+              source={require('../assets/menuBottom/searchAfter.png')}
               style={{ width: 45, height: 45  }}
             />
           </TouchableOpacity>
@@ -39,7 +39,7 @@ const Search = (handleSearch) => {
               onPress={() => closeSearch}
             >
             <Image
-              source={require('../assets/cameraBtn/check.png')}
+              source={require('../assets/menuBottom/ok.png')}
               style={{ width: 45, height: 45  }}
             />
           </TouchableOpacity>
@@ -84,12 +84,12 @@ const styles = StyleSheet.create({
     fontSize: 25,
     borderRadius: 5,
     marginTop: 7,
-    marginLeft: 5,
+   
     height: 40,
     borderColor: "#7a42f4",
     borderWidth: 1,
     paddingLeft: 10,
-    width: '67%',
+    width: '69%',
     
   }
 
