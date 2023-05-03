@@ -57,7 +57,7 @@ const [fullListBtn, setFullListBtn] = useState(false)
    
   }
     
-  //Try to get search Beer from supabase
+  //get search Beer from supabase
   const getSearchBeer = async () => {
     let { data: Beer, error } = await supabase
     .from('Beer')
@@ -68,6 +68,11 @@ const [fullListBtn, setFullListBtn] = useState(false)
   }
 
 
+  //after search when you click on 'full list', bring back all beers
+  const fullCloseSearch = () => {
+    setSearchList("*")
+    setFullListBtn(false)
+  }
 
   
   useEffect(() => {
@@ -92,12 +97,7 @@ const [fullListBtn, setFullListBtn] = useState(false)
        }
      );
  
-  
    }, []);
-
-
-
-
 
 
   return (
@@ -138,7 +138,7 @@ const [fullListBtn, setFullListBtn] = useState(false)
 
       
       {fullListBtn &&
-        <TouchableOpacity  onPress={() => getItems()}>
+        <TouchableOpacity  onPress={() => fullCloseSearch(false)}>
           <Image 
             source = {require('../assets/cameraBtn/Full.png')} 
             style={styles.fullList}
