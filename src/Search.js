@@ -35,9 +35,7 @@ const Search = (handleSearch) => {
               value={searchWord}
               onChangeText={text => handleChange(text)}
             />
-            <TouchableOpacity activeOpacity={0.9} style={styles.actionButton1} 
-              onPress={() => closeSearch}
-            >
+            <TouchableOpacity activeOpacity={0.9} style={styles.actionButton1} >
             <Image
               source={require('../assets/menuBottom/ok.png')}
               style={{ width: 45, height: 45  }}
