@@ -177,8 +177,8 @@ const styles = StyleSheet.create({
     marginTop: "13%"
   },
   fullList:{ 
-     
-    width: 120,
+    left: 110,
+    width: 130,
     height: 55,
     marginBottom:5,
   }
