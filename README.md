@@ -13,6 +13,16 @@ https://app.supabase.com/project/ppihnndftvaibkwoaich/api?resource=Beer
 
 
 <!-- 
+
+expo update
+link do video: https://www.youtube.com/watch?v=2ICOVstF6rU
+tem que:
+  eas login (logar)
+    depois
+  eas update --branch preview --message "test update"
+
+
+
 DB Example
   const data = [
     {
