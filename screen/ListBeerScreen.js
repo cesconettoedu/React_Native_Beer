@@ -18,6 +18,8 @@ const [asc, setAsc] = useState(true)
 const [searchModal, setSearchModal] = useState (false)
 const [searchList, setSearchList] = useState ('')
 
+const [fullListBtn, setFullListBtn] = useState(false)
+
   const openSearch = (x) => {
     setSearchModal(true)
   }
@@ -86,6 +88,7 @@ const [searchList, setSearchList] = useState ('')
        'keyboardDidHide',
        () => {
         setSearchModal(false); // or some other action
+        setFullListBtn(true)
        }
      );
  
@@ -134,7 +137,15 @@ const [searchList, setSearchList] = useState ('')
       </Modal>
 
       
-    
+      {fullListBtn &&
+        <TouchableOpacity  onPress={() => getItems()}>
+          <Image 
+            source = {require('../assets/cameraBtn/Full.png')} 
+            style={styles.fullList}
+            />
+        </TouchableOpacity>
+      }
+
       <MenuBottom>
         {{orderBy: orderBy, openSearch:openSearch}}
 
@@ -165,6 +176,12 @@ const styles = StyleSheet.create({
     backgroundColor: "#212427",
     marginTop: "13%"
   },
+  fullList:{ 
+     
+    width: 120,
+    height: 55,
+    marginBottom:5,
+  }
 
 
 });
