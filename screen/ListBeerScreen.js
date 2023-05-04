@@ -74,7 +74,8 @@ const [fullListBtn, setFullListBtn] = useState(false)
 
   //after search when you click on 'full list', bring back all beers
   const fullCloseSearch = () => {
-    setSearchList("*")
+    setSearchList('')
+    getItems()
     setFullListBtn(false)
   }
 
