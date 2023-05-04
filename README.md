@@ -19,7 +19,7 @@ link do video: https://www.youtube.com/watch?v=2ICOVstF6rU
 tem que:
   eas login (logar)
     depois
-  eas update --branch preview --message "commit what you did"
+  eas update --branch preview --message "update full list btn"
 
 
 DB Example
