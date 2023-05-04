@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {TextInput, SafeAreaView, View, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { TextInput, SafeAreaView, View, TouchableOpacity, StyleSheet, Image } from 'react-native';
 
 
 const Search = (handleSearch) => {
@@ -11,7 +11,9 @@ const Search = (handleSearch) => {
     handleSearch.children.handleSearch(e)
   }
 
-
+  const closeSerachAfter = (act) => {
+    handleSearch.children.closeSerachAfterPass(act)
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -20,7 +22,10 @@ const Search = (handleSearch) => {
       <View style={styles.content}>
 
         <View style={styles.line}>
-            <TouchableOpacity activeOpacity={0.9} style={styles.actionButton1} >
+            <TouchableOpacity 
+              activeOpacity={0.9} 
+              style={styles.actionButton1} 
+            >
             <Image
               source={require('../assets/menuBottom/searchAfter.png')}
               style={{ width: 45, height: 45  }}
@@ -35,7 +40,12 @@ const Search = (handleSearch) => {
               value={searchWord}
               onChangeText={text => handleChange(text)}
             />
-            <TouchableOpacity activeOpacity={0.9} style={styles.actionButton1} >
+            <TouchableOpacity 
+             // onPress={() => {alert('workkssss')}}
+              onPress={() => closeSerachAfter(false)}
+              activeOpacity={0.9} 
+              style={styles.actionButton1} 
+            >
             <Image
               source={require('../assets/menuBottom/ok.png')}
               style={{ width: 45, height: 45  }}

@@ -51,10 +51,14 @@ const [fullListBtn, setFullListBtn] = useState(false)
   
   
   const handleSearch = (typing) => { 
-   if(typing !== null) {
-    setSearchList(typing)
-   }
-   
+    if(typing !== null) {
+      setSearchList(typing)
+    }    
+  }
+
+  const closeSerachAfterPass = (actA) => {
+    setSearchModal(actA)
+    setFullListBtn(true)
   }
     
   //get search Beer from supabase
@@ -88,17 +92,17 @@ const [fullListBtn, setFullListBtn] = useState(false)
 
 
   //make the search field close when press Ok on keyboard.
-  ////but make a bug, anywhere in app when i use the keyboard open Full list BTN
-  useEffect(() => {
-     const keyboardDidHideListener = Keyboard.addListener(
-       'keyboardDidHide',
-       () => {
-        setSearchModal(false); 
-        setFullListBtn(true)
-       }
-     );
+  //but make a bug, anywhere in app when i use the keyboard open Full list BTN
+  // useEffect(() => {
+  //    const keyboardDidHideListener = Keyboard.addListener(
+  //      'keyboardDidHide',
+  //      () => {
+  //       setSearchModal(false); 
+  //       setFullListBtn(true)
+  //      }
+  //    );
  
-   }, []);
+  //  }, []);
   
 
   return (
@@ -160,7 +164,7 @@ const [fullListBtn, setFullListBtn] = useState(false)
           animationType="slide"
       >
         <Search> 
-          {{handleSearch: handleSearch}}
+          {{handleSearch: handleSearch, closeSerachAfterPass:closeSerachAfterPass}}
         </Search>
       </Modal>    
 
