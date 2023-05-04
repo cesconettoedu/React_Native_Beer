@@ -11,8 +11,8 @@ const Search = (handleSearch) => {
     handleSearch.children.handleSearch(e)
   }
 
-  const closeSerachAfter = (act) => {
-    handleSearch.children.closeSerachAfterPass(act)
+  const closeSearchAfter = (act) => {
+    handleSearch.children.closeSearchAfterPass(act)
   }
 
   return (
@@ -41,8 +41,7 @@ const Search = (handleSearch) => {
               onChangeText={text => handleChange(text)}
             />
             <TouchableOpacity 
-             // onPress={() => {alert('workkssss')}}
-              onPress={() => closeSerachAfter(false)}
+              onPress={() => closeSearchAfter(false)}
               activeOpacity={0.9} 
               style={styles.actionButton1} 
             >

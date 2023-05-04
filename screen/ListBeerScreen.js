@@ -56,7 +56,7 @@ const [fullListBtn, setFullListBtn] = useState(false)
     }    
   }
 
-  const closeSerachAfterPass = (actA) => {
+  const closeSearchAfterPass = (actA) => {
     setSearchModal(actA)
     setFullListBtn(true)
   }
@@ -164,7 +164,7 @@ const [fullListBtn, setFullListBtn] = useState(false)
           animationType="slide"
       >
         <Search> 
-          {{handleSearch: handleSearch, closeSerachAfterPass:closeSerachAfterPass}}
+          {{handleSearch: handleSearch, closeSearchAfterPass: closeSearchAfterPass}}
         </Search>
       </Modal>    
 
