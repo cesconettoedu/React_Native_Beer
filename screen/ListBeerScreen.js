@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {Keyboard, StyleSheet, FlatList, TouchableOpacity,Image, View , Modal, Text} from 'react-native';
+import {StyleSheet, FlatList, TouchableOpacity,Image, View , Modal} from 'react-native';
 import Header from '../src/Header';
 import CardBeer from '../src/CardBeer';
 import MenuBottom from '../src/MenuBottom';
