@@ -272,16 +272,17 @@ const styles = StyleSheet.create({
     color: "white",
   },
   imagePrev: {
-    left: 44,
+    
+    left: 65,
+    width: 160,
     height: 210,
-    width: 210,
     borderColor: "#7a42f4",
     borderWidth: 5,
     margin: 15,
     borderRadius: 7,
   },
   imageOnPrev: {
-    width: 200, 
+    width: 150, 
     height: 200, 
     borderRadius: 2,
     resizeMode:"contain"

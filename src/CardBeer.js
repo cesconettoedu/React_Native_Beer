@@ -17,7 +17,7 @@ import Ionic from "react-native-vector-icons/Ionicons";
 
 export default function CardBeer({ data }) {
   
-  const beerSize = 120;
+  
   const [visibleModal, setVisibleModal] = useState(false);
   const [visibleModalConf, setVisibleModalConf] = useState(false);
   const [mugStar, setMugStar] = useState(mug0)
@@ -72,8 +72,8 @@ export default function CardBeer({ data }) {
         <View style={styles.imgBeer}>
               <Image
                 source={{ uri: data.imageUrl }}
-                width={beerSize}
-                height={beerSize}
+                width={80}
+                height={110}
                 borderRadius={8}
                 resizeMode="contain"
                 alt="avatar url"

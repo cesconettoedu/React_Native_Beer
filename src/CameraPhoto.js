@@ -118,15 +118,17 @@ const styles = StyleSheet.create({
   },
   photoPrev : {
     flex:1, 
+    left: 62,
     margin: 10,
     borderRadius: 4,
     borderColor: "#7a42f4",
     borderWidth: 2,
-    resizeMode: "stretch"
+    resizeMode: "contain",
+    width: '60%'
   },
   fixedRatio:{
       flex: 1,
-      aspectRatio: 1,   
+      aspectRatio: 0.8,   
   },
   closeBtn: {
     left: 320,
