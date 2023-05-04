@@ -14,6 +14,7 @@ import mug4 from "../assets/mugsStar/04mugs.png"
 import mug5 from "../assets/mugsStar/05mugs.png"
 
 import Ionic from "react-native-vector-icons/Ionicons";
+import { color } from "@rneui/themed/dist/config";
 
 export default function CardBeer({ data }) {
   
@@ -79,8 +80,22 @@ export default function CardBeer({ data }) {
                 alt="avatar url"
               />
         </View>
-        <View style={styles.info}>
 
+        <View style={styles.heavy}>
+            <Text style={styles.strong}>
+              strong
+            </Text>
+            <Image
+              source = {require('../assets/strong/template.png')} 
+              borderRadius={8}
+              resizeMode="contain"
+            />
+            <Text style={styles.strong}>
+              lighter
+            </Text>
+        </View>
+
+        <View style={styles.info}>
 
             <Text style={styles.title}>{data.title}</Text>
 
@@ -152,14 +167,26 @@ const styles = StyleSheet.create({
     padding: 1,
   },
   imgBeer: {
-    flex: 1,
+    flex: 0.5,
     paddingLeft:1,
+    marginRight: 5
+  },
+  heavy: {
+    flexDirection: 'column',
+    color: 'black',
+    marginRight: 40,
+    width: '10%',
+    textAlign: 'center',
+    alignItems: "center",
+  },
+  strong: {
+    fontSize: 9, 
   },
   info: {
     flex:1,
   },
   dots: {
-    left: 15,
+    left: 25,
     top: 15
   },
   title: {
