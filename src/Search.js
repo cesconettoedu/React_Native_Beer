@@ -40,16 +40,30 @@ const Search = (handleSearch) => {
               value={searchWord}
               onChangeText={text => handleChange(text)}
             />
-            <TouchableOpacity 
-              onPress={() => closeSearchAfter(false)}
-              activeOpacity={0.9} 
-              style={styles.actionButton1} 
-            >
-            <Image
-              source={require('../assets/menuBottom/ok.png')}
-              style={{ width: 45, height: 45  }}
-            />
-          </TouchableOpacity>
+
+            {searchWord &&
+              <TouchableOpacity 
+                onPress={() => closeSearchAfter(false)}
+                activeOpacity={0.9} 
+                style={styles.actionButton1} 
+              >
+                <Image
+                  source={require('../assets/menuBottom/ok.png')}
+                  style={{ width: 45, height: 45  }}
+                />
+              </TouchableOpacity>
+             }
+             {!searchWord &&
+              <TouchableOpacity 
+                  activeOpacity={0.9} 
+                  style={styles.actionButton1} 
+                >
+                  <Image
+                    source={require('../assets/menuBottom/okblock.png')}
+                    style={{ width: 45, height: 45  }}
+                  />
+                </TouchableOpacity>
+             }
 
         </View>
 
