@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   imgOpen: {
     left: 17,
     width: '90%',
-    height: '70%'
+    height: '55%'
 
 
   }
