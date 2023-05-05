@@ -2,24 +2,20 @@ to open only celphone fisic: expo start
 
 to open na web: expo start --web
 
-
 tutotial supabase:
 https://www.youtube.com/watch?v=_uIslLPirw0
 
 backend and database
 https://app.supabase.com/project/ppihnndftvaibkwoaich/api?resource=Beer
 
-
-
-
-<!-- 
+<!--
 
 expo update
 link do video: https://www.youtube.com/watch?v=2ICOVstF6rU
 tem que:
   eas login (logar)
     depois
-  eas update --branch preview --message "update full list btn"
+  eas update --branch preview --message "Scale of Strongest beer not work yet"
 
 
 DB Example
@@ -72,6 +68,6 @@ DB Example
     star: 4,
     mugs: "../assets/05mugs.png"
     },
-   
+
   ];
  -->
