@@ -86,7 +86,7 @@ export default function CardBeer({ data }) {
               strong
             </Text>
             <Image
-              source = {require('../assets/strong/template.png')} 
+              source = {require('../assets/strong/template2.png')} 
               borderRadius={8}
               resizeMode="contain"
             />
