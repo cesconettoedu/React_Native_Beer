@@ -17,6 +17,10 @@ import mug from "../assets/mugsStar/beerIconFull.png";
 import * as ImagePicker from "expo-image-picker";
 import CameraPhoto from '../src/CameraPhoto'
 
+import mugFull from '../assets/mugsStar/beerIconFull.png'
+import mugEmpty from '../assets/mugsStar/beerIconBlack.png'
+
+
 const AddScreen = ({route}) => {
   const [newTitle, setNewTitle] = useState("");
   const [newNote, setNewNote] = useState("");
@@ -26,6 +30,11 @@ const AddScreen = ({route}) => {
   const [editB, setEditB] = useState(false);
   const [idUpdate, setIdUpdate] = useState(0);
 
+  const [mug1, setMug1] = useState(mugEmpty);
+  const [mug2, setMug2] = useState(mugEmpty);
+  const [mug3, setMug3] = useState(mugEmpty);
+  const [mug4, setMug4] = useState(mugEmpty);
+  const [mug5, setMug5] = useState(mugEmpty);
  
 
   const ratio = 0.5;
@@ -86,6 +95,84 @@ const AddScreen = ({route}) => {
   const closeCamera = (close) => {
     setVisibleModal(false)
   }
+
+
+
+
+const mugClick = (id) => {
+     
+    switch (id) {
+      case 1:
+        if (mug2 === mugFull) {
+          setMug1(mugFull);
+          setMug2(mugEmpty);
+          setMug3(mugEmpty);
+          setMug4(mugEmpty);
+          setMug5(mugEmpty);
+        } else if (mug1 === mugEmpty) {
+          setMug1(mugFull);
+        } else {
+          setStar(0);
+          setMug1(mugEmpty);
+          setMug2(mugEmpty);
+          setMug3(mugEmpty);
+          setMug4(mugEmpty);
+          setMug5(mugEmpty);
+        }
+        break;
+      case 2:
+        if (mug2 === mugEmpty) {
+          setMug1(mugFull);
+          setMug2(mugFull);
+        } else {
+          setMug3(mugEmpty);
+          setMug4(mugEmpty);
+          setMug5(mugEmpty);
+        }
+        break;
+      case 3:
+        if (mug3 === mugEmpty) {
+          setMug1(mugFull);
+          setMug2(mugFull);
+          setMug3(mugFull);
+        } else {
+          setMug4(mugEmpty);
+          setMug5(mugEmpty);
+        }
+        break;
+      case 4:
+        if (mug4 === mugEmpty) {
+          setMug1(mugFull);
+          setMug2(mugFull);
+          setMug3(mugFull);
+          setMug4(mugFull);
+        } else {
+          setMug5(mugEmpty);
+        }
+        break;
+      case 5:
+        if (mug5 === mugEmpty) {
+          setMug1(mugFull);
+          setMug2(mugFull);
+          setMug3(mugFull);
+          setMug4(mugFull);
+          setMug5(mugFull);
+        }
+        break;
+      // code block
+
+      default:
+      // code block
+    }
+  };
+
+
+
+
+
+
+
+
 
 
   useEffect(() => {
@@ -173,41 +260,41 @@ const AddScreen = ({route}) => {
 
 
         <View style={styles.mugs}>
-          <TouchableOpacity onPress={() => setStars(1)}>
+          <TouchableOpacity onPress={() => {setStars(1); mugClick(1)}}>
             <Image
-              source={mug}
+              source={mug1}
               aspectRatio={ratio}
               resizeMode="contain"
               alt="mug1"
             />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => setStars(2)}>
+          <TouchableOpacity onPress={() => {setStars(2); mugClick(2)}}>
             <Image
-              source={mug}
+              source={mug2}
               aspectRatio={ratio}
               resizeMode="contain"
               alt="mug2"
             />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => setStars(3)}>
+          <TouchableOpacity onPress={() => {setStars(3); mugClick(3)}}>
             <Image
-              source={mug}
+              source={mug3}
               aspectRatio={ratio}
               resizeMode="contain"
               alt="mug3"
             />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => setStars(4)}>
+          <TouchableOpacity onPress={() => {setStars(4); mugClick(4)}}>
             <Image
-              source={mug}
+              source={mug4}
               aspectRatio={ratio}
               resizeMode="contain"
               alt="mug4"
             />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => setStars(5)}>
+          <TouchableOpacity onPress={() => {setStars(5); mugClick(5)}}>
             <Image
-              source={mug}
+              source={mug5}
               aspectRatio={ratio}
               resizeMode="contain"
               alt="mug5"
