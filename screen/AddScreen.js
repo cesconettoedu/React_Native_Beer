@@ -74,7 +74,6 @@ const AddScreen = ({route}) => {
   };
 
 
-
   const editBeer = () => {
     if(route.params !== undefined) {
       setEditB(true);
@@ -83,6 +82,7 @@ const AddScreen = ({route}) => {
       setNewTitle(route.params.paramKey.title)
       setNewNote(route.params.paramKey.note)
       setStars(route.params.paramKey.star)
+      mugClick(route.params.paramKey.star)
     }
   }
 
@@ -96,12 +96,8 @@ const AddScreen = ({route}) => {
     setVisibleModal(false)
   }
 
-
-
-
-const mugClick = (id) => {
-     
-    switch (id) {
+const mugClick = (x) => {  
+    switch (x) {
       case 1:
         if (mug2 === mugFull) {
           setMug1(mugFull);
@@ -159,19 +155,9 @@ const mugClick = (id) => {
           setMug5(mugFull);
         }
         break;
-      // code block
-
       default:
-      // code block
     }
   };
-
-
-
-
-
-
-
 
 
 
