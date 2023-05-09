@@ -287,6 +287,13 @@ const mugClick = (x) => {
             />
           </TouchableOpacity>
         </View>
+
+        <View style={styles.viscosity}>
+          <Text style={styles.light}>Light</Text>
+          <Text style={styles.normal}>Normal</Text>
+          <Text style={styles.bodied}>Full-bodied</Text>
+          <Text style={styles.strong}>Strong</Text>
+        </View>
        
         {!editB && 
         <TouchableOpacity
@@ -378,6 +385,53 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginRight: 10,
   },
+
+  viscosity: {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    
+  },
+  light: {
+    borderColor: "#7a42f4",
+    borderWidth: 1,
+    borderRadius: 5,
+    width: '23%',
+    height: 40,
+    textAlign: 'center',
+    
+
+  },
+  bodied: {
+    borderColor: "#7a42f4",
+    borderWidth: 1,
+    borderRadius: 5,
+    width: '23%',
+    height: 40,
+    textAlign: 'center',
+    
+
+  },
+  normal: {
+    borderColor: "#7a42f4",
+    borderWidth: 1,
+    borderRadius: 5,
+    width: '23%',
+    height: 40,
+    textAlign: 'center',
+    
+
+  },
+  strong: {
+    borderColor: "#7a42f4",
+    borderWidth: 1,
+    borderRadius: 5,
+    width: '23%',
+    height: 40,
+    textAlign: 'center',
+    
+
+  },
+  
   submitButton: {
     borderRadius: 5,
     backgroundColor: "#7a42f4",
