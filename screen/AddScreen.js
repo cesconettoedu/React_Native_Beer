@@ -9,16 +9,19 @@ import {
   Image,
   KeyboardAvoidingView,
   Pressable,
-  Modal
+  Modal,
+  ImageBackground
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { supabase } from "../supabase/supabase";
 import mug from "../assets/mugsStar/beerIconFull.png";
 import * as ImagePicker from "expo-image-picker";
 import CameraPhoto from '../src/CameraPhoto'
+import Slider from '@react-native-community/slider';
 
 import mugFull from '../assets/mugsStar/beerIconFull.png'
 import mugEmpty from '../assets/mugsStar/beerIconBlack.png'
+import bgrange from '../assets/strong/bg.png'
 
 
 const AddScreen = ({route}) => {
@@ -36,6 +39,7 @@ const AddScreen = ({route}) => {
   const [mug4, setMug4] = useState(mugEmpty);
   const [mug5, setMug5] = useState(mugEmpty);
  
+  const [newViscosity, setNewViscosity] = useState(1)
 
   const ratio = 0.5;
   const navigation = useNavigation();
@@ -44,7 +48,7 @@ const AddScreen = ({route}) => {
     const { data: Beer, error } = await supabase
       .from("Beer")
       .insert([
-        { title: newTitle, imageUrl: newImageUrl, note: newNote, star: stars },
+        { title: newTitle, imageUrl: newImageUrl, note: newNote, star: stars, viscosity: newViscosity },
       ]);
     return Beer;
   };
@@ -53,7 +57,7 @@ const AddScreen = ({route}) => {
   const updateNewBeer = async () => { 
     const { data: Beer, error } = await supabase
     .from('Beer')
-    .update({ title: newTitle, imageUrl: newImageUrl, note: newNote, star: stars })
+    .update({ title: newTitle, imageUrl: newImageUrl, note: newNote, star: stars, viscosity: newViscosity })
     .eq('id', idUpdate)
     return Beer;
   };
@@ -83,6 +87,7 @@ const AddScreen = ({route}) => {
       setNewNote(route.params.paramKey.note)
       setStars(route.params.paramKey.star)
       mugClick(route.params.paramKey.star)
+      setNewViscosity(route.params.paramKey.viscosity)
     }
   }
 
@@ -288,11 +293,24 @@ const mugClick = (x) => {
           </TouchableOpacity>
         </View>
 
+        <View >
+          <Text style={{textAlign: 'center'}}>   Light       Normal   Full-bodied   Strong</Text>
+        </View> 
+        
         <View style={styles.viscosity}>
-          <Text style={styles.light}>Light</Text>
-          <Text style={styles.normal}>Normal</Text>
-          <Text style={styles.bodied}>Full-bodied</Text>
-          <Text style={styles.strong}>Strong</Text>
+          <ImageBackground source={bgrange} resizeMode="cover">
+          <Slider
+            style={styles.range}
+            minimumValue={1}
+            maximumValue={4}
+            step={1}
+            thumbImage={mugFull}
+            minimumTrackTintColor="rgba(0,0,0,0)"
+            maximumTrackTintColor="rgba(0,0,0,0)"
+            value={newViscosity}
+            onValueChange={setNewViscosity}
+            />       
+            </ImageBackground>
         </View>
        
         {!editB && 
@@ -428,8 +446,11 @@ const styles = StyleSheet.create({
     width: '23%',
     height: 40,
     textAlign: 'center',
+  },
+  range: {
+    width: 250, 
+    height: 40,
     
-
   },
   
   submitButton: {

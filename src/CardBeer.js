@@ -12,6 +12,11 @@ import mug2 from "../assets/mugsStar/02mugs.png"
 import mug3 from "../assets/mugsStar/03mugs.png"
 import mug4 from "../assets/mugsStar/04mugs.png"
 import mug5 from "../assets/mugsStar/05mugs.png"
+import visc1 from "../assets/strong/template2-1.png"
+import visc2 from "../assets/strong/template2-2.png"
+import visc3 from "../assets/strong/template2-3.png"
+import visc4 from "../assets/strong/template2.png"
+
 
 import Ionic from "react-native-vector-icons/Ionicons";
 import { color } from "@rneui/themed/dist/config";
@@ -22,6 +27,7 @@ export default function CardBeer({ data }) {
   const [visibleModal, setVisibleModal] = useState(false);
   const [visibleModalConf, setVisibleModalConf] = useState(false);
   const [mugStar, setMugStar] = useState(mug0)
+  const [newVisc, setNewVisc] = useState(visc1)
 
   const navigation = useNavigation();
 
@@ -47,6 +53,21 @@ export default function CardBeer({ data }) {
     }
   }
 
+  const viscosityLike = (y) => {
+    if(data.viscosity == 1) {
+      setNewVisc(visc1)
+    }
+    if(data.viscosity == 2) {
+      setNewVisc(visc2)
+    }
+    if(data.viscosity == 3) {
+      setNewVisc(visc3)
+    }
+    if(data.viscosity == 4) {
+      setNewVisc(visc4)
+    }
+  }
+
 
   const cleanModal = () => {
     setVisibleModalConf(false)
@@ -64,8 +85,9 @@ export default function CardBeer({ data }) {
 
   useEffect(() => {
     StarClick(data.star)
+    viscosityLike(data.viscosity)
     
-  }, [data.star]);
+  }, [data.star,data.viscosity ]);
 
   return (
     <View style={styles.box}>
@@ -86,7 +108,7 @@ export default function CardBeer({ data }) {
               strong
             </Text>
             <Image
-              source = {require('../assets/strong/template2.png')} 
+              source = {newVisc} 
               borderRadius={8}
               resizeMode="contain"
             />
