@@ -12,10 +12,10 @@ import mug2 from "../assets/mugsStar/02mugs.png"
 import mug3 from "../assets/mugsStar/03mugs.png"
 import mug4 from "../assets/mugsStar/04mugs.png"
 import mug5 from "../assets/mugsStar/05mugs.png"
-import visc1 from "../assets/strong/template2-1.png"
-import visc2 from "../assets/strong/template2-2.png"
-import visc3 from "../assets/strong/template2-3.png"
-import visc4 from "../assets/strong/template2.png"
+import visc1 from "../assets/strong/temp1.png"
+import visc2 from "../assets/strong/temp2.png"
+import visc3 from "../assets/strong/temp3.png"
+import visc4 from "../assets/strong/temp4.png"
 
 
 import Ionic from "react-native-vector-icons/Ionicons";
