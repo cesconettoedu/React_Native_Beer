@@ -19,7 +19,6 @@ import visc4 from "../assets/strong/temp4.png"
 
 
 import Ionic from "react-native-vector-icons/Ionicons";
-import { color } from "@rneui/themed/dist/config";
 
 export default function CardBeer({ data }) {
   
@@ -221,10 +220,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     marginTop: 5,
     marginRight: 3
-  },
-  imgMug: {
-   
-            
   },
   mugPoint: {
     flexDirection: 'row',

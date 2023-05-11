@@ -95,7 +95,6 @@ const styles = StyleSheet.create({
     height: 350
   },
   cheers: {
-    // display: 'none',
     width: 320, 
     height: 250
   }

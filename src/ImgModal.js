@@ -3,9 +3,6 @@ import { SafeAreaView, View, TouchableOpacity, Text, StyleSheet, Image } from 'r
 
 const ImgModal = ( {data, handleClose }) => {
 
-  const beerSize = 200;
-
-
   return (
     <SafeAreaView style={styles.container}>
       <TouchableOpacity style={{ flex: 1, zIndex:9}} onPress={handleClose}>
@@ -17,8 +14,6 @@ const ImgModal = ( {data, handleClose }) => {
        <Image
             style={styles.imgOpen}  
             source={{ uri: data.imageUrl }}
-            // width={beerSize}
-            // height={beerSize}
             borderRadius={5}
             resizeMode="contain"
             alt="avatar url"

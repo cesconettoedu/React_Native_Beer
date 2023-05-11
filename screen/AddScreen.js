@@ -14,7 +14,6 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { supabase } from "../supabase/supabase";
-import mug from "../assets/mugsStar/beerIconFull.png";
 import * as ImagePicker from "expo-image-picker";
 import CameraPhoto from '../src/CameraPhoto'
 import Slider from '@react-native-community/slider';
@@ -101,67 +100,67 @@ const AddScreen = ({route}) => {
     setVisibleModal(false)
   }
 
-const mugClick = (x) => {  
-    switch (x) {
-      case 1:
-        if (mug2 === mugFull) {
-          setMug1(mugFull);
-          setMug2(mugEmpty);
-          setMug3(mugEmpty);
-          setMug4(mugEmpty);
-          setMug5(mugEmpty);
-        } else if (mug1 === mugEmpty) {
-          setMug1(mugFull);
-        } else {
-          setStar(0);
-          setMug1(mugEmpty);
-          setMug2(mugEmpty);
-          setMug3(mugEmpty);
-          setMug4(mugEmpty);
-          setMug5(mugEmpty);
-        }
-        break;
-      case 2:
-        if (mug2 === mugEmpty) {
-          setMug1(mugFull);
-          setMug2(mugFull);
-        } else {
-          setMug3(mugEmpty);
-          setMug4(mugEmpty);
-          setMug5(mugEmpty);
-        }
-        break;
-      case 3:
-        if (mug3 === mugEmpty) {
-          setMug1(mugFull);
-          setMug2(mugFull);
-          setMug3(mugFull);
-        } else {
-          setMug4(mugEmpty);
-          setMug5(mugEmpty);
-        }
-        break;
-      case 4:
-        if (mug4 === mugEmpty) {
-          setMug1(mugFull);
-          setMug2(mugFull);
-          setMug3(mugFull);
-          setMug4(mugFull);
-        } else {
-          setMug5(mugEmpty);
-        }
-        break;
-      case 5:
-        if (mug5 === mugEmpty) {
-          setMug1(mugFull);
-          setMug2(mugFull);
-          setMug3(mugFull);
-          setMug4(mugFull);
-          setMug5(mugFull);
-        }
-        break;
-      default:
-    }
+  const mugClick = (x) => {  
+      switch (x) {
+        case 1:
+          if (mug2 === mugFull) {
+            setMug1(mugFull);
+            setMug2(mugEmpty);
+            setMug3(mugEmpty);
+            setMug4(mugEmpty);
+            setMug5(mugEmpty);
+          } else if (mug1 === mugEmpty) {
+            setMug1(mugFull);
+          } else {
+            setStar(0);
+            setMug1(mugEmpty);
+            setMug2(mugEmpty);
+            setMug3(mugEmpty);
+            setMug4(mugEmpty);
+            setMug5(mugEmpty);
+          }
+          break;
+        case 2:
+          if (mug2 === mugEmpty) {
+            setMug1(mugFull);
+            setMug2(mugFull);
+          } else {
+            setMug3(mugEmpty);
+            setMug4(mugEmpty);
+            setMug5(mugEmpty);
+          }
+          break;
+        case 3:
+          if (mug3 === mugEmpty) {
+            setMug1(mugFull);
+            setMug2(mugFull);
+            setMug3(mugFull);
+          } else {
+            setMug4(mugEmpty);
+            setMug5(mugEmpty);
+          }
+          break;
+        case 4:
+          if (mug4 === mugEmpty) {
+            setMug1(mugFull);
+            setMug2(mugFull);
+            setMug3(mugFull);
+            setMug4(mugFull);
+          } else {
+            setMug5(mugEmpty);
+          }
+          break;
+        case 5:
+          if (mug5 === mugEmpty) {
+            setMug1(mugFull);
+            setMug2(mugFull);
+            setMug3(mugFull);
+            setMug4(mugFull);
+            setMug5(mugFull);
+          }
+          break;
+        default:
+      }
   };
 
 
@@ -201,20 +200,15 @@ const mugClick = (x) => {
             />
           </TouchableOpacity>
           <Modal
-              visible={visibleModal}
-              transparent={true}
-              onRequestClose={() => setVisibleModal(false)}
-              animationType="slide"
-            >
-              <CameraPhoto>
-                {{getFromCamera: getFromCamera, closeCamera:closeCamera}}
-            
-              </CameraPhoto>
-              
-            </Modal>
-
-
-
+            visible={visibleModal}
+            transparent={true}
+            onRequestClose={() => setVisibleModal(false)}
+            animationType="slide"
+          >
+            <CameraPhoto>
+              {{getFromCamera: getFromCamera, closeCamera:closeCamera}} 
+            </CameraPhoto>          
+          </Modal>
 
           <TouchableOpacity onPress={pickImage}>
             <Image

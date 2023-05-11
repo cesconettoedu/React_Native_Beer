@@ -90,22 +90,6 @@ const [fullListBtn, setFullListBtn] = useState(false)
   },[beer, order, searchList])
 
 
-
-
-  //make the search field close when press Ok on keyboard.
-  //but make a bug, anywhere in app when i use the keyboard open Full list BTN
-  // useEffect(() => {
-  //    const keyboardDidHideListener = Keyboard.addListener(
-  //      'keyboardDidHide',
-  //      () => {
-  //       setSearchModal(false); 
-  //       setFullListBtn(true)
-  //      }
-  //    );
- 
-  //  }, []);
-  
-
   return (
 
     <View style={styles.container}>
@@ -115,7 +99,6 @@ const [fullListBtn, setFullListBtn] = useState(false)
         onPress={() => navigation.navigate('HomeScreen')}
       />
       
-      
       <FlatList 
       data={beer}
       renderItem={ ({ item }) => (
@@ -124,11 +107,9 @@ const [fullListBtn, setFullListBtn] = useState(false)
         onPress={() => {setVisibleImgModal(true); setSingle(item)}}
         >
           <CardBeer data={item}/>
-          
-          </TouchableOpacity>      
-        )}
-        
-        />
+        </TouchableOpacity>      
+        )} 
+      />
      
       <Modal
           visible={visibImgleModal}
@@ -141,7 +122,6 @@ const [fullListBtn, setFullListBtn] = useState(false)
           handleClose={() => setVisibleImgModal(false)}
         />
       </Modal>
-
       
       {fullListBtn &&
         <TouchableOpacity  onPress={() => fullCloseSearch(false)}>
@@ -154,9 +134,7 @@ const [fullListBtn, setFullListBtn] = useState(false)
 
       <MenuBottom>
         {{orderBy: orderBy, openSearch:openSearch}}
-
       </MenuBottom>
-
 
       <Modal
           visible={searchModal}
@@ -188,6 +166,4 @@ const styles = StyleSheet.create({
     height: 55,
     marginBottom:5,
   }
-
-
 });
