@@ -228,6 +228,7 @@ const AddScreen = ({route}) => {
             placeholder=" BeerName"
             placeholderTextColor="#4a4e69"
             autoCapitalize='words'
+            maxLength={30}
             value={newTitle}
             onChangeText={setNewTitle}
           />
