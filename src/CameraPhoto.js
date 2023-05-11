@@ -83,7 +83,7 @@ useEffect(() => {
           {!image &&
             <TouchableOpacity onPress={() => alert('take a photo first')}>
               <Image
-                source={require("../assets/cameraBtn/uncheck.png")}
+                source={require("../assets/cameraBtn/uncheck1.png")}
                 style={{ width: 45, height: 45 }}
               />
             </TouchableOpacity>
@@ -91,7 +91,7 @@ useEffect(() => {
           {image && 
             <TouchableOpacity  onPress={() => goBack()} >
               <Image
-                source={require("../assets/cameraBtn/check.png")}
+                source={require("../assets/cameraBtn/check1.png")}
                 style={{ width: 45, height: 45 }}
               />
             </TouchableOpacity>
