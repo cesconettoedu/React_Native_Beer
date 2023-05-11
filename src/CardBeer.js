@@ -181,7 +181,7 @@ const styles = StyleSheet.create({
   inner: {
     flex: 1,
     flexDirection: 'row',
-    backgroundColor: "#eee",
+    backgroundColor: "#ECE4B7",
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 10,

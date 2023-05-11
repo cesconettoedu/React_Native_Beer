@@ -35,7 +35,7 @@ const Search = (handleSearch) => {
               style={styles.input1}
               underlineColorAndroid="transparent"
               placeholder="BeerName"
-              placeholderTextColor="#9a73ef"
+              placeholderTextColor="#4a4e69"
               autoCapitalize='words'
               value={searchWord}
               onChangeText={text => handleChange(text)}
@@ -91,12 +91,12 @@ const styles = StyleSheet.create({
   },
   line: {
     flexDirection: 'row',
-    backgroundColor: '#69e9f5',
+    backgroundColor: '#7FB069',
     borderRadius: 45,
     margin:5
   },
   actionButton1: {
-    backgroundColor: '#69e9f5',
+    backgroundColor: '#7FB069',
     borderRadius: 45,
     margin: 2,
     padding: 2,
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
     marginTop: 7,
    
     height: 40,
-    borderColor: "#7a42f4",
+    borderColor: "#4a4e69",
     borderWidth: 1,
     paddingLeft: 10,
     width: '69%',

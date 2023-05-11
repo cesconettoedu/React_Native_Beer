@@ -226,7 +226,7 @@ const AddScreen = ({route}) => {
             style={styles.input}
             underlineColorAndroid="transparent"
             placeholder=" BeerName"
-            placeholderTextColor="#9a73ef"
+            placeholderTextColor="#4a4e69"
             autoCapitalize='words'
             value={newTitle}
             onChangeText={setNewTitle}
@@ -236,7 +236,7 @@ const AddScreen = ({route}) => {
             style={styles.input}
             underlineColorAndroid="transparent"
             placeholder=" Note"
-            placeholderTextColor="#9a73ef"
+            placeholderTextColor="#4a4e69"
             autoCapitalize='sentences'
             value={newNote}
             onChangeText={setNewNote}
@@ -292,7 +292,7 @@ const AddScreen = ({route}) => {
         </View> 
         
         <View style={styles.viscosity}>
-          <ImageBackground source={bgrange} resizeMode="cover">
+          <ImageBackground source={bgrange} resizeMode="cover" style={styles.bgViscosity}>
           <Slider
             style={styles.range}
             minimumValue={1}
@@ -342,6 +342,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: "#ECE4B7",
   },
   content: {
     paddingTop: 20,
@@ -353,8 +354,8 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     paddingHorizontal: 5,
     borderRadius: 4,
-    backgroundColor: "black",
-    bottom: 5,
+    backgroundColor: "#212427",
+    top: 10,
   },
   closeText: {
     fontSize: 16,
@@ -364,11 +365,10 @@ const styles = StyleSheet.create({
     color: "white",
   },
   imagePrev: {
-    
     left: 65,
     width: 160,
     height: 210,
-    borderColor: "#7a42f4",
+    borderColor: "#4a4e69",
     borderWidth: 5,
     margin: 15,
     borderRadius: 7,
@@ -387,7 +387,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     margin: 15,
     height: 40,
-    borderColor: "#7a42f4",
+    borderColor: "#4a4e69",
     borderWidth: 1,
     paddingLeft: 10
   },
@@ -401,61 +401,27 @@ const styles = StyleSheet.create({
   viscosity: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
-    
   },
-  light: {
-    borderColor: "#7a42f4",
+  bgViscosity: {
     borderWidth: 1,
     borderRadius: 5,
-    width: '23%',
-    height: 40,
-    textAlign: 'center',
-    
-
-  },
-  bodied: {
-    borderColor: "#7a42f4",
-    borderWidth: 1,
-    borderRadius: 5,
-    width: '23%',
-    height: 40,
-    textAlign: 'center',
-    
-
-  },
-  normal: {
-    borderColor: "#7a42f4",
-    borderWidth: 1,
-    borderRadius: 5,
-    width: '23%',
-    height: 40,
-    textAlign: 'center',
-    
-
-  },
-  strong: {
-    borderColor: "#7a42f4",
-    borderWidth: 1,
-    borderRadius: 5,
-    width: '23%',
-    height: 40,
-    textAlign: 'center',
   },
   range: {
     width: 250, 
     height: 40,
-    
   },
-  
   submitButton: {
     borderRadius: 5,
-    backgroundColor: "#7a42f4",
+    backgroundColor: "#D36135",
     padding: 10,
     margin: 15,
-    height: 40,
+    height: 50,
+    justifyContent: "center",
   },
   submitButtonText: {
     color: "#FFF",
     textAlign: 'center',
+    fontSize: 20
+    
   },
 });

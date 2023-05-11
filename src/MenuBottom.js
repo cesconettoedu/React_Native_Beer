@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     height: '10%',
     alignItems: 'center',
     justifyContent: 'space-around',
-    backgroundColor: '#3a0077',
+    // backgroundColor: '#3a0077',
     borderRadius: 10,
   },
   searchContainer: {

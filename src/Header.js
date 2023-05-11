@@ -41,7 +41,8 @@ const styles = StyleSheet.create({
     height: '8%',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#3a0077',
+    backgroundColor: "#212427",
+    
     borderRadius:10,
     borderWidth:2,
     borderColor: '#212427',
@@ -56,7 +57,7 @@ const styles = StyleSheet.create({
     textShadowRadius: 10
   },
   quantity: {
-    backgroundColor: '#ff9a3c',
+    backgroundColor: '#ECE4B7',
     borderRadius: 5,
   },
   numbers: {
