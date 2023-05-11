@@ -68,14 +68,14 @@ useEffect(() => {
             );
           }}>
           <Image
-            source={require("../assets/cameraBtn/FlipCamera.png")}
+            source={require("../assets/cameraBtn/FlipCamera1.png")}
             style={{ width: 45, height: 45 }}
           />
         </TouchableOpacity>
 
         <TouchableOpacity  onPress={() => takePicture()} >
           <Image
-            source={require("../assets/cameraBtn/TakePic.png")}
+            source={require("../assets/cameraBtn/TakePic1.png")}
             style={{ width: 80, height: 80 }}
           />
         </TouchableOpacity>

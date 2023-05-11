@@ -19,7 +19,7 @@ export function EditDelModal( {title, handleClose, handleEdit, handleDelete }) {
             
             >
             <Image
-                source={require("../assets/menuBottom/editWord.png")}
+                source={require("../assets/menuBottom/editWord1.png")}
                 style={{ width: 80, height: 80 }}
             />
           </TouchableOpacity>

@@ -20,7 +20,7 @@ export function ConfModal( {title, handleClose, handleCancel, handleYes }) {
           
           <TouchableOpacity activeOpacity={0.9} style={styles.actionButton} onPress={handleCancel}>
             <Image
-              source={require("../assets/menuBottom/no.png")}
+              source={require("../assets/menuBottom/no1.png")}
               style={{ width: 60, height: 60 }}
             />
           </TouchableOpacity>
