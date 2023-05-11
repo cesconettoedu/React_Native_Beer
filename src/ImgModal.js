@@ -45,11 +45,12 @@ const styles = StyleSheet.create({
   },
   title: {
     textAlign: 'center',
-    color: '#FFF',
-    fontSize: 30,
+    color: '#7FB069',
+    fontSize: 35,
     marginTop: 20,
     marginBottom: 40,
     fontWeight: 500,
+    bottom: 40
   },
   
   imgOpen: {

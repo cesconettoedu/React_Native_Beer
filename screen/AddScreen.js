@@ -195,7 +195,7 @@ const AddScreen = ({route}) => {
             onPress={() => setVisibleModal(true)}
           >
             <Image
-              source={require("../assets/cameraBtn/camera1.png")}
+              source={require("../assets/cameraBtn/camera2.png")}
               style={{ width: 65, height: 65 }}
             />
           </TouchableOpacity>
@@ -212,7 +212,7 @@ const AddScreen = ({route}) => {
 
           <TouchableOpacity onPress={pickImage}>
             <Image
-              source={require("../assets/cameraBtn/file1.png")}
+              source={require("../assets/cameraBtn/file2.png")}
               style={{ width: 65, height: 65 }}
             />
           </TouchableOpacity>
@@ -309,24 +309,30 @@ const AddScreen = ({route}) => {
        
         {!editB && 
         <TouchableOpacity
-          style={styles.submitButton}
+          style={styles.submitButtonA}
           onPress={() => {
             addNewBeer();
             navigation.navigate("ListBeerScreen");
           }}
         >
-        <Text style={styles.submitButtonText}> Press to Add Beer </Text> 
+          <Image
+              source={require("../assets/cameraBtn/addNewBeer2.png")}
+              style={{ width: 200, height: 65, resizeMode: 'contain' }}
+            />
         </TouchableOpacity>
         }
         {editB && 
         <TouchableOpacity
-          style={styles.submitButton}
+          style={styles.submitButtonU}
           onPress={() => {
             updateNewBeer();
             navigation.navigate("ListBeerScreen");
           }}
         >
-        <Text style={styles.submitButtonText}> Press to Update Beer </Text> 
+        <Image
+              source={require("../assets/cameraBtn/updateBeer2.png")}
+              style={{ width: 200, height: 65, resizeMode: 'contain' }}
+            /> 
         </TouchableOpacity>
         }
 
@@ -412,18 +418,21 @@ const styles = StyleSheet.create({
     width: 250, 
     height: 40,
   },
-  submitButton: {
+  submitButtonA: {
     borderRadius: 5,
-    backgroundColor: "#D36135",
     padding: 10,
     margin: 15,
     height: 50,
     justifyContent: "center",
+    alignItems: 'center'
   },
-  submitButtonText: {
-    color: "#FFF",
-    textAlign: 'center',
-    fontSize: 20
-    
+  submitButtonU: {
+    borderRadius: 5,
+    padding: 10,
+    margin: 15,
+    height: 50,
+    justifyContent: "center",
+    alignItems: 'center'
   },
+
 });

@@ -14,7 +14,7 @@ export function EditDelModal( {title, handleClose, handleEdit, handleDelete }) {
       <Text style={styles.title}>{title}</Text>
       
         <View style={styles.editdelBtn}>
-          <TouchableOpacity activeOpacity={0.9} style={styles.actionButton} 
+          <TouchableOpacity activeOpacity={0.9} style={styles.actionButtonE} 
             onPress={handleEdit}
             
             >
@@ -24,7 +24,7 @@ export function EditDelModal( {title, handleClose, handleEdit, handleDelete }) {
             />
           </TouchableOpacity>
 
-          <TouchableOpacity activeOpacity={0.9} style={styles.actionButton} 
+          <TouchableOpacity activeOpacity={0.9} style={styles.actionButtonD} 
             onPress={handleDelete}>
             <Image
                 source={require("../assets/menuBottom/deleteWord.png")}
@@ -67,8 +67,14 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     justifyContent: "space-evenly",
   },
-  actionButton: {
-    backgroundColor: '#69e9f5',
+  actionButtonE: {
+    backgroundColor: '#7FB069',
+    borderRadius: 45,
+    margin: 2,
+    padding: 2,
+  },
+  actionButtonD: {
+    backgroundColor: '#db1515',
     borderRadius: 45,
     margin: 2,
     padding: 2,

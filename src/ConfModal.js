@@ -11,14 +11,14 @@ export function ConfModal( {title, handleClose, handleCancel, handleYes }) {
         <Text style={styles.title}>Do you want to delete {title}?</Text>
       
         <View style={styles.yesNo}>
-          <TouchableOpacity activeOpacity={0.9} style={styles.actionButton} onPress={handleYes}>
+          <TouchableOpacity activeOpacity={0.9} style={styles.actionButtonY} onPress={handleYes}>
             <Image
               source={require("../assets/menuBottom/yes.png")}
               style={{ width: 60, height: 60 }}
             />
           </TouchableOpacity>
           
-          <TouchableOpacity activeOpacity={0.9} style={styles.actionButton} onPress={handleCancel}>
+          <TouchableOpacity activeOpacity={0.9} style={styles.actionButtonN} onPress={handleCancel}>
             <Image
               source={require("../assets/menuBottom/no1.png")}
               style={{ width: 60, height: 60 }}
@@ -60,8 +60,14 @@ const styles = StyleSheet.create({
     justifyContent: "space-evenly",
   },
 
-  actionButton: {
-    backgroundColor: '#69e9f5',
+  actionButtonY: {
+    backgroundColor: '#db1515',
+    borderRadius: 45,
+    margin: 2,
+    padding: 2,
+  },
+  actionButtonN: {
+    backgroundColor: '#7FB069',
     borderRadius: 45,
     margin: 2,
     padding: 2,

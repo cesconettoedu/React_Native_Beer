@@ -68,14 +68,14 @@ useEffect(() => {
             );
           }}>
           <Image
-            source={require("../assets/cameraBtn/FlipCamera1.png")}
+            source={require("../assets/cameraBtn/FlipCamera2.png")}
             style={{ width: 45, height: 45 }}
           />
         </TouchableOpacity>
 
         <TouchableOpacity  onPress={() => takePicture()} >
           <Image
-            source={require("../assets/cameraBtn/TakePic1.png")}
+            source={require("../assets/cameraBtn/TakePic2.png")}
             style={{ width: 80, height: 80 }}
           />
         </TouchableOpacity>
@@ -83,7 +83,7 @@ useEffect(() => {
           {!image &&
             <TouchableOpacity onPress={() => alert('take a photo first')}>
               <Image
-                source={require("../assets/cameraBtn/uncheck1.png")}
+                source={require("../assets/cameraBtn/uncheck2.png")}
                 style={{ width: 45, height: 45 }}
               />
             </TouchableOpacity>
@@ -91,7 +91,7 @@ useEffect(() => {
           {image && 
             <TouchableOpacity  onPress={() => goBack()} >
               <Image
-                source={require("../assets/cameraBtn/check1.png")}
+                source={require("../assets/cameraBtn/check2.png")}
                 style={{ width: 45, height: 45 }}
               />
             </TouchableOpacity>
