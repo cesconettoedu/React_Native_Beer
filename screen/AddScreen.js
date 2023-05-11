@@ -195,7 +195,7 @@ const AddScreen = ({route}) => {
             onPress={() => setVisibleModal(true)}
           >
             <Image
-              source={require("../assets/cameraBtn/camera.png")}
+              source={require("../assets/cameraBtn/camera1.png")}
               style={{ width: 65, height: 65 }}
             />
           </TouchableOpacity>
@@ -212,7 +212,7 @@ const AddScreen = ({route}) => {
 
           <TouchableOpacity onPress={pickImage}>
             <Image
-              source={require("../assets/cameraBtn/file.png")}
+              source={require("../assets/cameraBtn/file1.png")}
               style={{ width: 65, height: 65 }}
             />
           </TouchableOpacity>
@@ -382,10 +382,11 @@ const styles = StyleSheet.create({
   btnImage: {
     flexDirection: "row",
     justifyContent: "space-evenly",
+    marginBottom: 15
   },
   input: {
     borderRadius: 5,
-    margin: 15,
+    margin: 5,
     height: 40,
     borderColor: "#4a4e69",
     borderWidth: 1,
@@ -401,6 +402,7 @@ const styles = StyleSheet.create({
   viscosity: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
+
   },
   bgViscosity: {
     borderWidth: 1,

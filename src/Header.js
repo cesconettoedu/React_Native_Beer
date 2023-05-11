@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     textShadowRadius: 10
   },
   quantity: {
-    backgroundColor: '#ECE4B7',
+    backgroundColor: '#7FB069',
     borderRadius: 5,
   },
   numbers: {

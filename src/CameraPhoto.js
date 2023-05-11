@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
     left: 62,
     margin: 10,
     borderRadius: 4,
-    borderColor: "#7a42f4",
+    borderColor: "#7FB069",
     borderWidth: 2,
     resizeMode: "contain",
     width: '60%'

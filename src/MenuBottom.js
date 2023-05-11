@@ -25,7 +25,7 @@ const bests = (y) => {
       {azVisible &&
         <TouchableOpacity onPress={() => az(false)} >
           <Image 
-            source = {require('../assets/menuBottom/az.png')} 
+            source = {require('../assets/menuBottom/az1.png')} 
             style = {{ width: sizeIcon, height: sizeIcon }}
             />
         </TouchableOpacity>
@@ -33,7 +33,7 @@ const bests = (y) => {
       {!azVisible &&
         <TouchableOpacity onPress={() => bests(true)} >
           <Image 
-            source = {require('../assets/menuBottom/bests.png')} 
+            source = {require('../assets/menuBottom/bests1.png')} 
             style = {{ width: sizeIcon, height: sizeIcon }}
             />
         </TouchableOpacity>
@@ -43,14 +43,14 @@ const bests = (y) => {
 
       <TouchableOpacity onPress={() => orderBy.children.openSearch()} >
         <Image 
-          source = {require('../assets/menuBottom/search.png')} 
+          source = {require('../assets/menuBottom/search1.png')} 
           style = {{ width: sizeIcon, height: sizeIcon }}
           />
       </TouchableOpacity>
 
       <TouchableOpacity onPress={() =>  navigation.navigate('AddScreen')} >
         <Image 
-          source = {require('../assets/menuBottom/add.png')} 
+          source = {require('../assets/menuBottom/add1.png')} 
           style = {{ width: 65, height: 65 }}
           />
       </TouchableOpacity>
