@@ -48,7 +48,7 @@ const Search = (handleSearch) => {
                 style={styles.actionButton1} 
               >
                 <Image
-                  source={require('../assets/menuBottom/ok.png')}
+                  source={require('../assets/menuBottom/ok2.png')}
                   style={{ width: 45, height: 45  }}
                 />
               </TouchableOpacity>

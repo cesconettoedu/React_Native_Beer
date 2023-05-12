@@ -126,7 +126,7 @@ const [fullListBtn, setFullListBtn] = useState(false)
       {fullListBtn &&
         <TouchableOpacity  onPress={() => fullCloseSearch(false)}>
           <Image 
-            source = {require('../assets/cameraBtn/Full.png')} 
+            source = {require('../assets/cameraBtn/Full2.png')} 
             style={styles.fullList}
             />
         </TouchableOpacity>
