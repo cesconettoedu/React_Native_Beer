@@ -194,10 +194,18 @@ const AddScreen = ({route}) => {
           <TouchableOpacity
             onPress={() => setVisibleModal(true)}
           >
+            {editB && 
             <Image
-              source={require("../assets/cameraBtn/camera2.png")}
+              source={require("../assets/cameraBtn/camera1.png")}
               style={{ width: 65, height: 65 }}
             />
+            }
+            {!editB && 
+              <Image
+                source={require("../assets/cameraBtn/camera2.png")}
+                 style={{ width: 65, height: 65 }}
+              />
+            }
           </TouchableOpacity>
           <Modal
             visible={visibleModal}
@@ -211,10 +219,18 @@ const AddScreen = ({route}) => {
           </Modal>
 
           <TouchableOpacity onPress={pickImage}>
+          {editB &&  
+            <Image
+              source={require("../assets/cameraBtn/file1.png")}
+              style={{ width: 65, height: 65 }}
+            />
+          }
+          {!editB &&  
             <Image
               source={require("../assets/cameraBtn/file2.png")}
               style={{ width: 65, height: 65 }}
             />
+          }
           </TouchableOpacity>
         </View>
 
