@@ -9,7 +9,7 @@ npm-debug.*
 *.mobileprovision
 *.orig.*
 web-build/
-supabase/
+supabase/supabase.js
 someRemider.txt
 
 # macOS
