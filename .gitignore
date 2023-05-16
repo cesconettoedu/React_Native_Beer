@@ -9,6 +9,8 @@ npm-debug.*
 *.mobileprovision
 *.orig.*
 web-build/
+supabase/
+someRemider.txt
 
 # macOS
 .DS_Store
