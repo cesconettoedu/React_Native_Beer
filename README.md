@@ -7,7 +7,7 @@ to open only celphone fisic: expo start
 to open na web: expo start --web
 
 <!--
-expo update
+expo updategit 
 link do video: https://www.youtube.com/watch?v=2ICOVstF6rU
 tem que:
   eas login (logar)
@@ -18,10 +18,15 @@ tem que:
 
 
 
-  tutotial supabase:
+tutotial supabase:
 https://www.youtube.com/watch?v=_uIslLPirw0
 
 backend and database
 https://app.supabase.com/project/ppihnndftvaibkwoaich/api?resource=Beer
 
+
+
+
+This is to build a APK im EXPO
+eas build -p android --profile preview
  -->

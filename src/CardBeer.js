@@ -17,9 +17,6 @@ import visc2 from "../assets/strong/temp2.png"
 import visc3 from "../assets/strong/temp3.png"
 import visc4 from "../assets/strong/temp4.png"
 
-
-import Ionic from "react-native-vector-icons/Ionicons";
-
 export default function CardBeer({ data }) {
   
   
@@ -133,7 +130,10 @@ export default function CardBeer({ data }) {
                   />
                 </View>
                 <TouchableOpacity style={styles.dots} onPress={() => setVisibleModal(true)}>
-                  <Ionic name="list" size={30} />
+                  <Image
+                    source={require("../assets/menuBottom/3lines.png")}
+                     style={{ width: 25, height: 25 }}
+                  />
                 </TouchableOpacity>
             
               {/* Modal to Edit or Delete */}
