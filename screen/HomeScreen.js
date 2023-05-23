@@ -11,6 +11,7 @@ const HomeScreen = ({navigation}) => {
 
   const [showLogo, setShowLogo] = useState(true);
   const [newUser, setNewUser] = useState('');
+  const [newPass, setNewPass] = useState('');
   const [showEnter, setShowEnter] = useState(false);
   
   const isFocused = useIsFocused();
@@ -51,8 +52,6 @@ const HomeScreen = ({navigation}) => {
       // console.log('USEERRRR', value);
         setNewUser(value)
         setShowEnter(true)
-
-
       } else if (value === null) {
       //  console.log('SEM USEER', value);
         setShowEnter(false)
@@ -106,9 +105,8 @@ const HomeScreen = ({navigation}) => {
                 storeData(newUser); setShowEnter(true)
                 }}
               }
-              style={styles.inputUser}>
-
-
+              style={styles.inputUser}
+            >
               <TextInput
                 style={styles.input}
                 underlineColorAndroid="transparent"
@@ -118,6 +116,16 @@ const HomeScreen = ({navigation}) => {
                 maxLength={30}
                 value={newUser}
                 onChangeText={setNewUser}
+              />
+               <TextInput
+                style={styles.input}
+                underlineColorAndroid="transparent"
+                placeholder=" Password"
+                placeholderTextColor="#4a4e69"
+                secureTextEntry={true}
+                maxLength={30}
+                value={newPass}
+                onChangeText={setNewPass}
               />
               <Image
                 source={require("../assets/menuBottom/ok.png")}
@@ -184,7 +192,7 @@ const styles = StyleSheet.create({
     color: '#7FB069',
   },
   inputUser: {
-    flexDirection: 'row',
+    
     alignItems: 'center',
     justifyContent: "center",
   },
