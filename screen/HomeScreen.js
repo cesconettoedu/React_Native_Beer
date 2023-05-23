@@ -63,7 +63,7 @@ const HomeScreen = ({navigation}) => {
   }
 
 
-  //remover usuario
+  //remove user
   removeValue = async () => {
     try {
       await AsyncStorage.removeItem('user')

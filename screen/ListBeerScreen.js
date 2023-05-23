@@ -85,6 +85,7 @@ const ListBeerScreen = ({props}) => {
     let { data: Beer, error } = await supabase
     .from('Beer')
     .select("*")
+    .eq('userName', `${userList}`)
     .ilike('title', `%${searchList}%`)
     setBeer(Beer)
       return Beer
@@ -105,9 +106,7 @@ const ListBeerScreen = ({props}) => {
   },[])
  
 
-
   useEffect(() => {
-    
     if(searchList){
       getSearchBeer()
     }else{ 
@@ -115,11 +114,7 @@ const ListBeerScreen = ({props}) => {
     }
   },[beer, order, searchList])
 
-
-
-
   return (
-
 
     <View style={styles.container}>
      
