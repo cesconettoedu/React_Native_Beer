@@ -8,6 +8,8 @@ import { supabase } from "../supabase/supabase";
 import Search from "../src/Search";
 
 
+
+
 const ListBeerScreen = ({props}) => {
 const [visibImgleModal, setVisibleImgModal] = useState(false);
 const [single, setSingle] = useState({})
@@ -15,14 +17,18 @@ const [beer, setBeer] = useState()
 const [order, setOrder] = useState('title')
 const [asc, setAsc] = useState(true)
 
+
 const [searchModal, setSearchModal] = useState (false)
 const [searchList, setSearchList] = useState ('')
 
+
 const [fullListBtn, setFullListBtn] = useState(false)
+
 
   const openSearch = (x) => {
     setSearchModal(true)
   }
+
 
   const orderBy = (typeOrder) => {
       setOrder(typeOrder)
@@ -33,34 +39,40 @@ const [fullListBtn, setFullListBtn] = useState(false)
   }
 
 
+
+
   //get all beers from supabase
   const getItems = async () => {
       let { data: Beer, error } = await supabase
       .from('Beer')
       .select('*')
+      .eq('userName', 'Eduardo')
       .order(order ,  { ascending: asc })
       .order('title')
       setBeer(Beer)
       return Beer
   }
 
+
   //use to find number of beers or lenght
   let count = 0;
   for (var k in beer) if (beer.hasOwnProperty(k)) ++count;
 
-  
-  
-  const handleSearch = (typing) => { 
+
+ 
+ 
+  const handleSearch = (typing) => {
     if(typing !== null) {
       setSearchList(typing)
     }    
   }
 
+
   const closeSearchAfterPass = (actA) => {
     setSearchModal(actA)
     setFullListBtn(true)
   }
-    
+   
   //get search Beer from supabase
   const getSearchBeer = async () => {
     let { data: Beer, error } = await supabase
@@ -72,6 +84,8 @@ const [fullListBtn, setFullListBtn] = useState(false)
   }
 
 
+
+
   //after search when you click on 'full list', bring back all beers
   const fullCloseSearch = () => {
     setSearchList('')
@@ -79,36 +93,41 @@ const [fullListBtn, setFullListBtn] = useState(false)
     setFullListBtn(false)
   }
 
-  
+
+ 
   useEffect(() => {
     if(searchList){
       getSearchBeer()
     }else{
-      getItems() 
+      getItems()
+
 
     }
   },[beer, order, searchList])
 
 
+
+
   return (
 
+
     <View style={styles.container}>
-      
-      <Header 
+     
+      <Header
         quantity={count}
         onPress={() => navigation.navigate('HomeScreen')}
       />
-      
-      <FlatList 
+     
+      <FlatList
       data={beer}
       renderItem={ ({ item }) => (
-        <TouchableOpacity 
-        key={item.id} 
+        <TouchableOpacity
+        key={item.id}
         onPress={() => {setVisibleImgModal(true); setSingle(item)}}
         >
           <CardBeer data={item}/>
         </TouchableOpacity>      
-        )} 
+        )}
       />
      
       <Modal
@@ -122,19 +141,21 @@ const [fullListBtn, setFullListBtn] = useState(false)
           handleClose={() => setVisibleImgModal(false)}
         />
       </Modal>
-      
+     
       {fullListBtn &&
         <TouchableOpacity  onPress={() => fullCloseSearch(false)}>
-          <Image 
-            source = {require('../assets/cameraBtn/Full2.png')} 
+          <Image
+            source = {require('../assets/cameraBtn/Full2.png')}
             style={styles.fullList}
             />
         </TouchableOpacity>
       }
 
+
       <MenuBottom>
         {{orderBy: orderBy, openSearch:openSearch}}
       </MenuBottom>
+
 
       <Modal
           visible={searchModal}
@@ -142,16 +163,19 @@ const [fullListBtn, setFullListBtn] = useState(false)
           onRequestClose={() => setSearchModal(false)}
           animationType="slide"
       >
-        <Search> 
+        <Search>
           {{handleSearch: handleSearch, closeSearchAfterPass: closeSearchAfterPass}}
         </Search>
       </Modal>    
+
 
     </View>
   );
 }
 
+
 export default ListBeerScreen;
+
 
 const styles = StyleSheet.create({
   container: {
@@ -160,7 +184,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#212427",
     marginTop: "13%"
   },
-  fullList:{ 
+  fullList:{
     left: 110,
     width: 130,
     height: 55,

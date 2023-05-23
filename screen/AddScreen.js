@@ -18,9 +18,12 @@ import * as ImagePicker from "expo-image-picker";
 import CameraPhoto from '../src/CameraPhoto'
 import Slider from '@react-native-community/slider';
 
+
 import mugFull from '../assets/mugsStar/beerIconFull.png'
 import mugEmpty from '../assets/mugsStar/beerIconBlack.png'
 import bgrange from '../assets/strong/bg.png'
+
+
 
 
 const AddScreen = ({route}) => {
@@ -32,6 +35,7 @@ const AddScreen = ({route}) => {
   const [editB, setEditB] = useState(false);
   const [idUpdate, setIdUpdate] = useState(0);
 
+
   const [mug1, setMug1] = useState(mugEmpty);
   const [mug2, setMug2] = useState(mugEmpty);
   const [mug3, setMug3] = useState(mugEmpty);
@@ -40,26 +44,33 @@ const AddScreen = ({route}) => {
  
   const [newViscosity, setNewViscosity] = useState(1)
 
+
   const ratio = 0.5;
   const navigation = useNavigation();
+ 
+
 
   const addNewBeer = async () => {
     const { data: Beer, error } = await supabase
       .from("Beer")
       .insert([
-        { title: newTitle, imageUrl: newImageUrl, note: newNote, star: stars, viscosity: newViscosity },
+        { title: newTitle, imageUrl: newImageUrl, note: newNote, star: stars, viscosity: newViscosity, userName: 'Eduardo' },
       ]);
     return Beer;
   };
 
 
-  const updateNewBeer = async () => { 
+
+
+  const updateNewBeer = async () => {
     const { data: Beer, error } = await supabase
     .from('Beer')
     .update({ title: newTitle, imageUrl: newImageUrl, note: newNote, star: stars, viscosity: newViscosity })
     .eq('id', idUpdate)
     return Beer;
   };
+
+
 
 
   //to get image from device
@@ -77,6 +88,8 @@ const AddScreen = ({route}) => {
   };
 
 
+
+
   const editBeer = () => {
     if(route.params !== undefined) {
       setEditB(true);
@@ -91,14 +104,18 @@ const AddScreen = ({route}) => {
   }
 
 
-  
+
+
+ 
   const getFromCamera = (image) => {
     setNewImageUrl(image)
   }
 
+
   const closeCamera = (close) => {
     setVisibleModal(false)
   }
+
 
   const mugClick = (x) => {  
       switch (x) {
@@ -165,13 +182,18 @@ const AddScreen = ({route}) => {
 
 
 
+
+
+
   useEffect(() => {
-    editBeer() 
+    editBeer()
   },[route])
+
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
+
 
         <Pressable
           style={styles.closeBtn}
@@ -180,6 +202,7 @@ const AddScreen = ({route}) => {
           <Text style={styles.closeText}> X </Text>
         </Pressable>
 
+
         <View style={styles.imagePrev}>
           {newImageUrl && (
             <Image
@@ -187,20 +210,21 @@ const AddScreen = ({route}) => {
               style={styles.imageOnPrev}
             />
           )}
-          
+         
         </View>
+
 
         <View style={styles.btnImage}>
           <TouchableOpacity
             onPress={() => setVisibleModal(true)}
           >
-            {editB && 
+            {editB &&
             <Image
               source={require("../assets/cameraBtn/camera1.png")}
               style={{ width: 65, height: 65 }}
             />
             }
-            {!editB && 
+            {!editB &&
               <Image
                 source={require("../assets/cameraBtn/camera2.png")}
                  style={{ width: 65, height: 65 }}
@@ -214,9 +238,10 @@ const AddScreen = ({route}) => {
             animationType="slide"
           >
             <CameraPhoto>
-              {{getFromCamera: getFromCamera, closeCamera:closeCamera}} 
+              {{getFromCamera: getFromCamera, closeCamera:closeCamera}}
             </CameraPhoto>          
           </Modal>
+
 
           <TouchableOpacity onPress={pickImage}>
           {editB &&  
@@ -234,6 +259,7 @@ const AddScreen = ({route}) => {
           </TouchableOpacity>
         </View>
 
+
         <KeyboardAvoidingView
           style={styles.keyboardAvoid}
           behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -249,6 +275,7 @@ const AddScreen = ({route}) => {
             onChangeText={setNewTitle}
           />
 
+
           <TextInput
             style={styles.input}
             underlineColorAndroid="transparent"
@@ -259,6 +286,8 @@ const AddScreen = ({route}) => {
             onChangeText={setNewNote}
           />
         </KeyboardAvoidingView>
+
+
 
 
         <View style={styles.mugs}>
@@ -304,10 +333,11 @@ const AddScreen = ({route}) => {
           </TouchableOpacity>
         </View>
 
+
         <View >
           <Text style={{textAlign: 'center'}}>   Light       Normal   Full-bodied   Strong</Text>
-        </View> 
-        
+        </View>
+       
         <View style={styles.viscosity}>
           <ImageBackground source={bgrange} resizeMode="cover" style={styles.bgViscosity}>
           <Slider
@@ -320,11 +350,11 @@ const AddScreen = ({route}) => {
             maximumTrackTintColor="rgba(0,0,0,0)"
             value={newViscosity}
             onValueChange={setNewViscosity}
-            />       
+            />      
             </ImageBackground>
         </View>
        
-        {!editB && 
+        {!editB &&
         <TouchableOpacity
           style={styles.submitButtonA}
           onPress={() => {
@@ -338,7 +368,7 @@ const AddScreen = ({route}) => {
             />
         </TouchableOpacity>
         }
-        {editB && 
+        {editB &&
         <TouchableOpacity
           style={styles.submitButtonU}
           onPress={() => {
@@ -349,16 +379,19 @@ const AddScreen = ({route}) => {
         <Image
               source={require("../assets/cameraBtn/updateBeer2.png")}
               style={{ width: 200, height: 65, resizeMode: 'contain' }}
-            /> 
+            />
         </TouchableOpacity>
         }
+
 
       </View>
     </SafeAreaView>
   );
 };
 
+
 export default AddScreen;
+
 
 const styles = StyleSheet.create({
   container: {
@@ -370,6 +403,7 @@ const styles = StyleSheet.create({
   content: {
     paddingTop: 20,
   },
+
 
   closeBtn: {
     left: 300,
@@ -397,8 +431,8 @@ const styles = StyleSheet.create({
     borderRadius: 7,
   },
   imageOnPrev: {
-    width: 150, 
-    height: 200, 
+    width: 150,
+    height: 200,
     borderRadius: 2,
     resizeMode:"contain"
   },
@@ -422,9 +456,11 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
 
+
   viscosity: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
+
 
   },
   bgViscosity: {
@@ -432,7 +468,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   range: {
-    width: 250, 
+    width: 250,
     height: 40,
   },
   submitButtonA: {
@@ -451,5 +487,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: 'center'
   },
+
 
 });
