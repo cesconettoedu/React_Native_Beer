@@ -12,7 +12,8 @@ const HomeScreen = ({navigation}) => {
   const [showLogo, setShowLogo] = useState(true);
   const [newUser, setNewUser] = useState('');
   const [showEnter, setShowEnter] = useState(false);
-
+  
+  const isFocused = useIsFocused();
 
 
 
@@ -24,19 +25,12 @@ const HomeScreen = ({navigation}) => {
   }
  
 
-
-  const isFocused = useIsFocused();
-
-
   useEffect(() => {
     setTimeout(() => {
       setShowLogo(true)
     },1000)
    
   },[isFocused]);
-
-
- 
 
 
   // store a user
@@ -49,7 +43,7 @@ const HomeScreen = ({navigation}) => {
   }
 
 
-  // look if user already exist
+  // look if user is not null
   const getData = async () => {
     try {
       const value = await AsyncStorage.getItem('user')
@@ -80,10 +74,6 @@ const HomeScreen = ({navigation}) => {
   }
 
 
-
-
-
-
   useEffect(() => {
     getData()
   },[newUser]);
@@ -92,9 +82,7 @@ const HomeScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
 
-
       {showLogo &&
-
 
       <View >
         <Text
@@ -105,7 +93,6 @@ const HomeScreen = ({navigation}) => {
           style={styles.myLogo}
           source={require('../assets/eulogo.png')}
         />
-
 
         {!showEnter &&
           <View >
@@ -171,9 +158,6 @@ const HomeScreen = ({navigation}) => {
         source={require('../assets/cheers.gif')}
       />
       }
-
-
-
 
     </View>
   )

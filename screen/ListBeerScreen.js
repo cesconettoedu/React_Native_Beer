@@ -6,29 +6,29 @@ import MenuBottom from '../src/MenuBottom';
 import ImgModal from "../src/ImgModal";
 import { supabase } from "../supabase/supabase";
 import Search from "../src/Search";
-
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 const ListBeerScreen = ({props}) => {
-const [visibImgleModal, setVisibleImgModal] = useState(false);
-const [single, setSingle] = useState({})
-const [beer, setBeer] = useState()
-const [order, setOrder] = useState('title')
-const [asc, setAsc] = useState(true)
+  const [visibImgleModal, setVisibleImgModal] = useState(false);
+  const [single, setSingle] = useState({})
+  const [beer, setBeer] = useState()
+  const [order, setOrder] = useState('title')
+  const [asc, setAsc] = useState(true)
 
+  const [searchModal, setSearchModal] = useState (false)
+  const [searchList, setSearchList] = useState ('')
 
-const [searchModal, setSearchModal] = useState (false)
-const [searchList, setSearchList] = useState ('')
+  const [fullListBtn, setFullListBtn] = useState(false)
 
-
-const [fullListBtn, setFullListBtn] = useState(false)
+  const [userList, setUserList] = useState('')
 
 
   const openSearch = (x) => {
     setSearchModal(true)
   }
 
+  
 
   const orderBy = (typeOrder) => {
       setOrder(typeOrder)
@@ -39,6 +39,15 @@ const [fullListBtn, setFullListBtn] = useState(false)
   }
 
 
+  const getData = async () => {
+    try {
+      const value = await AsyncStorage.getItem('user')
+      console.log(value);
+      setUserList(value)
+    } catch(e) {
+      console.log('error');
+    } 
+  }
 
 
   //get all beers from supabase
@@ -46,7 +55,7 @@ const [fullListBtn, setFullListBtn] = useState(false)
       let { data: Beer, error } = await supabase
       .from('Beer')
       .select('*')
-      .eq('userName', 'Eduardo')
+      .eq('userName', `${userList}`)
       .order(order ,  { ascending: asc })
       .order('title')
       setBeer(Beer)
@@ -58,8 +67,6 @@ const [fullListBtn, setFullListBtn] = useState(false)
   let count = 0;
   for (var k in beer) if (beer.hasOwnProperty(k)) ++count;
 
-
- 
  
   const handleSearch = (typing) => {
     if(typing !== null) {
@@ -84,8 +91,6 @@ const [fullListBtn, setFullListBtn] = useState(false)
   }
 
 
-
-
   //after search when you click on 'full list', bring back all beers
   const fullCloseSearch = () => {
     setSearchList('')
@@ -94,14 +99,19 @@ const [fullListBtn, setFullListBtn] = useState(false)
   }
 
 
- 
+ // coloquei essa useEffects aqui para pegar o user somente
   useEffect(() => {
+    getData()
+  },[])
+ 
+
+
+  useEffect(() => {
+    
     if(searchList){
       getSearchBeer()
-    }else{
+    }else{ 
       getItems()
-
-
     }
   },[beer, order, searchList])
 
