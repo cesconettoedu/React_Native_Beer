@@ -70,6 +70,7 @@ const HomeScreen = ({navigation}) => {
       // remove error
     }
     setNewUser('')
+    setNewPass('')
   }
 
 

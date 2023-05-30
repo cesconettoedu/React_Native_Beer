@@ -29,4 +29,9 @@ https://app.supabase.com/project/ppihnndftvaibkwoaich/api?resource=Beer
 
 This is to build a APK im EXPO
 eas build -p android --profile preview
+
+
+
+autentication supabase simples
+https://www.youtube.com/watch?v=Ow_Uzedfohk&t=478s
  -->

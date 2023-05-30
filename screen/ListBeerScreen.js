@@ -39,23 +39,12 @@ const ListBeerScreen = ({props}) => {
   }
 
 
-  const getData = async () => {
-    try {
-      const value = await AsyncStorage.getItem('user')
-      console.log(value);
-      setUserList(value)
-    } catch(e) {
-      console.log('error');
-    } 
-  }
-
 
   //get all beers from supabase
   const getItems = async () => {
       let { data: Beer, error } = await supabase
       .from('Beer')
       .select('*')
-      .eq('userName', `${userList}`)
       .order(order ,  { ascending: asc })
       .order('title')
       setBeer(Beer)
@@ -99,12 +88,6 @@ const ListBeerScreen = ({props}) => {
     setFullListBtn(false)
   }
 
-
- // coloquei essa useEffects aqui para pegar o user somente
-  useEffect(() => {
-    getData()
-  },[])
- 
 
   useEffect(() => {
     if(searchList){
