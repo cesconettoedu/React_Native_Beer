@@ -1,19 +1,7 @@
 import React, { useState, useEffect } from "react";
-import {
-  SafeAreaView,
-  View,
-  TouchableOpacity,
-  Text,
-  TextInput,
-  StyleSheet,
-  Image,
-  KeyboardAvoidingView,
-  Pressable,
-  Modal,
-  ImageBackground
-} from "react-native";
+import { SafeAreaView, View, TouchableOpacity, Text, TextInput, StyleSheet, Image, KeyboardAvoidingView, Pressable, Modal, ImageBackground } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { supabase } from "../supabase/supabase";
+import { supabase } from '../supabase/supabase'
 import * as ImagePicker from "expo-image-picker";
 import CameraPhoto from '../src/CameraPhoto'
 import Slider from '@react-native-community/slider';
