@@ -97,7 +97,7 @@ const HomeScreen = ({navigation}) => {
         {!showEnter &&
           <View >
            
-            <Text style={styles.first}>{"\n"}It's your first time ? {"\n"}Please typing you name.</Text>
+            <Text style={styles.first}>{"\n"}It's your first time ? {"\n"}Please typing you name and password.</Text>
            
             <TouchableOpacity onPress={() => {
               if(newUser === ''){
