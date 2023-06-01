@@ -42,7 +42,7 @@ const AddScreen = ({route}) => {
     const { data: Beer, error } = await supabase
       .from("Beer")
       .insert([
-        { title: newTitle, imageUrl: newImageUrl, note: newNote, star: stars, viscosity: newViscosity, userName: 'Eduardo' },
+        { title: newTitle, imageUrl: newImageUrl, note: newNote, star: stars, viscosity: newViscosity },
       ]);
     return Beer;
   };
