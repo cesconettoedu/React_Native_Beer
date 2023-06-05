@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { View, Text, TextInput, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { useIsFocused } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
+import Register from '../src/Register'
+import Login from "../src/Login";
 
 
 
@@ -97,7 +98,10 @@ const HomeScreen = ({navigation}) => {
         {!showEnter &&
           <View >
            
-            <Text style={styles.first}>{"\n"}It's your first time ? {"\n"}Please typing you name and password.</Text>
+           <Register/>
+
+           <Login/>
+            {/* <Text style={styles.first}>{"\n"}It's your first time ? {"\n"}Please typing you name and password.</Text>
            
             <TouchableOpacity onPress={() => {
               if(newUser === ''){
@@ -132,7 +136,7 @@ const HomeScreen = ({navigation}) => {
                 source={require("../assets/menuBottom/ok.png")}
                 style={{ width: 65, height: 65 }}
               />
-            </TouchableOpacity>
+            </TouchableOpacity> */}
 
 
           </View>
