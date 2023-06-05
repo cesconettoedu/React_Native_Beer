@@ -96,7 +96,7 @@ const HomeScreen = ({navigation}) => {
         />
 
         {!showEnter &&
-          <View >
+          <View style={styles.btns}>
            
            <Register/>
 
@@ -196,8 +196,12 @@ const styles = StyleSheet.create({
   first: {
     color: '#7FB069',
   },
-  inputUser: {
-    
+  btns: {
+    flexDirection: 'row',
+    justifyContent: "center",
+    justifyContent: "space-evenly",
+  },
+  inputUser: { 
     alignItems: 'center',
     justifyContent: "center",
   },
