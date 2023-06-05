@@ -1,35 +1,71 @@
-import React from "react";
-import { View, StyleSheet, TouchableOpacity, Text } from "react-native";
+import React, { useState } from "react";
+import { View, StyleSheet, TouchableOpacity, Text, TextInput, Image } from "react-native";
 
 const Register = () => {
+
+  const [newUser, setNewUser] = useState('');
+  const [newPass, setNewPass] = useState('');
+
+    const registerClick = () => {
+       alert('go to register input')
+    }
+
+
   return (
     <View>
-      <TouchableOpacity
-        style={[styles.registerCont]}
-        title="register"
-        // onPress={press}
-      >
-        <Text style={styles.register}>Register</Text>
-      </TouchableOpacity>
-    </View>
+          <TouchableOpacity onPress={() => {
+              if(newUser === ''){
+                alert('enter a name');
+              } else {
+                storeData(newUser)
+                }}
+              }
+              style={styles.inputUser}
+            >
+              <TextInput
+                style={styles.input}
+                underlineColorAndroid="transparent"
+                placeholder=" Your Name"
+                placeholderTextColor="#4a4e69"
+                autoCapitalize='words'
+                maxLength={30}
+                value={newUser}
+                onChangeText={setNewUser}
+                />
+               <TextInput
+                style={styles.input}
+                underlineColorAndroid="transparent"
+                placeholder=" Password"
+                placeholderTextColor="#4a4e69"
+                secureTextEntry={true}
+                maxLength={30}
+                value={newPass}
+                onChangeText={setNewPass}
+                />
+                <Image
+                source={require("../assets/register.png")}
+                style={{ width: 150, height: 55 }}
+              />
+          </TouchableOpacity>
+        </View>
   );
 };
 
 export default Register;
 
 const styles = StyleSheet.create({
-    registerCont: {
-        opacity: 0.2,
-        top: 40  
-      },
-      register: {
-        alignSelf: 'center',
-        color: '#69e9f5',
-        fontSize: 30,
-        fontWeight: 600,
-        borderRadius:10,
-        backgroundColor: '#8fcbbc',
-        paddingRight: 10,
-        paddingLeft: 10
-      },
+  inputUser: {   
+    alignItems: 'center',
+    justifyContent: "center",
+  },
+  input: {
+    color: '#7FB069',
+    width: '60%',
+    borderRadius: 5,
+    margin: 5,
+    height: 40,
+    borderColor: "#7FB069",
+    borderWidth: 1,
+    paddingLeft: 10
+  },
 });

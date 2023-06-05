@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { View, Text, TextInput, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { useIsFocused } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import Register from '../src/Register'
+import Register from "../src/Register";
 import Login from "../src/Login";
+
 
 
 
@@ -11,73 +12,22 @@ const HomeScreen = ({navigation}) => {
 
 
   const [showLogo, setShowLogo] = useState(true);
+  const [showBtns, setShowBtns] = useState(true);
+  const [regInp, setRegInp] = useState(false);
+  const [logInp, setLogInp] = useState(false);
   const [newUser, setNewUser] = useState('');
   const [newPass, setNewPass] = useState('');
-  const [showEnter, setShowEnter] = useState(false);
-  
-  const isFocused = useIsFocused();
 
 
-
-  const press = () => {
-    setShowLogo(false);
-    setTimeout(() => {
-      navigation.navigate('ListBeerScreen')
-    },3000)
-  }
- 
-
-  useEffect(() => {
-    setTimeout(() => {
-      setShowLogo(true)
-    },1000)
-   
-  },[isFocused]);
-
-
-  // store a user
-  const storeData = async (value) => {
-    try {
-      await AsyncStorage.setItem('user', value)
-    } catch (e) {
-      // saving error
-    }
+  const regBtnPress = () => {
+   setShowBtns(false);
+   setRegInp(true);
   }
 
-
-  // look if user is not null
-  const getData = async () => {
-    try {
-      const value = await AsyncStorage.getItem('user')
-      if(value !== null) {
-      // console.log('USEERRRR', value);
-        setNewUser(value)
-        setShowEnter(true)
-      } else if (value === null) {
-      //  console.log('SEM USEER', value);
-        setShowEnter(false)
-      }
-    } catch(e) {
-      console.log('error');
-    }
-  }
-
-
-  //remove user
-  removeValue = async () => {
-    try {
-      await AsyncStorage.removeItem('user')
-    } catch(e) {
-      // remove error
-    }
-    setNewUser('')
-    setNewPass('')
-  }
-
-
-  useEffect(() => {
-    getData()
-  },[newUser]);
+  const logBtnPress = () => {
+    setShowBtns(false);
+    setLogInp(true);
+   }
 
 
   return (
@@ -95,74 +45,30 @@ const HomeScreen = ({navigation}) => {
           source={require('../assets/eulogo.png')}
         />
 
-        {!showEnter &&
-          <View style={styles.btns}>
-           
-           <Register/>
-
-           <Login/>
-            {/* <Text style={styles.first}>{"\n"}It's your first time ? {"\n"}Please typing you name and password.</Text>
-           
-            <TouchableOpacity onPress={() => {
-              if(newUser === ''){
-                alert('enter a name');
-              } else {
-                storeData(newUser); setShowEnter(true)
-                }}
-              }
-              style={styles.inputUser}
-            >
-              <TextInput
-                style={styles.input}
-                underlineColorAndroid="transparent"
-                placeholder=" Your Name"
-                placeholderTextColor="#4a4e69"
-                autoCapitalize='words'
-                maxLength={30}
-                value={newUser}
-                onChangeText={setNewUser}
-              />
-               <TextInput
-                style={styles.input}
-                underlineColorAndroid="transparent"
-                placeholder=" Password"
-                placeholderTextColor="#4a4e69"
-                secureTextEntry={true}
-                maxLength={30}
-                value={newPass}
-                onChangeText={setNewPass}
-              />
-              <Image
-                source={require("../assets/menuBottom/ok.png")}
-                style={{ width: 65, height: 65 }}
-              />
-            </TouchableOpacity> */}
 
 
-          </View>
-        }
-        {showEnter &&
-          <View >
-            <View style={styles.remove}>
-              <Text style={styles.userName}>Welcome {newUser}</Text>
-           
-              <TouchableOpacity onPress={() => {removeValue()}} >
-                <Text style={styles.removeX} >X</Text>
-              </TouchableOpacity>
-            </View>
-           
-            <TouchableOpacity
-              style={[styles.enterContainer]}
-              title="ENTER"
-              onPress={press}
-            >
-              <Text style={styles.enter}>ENTER</Text>
-            </TouchableOpacity>
+      {showBtns &&
+        <View style={{flexDirection: 'row', justifyContent: 'space-evenly'}}>
+          <TouchableOpacity onPress={regBtnPress}>
+          <Text style={styles.regLogbtn}>Register</Text>
+          </TouchableOpacity>
 
-
-          </View>
-        }
+          <TouchableOpacity onPress={logBtnPress}>
+            <Text style={styles.regLogbtn}>Login</Text>
+          </TouchableOpacity>
+        </View>
+      } 
+      {regInp &&
+        <Register/>
+      }
+      {logInp &&
+        <Login/>
+      }
      
+
+
+
+
       </View>
       }
       {!showLogo &&
@@ -193,35 +99,22 @@ const styles = StyleSheet.create({
     fontSize: 40,
     fontWeight: 600
   },
-  first: {
-    color: '#7FB069',
+  regLogbtnCont: {
+    opacity: 0.2,
+    top: 40  
   },
-  btns: {
-    flexDirection: 'row',
-    justifyContent: "center",
-    justifyContent: "space-evenly",
-  },
-  inputUser: { 
-    alignItems: 'center',
-    justifyContent: "center",
-  },
-  input: {
-    color: '#7FB069',
-    width: '60%',
-    borderRadius: 5,
-    margin: 5,
-    height: 40,
-    borderColor: "#7FB069",
-    borderWidth: 1,
+  regLogbtn: {
+    alignSelf: 'center',
+    color: '#69e9f5',
+    fontSize: 30,
+    fontWeight: 600,
+    borderRadius:10,
+    backgroundColor: '#8fcbbc',
+    paddingRight: 10,
     paddingLeft: 10
   },
-  userName: {
-    paddingTop: 30,
-    textAlign: 'center',
-    color: '#7FB069',
-    fontSize: 30,
-    fontWeight: 500,
-  },
+ 
+  
   remove: {
     flexDirection: 'row',
     alignItems: 'center',
