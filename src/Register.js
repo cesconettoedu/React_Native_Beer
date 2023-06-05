@@ -6,6 +6,7 @@ const Register = () => {
 
   const [newUser, setNewUser] = useState('');
   const [newPass, setNewPass] = useState('');
+  const [userExist, setUserExist] = useState('');
 
 
   const createUser = async () => {
@@ -18,15 +19,27 @@ const Register = () => {
   };
 
 
+  const checkUser = async () => {
+    let { data: users, error } = await supabase
+    .from('users')
+    .select('*')
+    .eq('user', newUser)
+    setUserExist(users.length)
+    return users;
+}
+
+
   return (
     <View>
           <TouchableOpacity onPress={() => {
               if(newUser === ''){
                 alert('enter a name');
               } else {
-                createUser()
-                }}
+                checkUser()
+                console.log(userExist);
+               // createUser()
               }
+            }}
               style={styles.inputUser}
             >
               <TextInput
