@@ -1,14 +1,21 @@
 import React, { useState } from "react";
 import { View, StyleSheet, TouchableOpacity, Text, TextInput, Image } from "react-native";
+import { supabase } from '../supabase/supabase'
 
 const Register = () => {
 
   const [newUser, setNewUser] = useState('');
   const [newPass, setNewPass] = useState('');
 
-    const registerClick = () => {
-       alert('go to register input')
-    }
+
+  const createUser = async () => {
+    const { data: users, error } = await supabase
+      .from("users")
+      .insert([
+        { user: newUser, pass: newPass },
+      ]);
+    return users;
+  };
 
 
   return (
@@ -17,7 +24,7 @@ const Register = () => {
               if(newUser === ''){
                 alert('enter a name');
               } else {
-                storeData(newUser)
+                createUser()
                 }}
               }
               style={styles.inputUser}
