@@ -1,12 +1,17 @@
 import React, { useState } from "react";
-import { View, StyleSheet, TouchableOpacity, Text, TextInput, Image } from "react-native";
+import {
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  Text,
+  TextInput,
+  Image,
+} from "react-native";
 import { supabase } from "../supabase/supabase";
 
 const Register = () => {
   const [newUser, setNewUser] = useState("");
   const [newPass, setNewPass] = useState("");
-  const [userExist, setUserExist] = useState("");
-
 
 
   const checkUser = async () => {
@@ -14,7 +19,6 @@ const Register = () => {
       .from("users")
       .select("*")
       .eq("user", newUser);
-    setUserExist(users.length);
     return users;
   };
 
@@ -25,11 +29,8 @@ const Register = () => {
     return users;
   };
 
-
-
   return (
     <View style={styles.inputUser}>
-
       <TextInput
         style={styles.input}
         underlineColorAndroid="transparent"
@@ -56,24 +57,29 @@ const Register = () => {
           if (newUser === "") {
             alert("enter a name");
           } else {
-            checkUser();
-            console.log(userExist);
-            if (userExist === 0) {
-              createUser();
-            } else {
-              alert("user name already exist");
-            }
+            let userAux = 0;
+            checkUser()
+              .then((data) => {
+                userAux = data.length;
+                console.log(userAux);
+              })
+              .then(() => {
+                if (userAux === 0) {
+                  createUser().then((data) => {
+                    alert("user Created");
+                  });
+                } else {
+                  alert("user name already exist");
+                }
+              });
           }
         }}
       >
-
         <Image
           source={require("../assets/register.png")}
           style={{ width: 150, height: 55 }}
         />
-
       </TouchableOpacity>
-    
     </View>
   );
 };
