@@ -1,24 +1,37 @@
 import React, { useState } from "react";
 import { View, StyleSheet, TouchableOpacity, Text, TextInput, Image } from "react-native";
+import { supabase } from "../supabase/supabase";
+
 
 const Login = () => {
 
   const [newUser, setNewUser] = useState('');
   const [newPass, setNewPass] = useState('');
 
-    const registerClick = () => {
-       alert('go to Login input')
-    }
+  const logCheckUser = async () => {
+    let { data: users, error } = await supabase
+      .from("users")
+      .select("*")
+      .eq("user", newUser)
+      .eq("pass", newPass);
+    //  console.log(users[0].id);
+    return users[0].id;
+  };
 
 
   return (
     <View>
           <TouchableOpacity onPress={() => {
-              if(newUser === ''){
+              if(newUser === '' || newPass === ''){
                 alert('enter a name');
               } else {
-                storeData(newUser)
-                }}
+                let userId = 0
+                logCheckUser()
+                .then((id) => {
+                  userId = id;
+                  console.log('aquii', userId);
+                })
+              }}
               }
               style={styles.inputUser}
             >

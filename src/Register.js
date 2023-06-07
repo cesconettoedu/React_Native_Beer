@@ -61,7 +61,7 @@ const Register = () => {
             checkUser()
               .then((data) => {
                 userAux = data.length;
-                console.log(userAux);
+               // console.log(userAux);
               })
               .then(() => {
                 if (userAux === 0) {
