@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { supabase } from "../supabase/supabase";
 
+
 const Register = () => {
   const [newUser, setNewUser] = useState("");
   const [newPass, setNewPass] = useState("");

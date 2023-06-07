@@ -23,16 +23,15 @@ const Login = () => {
     <View>
           <TouchableOpacity onPress={() => {
               if(newUser === '' || newPass === ''){
-                alert('enter a name');
+                alert('name and password need to be filled');
               } else {
                 let userId = 0
                 logCheckUser()
-                .then((id) => {
-                  userId = id;
-                  console.log('aquii', userId);
-                })
-              }}
+                  .then((id) => {
+                    userId = id;
+                  })
               }
+            }}
               style={styles.inputUser}
             >
               <TextInput
