@@ -4,7 +4,7 @@ import { supabase } from "../supabase/supabase";
 
 import { useNavigation } from '@react-navigation/native';
 
-const Login = () => {
+const Login = (props) => {
 
   const navigation = useNavigation();
 
@@ -81,6 +81,15 @@ const Login = () => {
                 style={{ width: 150, height: 55 }}
               />
           </TouchableOpacity>
+
+          <TouchableOpacity
+            onPress={() => props.returnToLogin()}
+            >
+            <Image
+                source={require("../assets/cameraBtn/cancel.png")}
+                style={{ width: 55, height: 55 }}
+              />
+            </TouchableOpacity>
         </View>
   );
 };
