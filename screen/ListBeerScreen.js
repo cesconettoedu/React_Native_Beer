@@ -9,7 +9,7 @@ import Search from "../src/Search";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
-const ListBeerScreen = ({props}) => {
+const ListBeerScreen = ({route}) => {
   const [visibImgleModal, setVisibleImgModal] = useState(false);
   const [single, setSingle] = useState({})
   const [beer, setBeer] = useState()
@@ -20,9 +20,9 @@ const ListBeerScreen = ({props}) => {
   const [searchList, setSearchList] = useState ('')
 
   const [fullListBtn, setFullListBtn] = useState(false)
-
   const [userList, setUserList] = useState('')
 
+  
 
   const openSearch = (x) => {
     setSearchModal(true)
@@ -42,9 +42,11 @@ const ListBeerScreen = ({props}) => {
 
   //get all beers from supabase
   const getItems = async () => {
+     console.log(route.params.id);
       let { data: Beer, error } = await supabase
       .from('Beer')
       .select('*')
+      .eq('id_user', `${route.params.id}`)
       .order(order ,  { ascending: asc })
       .order('title')
       setBeer(Beer)

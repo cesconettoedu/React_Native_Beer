@@ -10,7 +10,7 @@ import {
 import { supabase } from "../supabase/supabase";
 
 
-const Register = ({after}) => {
+const Register = (props) => {
   const [newUser, setNewUser] = useState("");
   const [newPass, setNewPass] = useState("");
 
@@ -68,7 +68,7 @@ const Register = ({after}) => {
                 if (userAux === 0) {
                   createUser().then((data) => {
                     alert("user Created");
-                    
+                    props.returnToLogin()
                   });
                 } else {
                   alert("user name already exist");
@@ -80,6 +80,15 @@ const Register = ({after}) => {
         <Image
           source={require("../assets/register.png")}
           style={{ width: 150, height: 55 }}
+        />
+      </TouchableOpacity>
+      
+      <TouchableOpacity
+       onPress={() => props.returnToLogin()}
+      >
+      <Image
+          source={require("../assets/cameraBtn/cancel.png")}
+          style={{ width: 55, height: 55 }}
         />
       </TouchableOpacity>
     </View>

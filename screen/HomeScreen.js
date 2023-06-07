@@ -15,11 +15,10 @@ const HomeScreen = ({navigation}) => {
   const [showBtns, setShowBtns] = useState(true);
   const [regInp, setRegInp] = useState(false);
   const [logInp, setLogInp] = useState(false);
-  const [newUser, setNewUser] = useState('');
-  const [newPass, setNewPass] = useState('');
 
 
-  const regBtnPress = () => {
+
+  const regBtnPress = (btns, reg) => {
    setShowBtns(false);
    setRegInp(true);
   }
@@ -59,7 +58,10 @@ const HomeScreen = ({navigation}) => {
         </View>
       } 
       {regInp &&
-        <Register/>
+        <Register
+          returnToLogin = {() => {setShowBtns(true);
+            setRegInp(false);}}
+        />
       }
       {logInp &&
         <Login/>
@@ -110,23 +112,7 @@ const styles = StyleSheet.create({
     paddingRight: 10,
     paddingLeft: 10
   },
- 
-  
-  remove: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: "center",
-  },
-  removeX: {
-    color: '#69e9f5',
-    fontSize: 20,
-    fontWeight: 600,
-    borderRadius:10,
-    backgroundColor: 'red',
-    paddingRight: 10,
-    paddingLeft: 10
-  },
-  enterContainer: {
+   enterContainer: {
     opacity: 0.2,
     top: 40  
   },

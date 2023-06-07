@@ -66,7 +66,7 @@ const Login = () => {
                     alert (`Welcome ${userName}`)
                     console.log('Aqui',userRealId);
                     // aqui eu encaminho o id (userRealId) para a list
-                    navigation.navigate('ListBeerScreen', { paramKey: userRealId })
+                    navigation.navigate('ListBeerScreen', { id: userRealId })
                   } else {
                     alert('Wrong user or pass')
                   }
