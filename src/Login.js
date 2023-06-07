@@ -14,8 +14,8 @@ const Login = () => {
       .select("*")
       .eq("user", newUser)
       .eq("pass", newPass);
-    //  console.log(users[0].id);
-    return users[0].id;
+     //  console.log(users[0].id);
+    return users;
   };
 
 
@@ -25,11 +25,25 @@ const Login = () => {
               if(newUser === '' || newPass === ''){
                 alert('name and password need to be filled');
               } else {
-                let userId = 0
+                let userIdExit = 0
+                let userRealId = 0
+
                 logCheckUser()
-                  .then((id) => {
-                    userId = id;
-                  })
+                .then ((user) => {
+                  userIdExit = user.length
+                    if(userIdExit === 1){
+                      userRealId = user[0].id
+                    }
+                })
+                .then (() => {
+                  if(userIdExit === 1){
+                    alert ('OK mach')
+                    console.log('Aqui',userRealId);
+                    // aqui eu encaminho o id (userRealId) para a list 
+                  } else {
+                    alert('Wrong user or pass')
+                  }
+                })
               }
             }}
               style={styles.inputUser}

@@ -10,7 +10,7 @@ import {
 import { supabase } from "../supabase/supabase";
 
 
-const Register = () => {
+const Register = ({after}) => {
   const [newUser, setNewUser] = useState("");
   const [newPass, setNewPass] = useState("");
 
@@ -68,6 +68,7 @@ const Register = () => {
                 if (userAux === 0) {
                   createUser().then((data) => {
                     alert("user Created");
+                    
                   });
                 } else {
                   alert("user name already exist");

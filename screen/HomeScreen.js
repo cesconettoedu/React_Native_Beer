@@ -66,9 +66,6 @@ const HomeScreen = ({navigation}) => {
       }
      
 
-
-
-
       </View>
       }
       {!showLogo &&
