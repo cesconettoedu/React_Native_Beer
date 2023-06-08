@@ -168,7 +168,7 @@ const AddScreen = ({route}) => {
 
         <Pressable
           style={styles.closeBtn}
-          onPress={() => navigation.navigate("ListBeerScreen")}
+          onPress={() => navigation.navigate("ListBeerScreen", { id: route.params.userId })}
         >
           <Text style={styles.closeText}> X </Text>
         </Pressable>
