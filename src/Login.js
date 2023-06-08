@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, StyleSheet, TouchableOpacity, Text, TextInput, Image } from "react-native";
 import { supabase } from "../supabase/supabase";
+import { useIsFocused } from '@react-navigation/native';
 
 import { useNavigation } from '@react-navigation/native';
 
 const Login = (props) => {
 
   const navigation = useNavigation();
+  const isFocused = useIsFocused();
 
   const [newUser, setNewUser] = useState('');
   const [newPass, setNewPass] = useState('');
+  const [showLogo, setShowLogo] = useState(false);
 
   const logCheckUser = async () => {
     let { data: users, error } = await supabase
@@ -21,10 +24,19 @@ const Login = (props) => {
     return users;
   };
 
-
+ useEffect(() => {
+    setTimeout(() => {
+      setShowLogo(false)
+    },1000)
+   
+  },[isFocused]);
 
   return (
-    <View  style={styles.inputUser}>
+    <View>
+
+   
+    {!showLogo &&
+  <View  style={styles.inputUser}>
               <TextInput
                 style={styles.input}
                 underlineColorAndroid="transparent"
@@ -63,10 +75,11 @@ const Login = (props) => {
                 })
                 .then (() => {
                   if(userIdExit === 1){
-                    alert (`Welcome ${userName}`)
-                    console.log('Aqui',userRealId);
-                    // aqui eu encaminho o id (userRealId) para a list
-                    navigation.navigate('ListBeerScreen', { id: userRealId })
+                  //  alert (`Welcome ${userName}`)
+                  setShowLogo(true)
+                    setTimeout(() => {
+                      navigation.navigate('ListBeerScreen', { id: userRealId })
+                    },3000)
                   } else {
                     alert('Wrong user or pass')
                   }
@@ -92,6 +105,15 @@ const Login = (props) => {
               />
             </TouchableOpacity>
         </View>
+      }
+      {showLogo &&
+      <Image
+        style={styles.cheers}
+        source={require('../assets/cheers.gif')}
+      />
+      }
+
+       </View>
   );
 };
 
@@ -121,5 +143,9 @@ const styles = StyleSheet.create({
     width: 55, 
     height: 55,
     marginTop: 20,
+  },
+  cheers: {
+    width: 320,
+    height: 250
   }
 });

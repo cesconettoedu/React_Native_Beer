@@ -61,8 +61,8 @@ const HomeScreen = ({navigation}) => {
       }
       {logInp &&
         <Login 
-        returnToLogin = {() => {setShowBtns(true);
-          setLogInp(false);}}
+          returnToLogin = {() => {setShowBtns(true);
+            setLogInp(false);}}
         />
       }
      
