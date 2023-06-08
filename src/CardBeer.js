@@ -146,7 +146,7 @@ export default function CardBeer({ data }) {
                 <EditDelModal
                   title= {data.title}
                   handleClose={() => setVisibleModal(false)}
-                  handleEdit={() => navigation.navigate('EditScreen', { paramKey: data  })} 
+                  handleEdit={() => navigation.navigate('EditScreen', { paramKey: data, userId: data.id_user, addItem: false  })} 
                   handleDelete={() => setVisibleModalConf(true)}
                 />
               </Modal>

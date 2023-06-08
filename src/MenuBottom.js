@@ -5,7 +5,6 @@ import { useNavigation } from '@react-navigation/native';
 const MenuBottom = (orderBy) => {
 const [ azVisible, setAzVisible] = useState(false)
 
-
 const navigation = useNavigation();
 const sizeIcon = 45;
 
@@ -38,8 +37,6 @@ const bests = (y) => {
             />
         </TouchableOpacity>
       }
-     
-
 
       <TouchableOpacity onPress={() => orderBy.children.openSearch()} >
         <Image 
@@ -48,7 +45,7 @@ const bests = (y) => {
           />
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() =>  navigation.navigate('AddScreen')} >
+      <TouchableOpacity onPress={() => navigation.navigate('AddScreen', { userId: orderBy.children.userIdLogado, addItem: true })} >
         <Image 
           source = {require('../assets/menuBottom/add2.png')} 
           style = {{ width: 65, height: 65 }}

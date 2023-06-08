@@ -78,8 +78,8 @@ const Register = (props) => {
         }}
       >
         <Image
+          style={styles.confirm}
           source={require("../assets/register.png")}
-          style={{ width: 150, height: 55 }}
         />
       </TouchableOpacity>
       
@@ -87,8 +87,9 @@ const Register = (props) => {
        onPress={() => props.returnToLogin()}
       >
       <Image
-          source={require("../assets/cameraBtn/cancel.png")}
-          style={{ width: 55, height: 55 }}
+        style={styles.return}
+        source={require("../assets/cameraBtn/cancel.png")}
+        //source={require("../assets/menuBottom/return.png")}
         />
       </TouchableOpacity>
     </View>
@@ -112,4 +113,14 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     paddingLeft: 10,
   },
+  confirm: {
+    marginTop: 20,
+    width: 150, 
+    height: 55
+  },
+  return: {
+    width: 55, 
+    height: 55,
+    marginTop: 20,
+  }
 });

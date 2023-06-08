@@ -76,9 +76,9 @@ const Login = (props) => {
              
              
             >
-                <Image
+              <Image
+                style={styles.confirm}
                 source={require("../assets/login.png")}
-                style={{ width: 150, height: 55 }}
               />
           </TouchableOpacity>
 
@@ -86,8 +86,9 @@ const Login = (props) => {
             onPress={() => props.returnToLogin()}
             >
             <Image
+                style={styles.return}
+                //source={require("../assets/menuBottom/return.png")}
                 source={require("../assets/cameraBtn/cancel.png")}
-                style={{ width: 55, height: 55 }}
               />
             </TouchableOpacity>
         </View>
@@ -111,4 +112,14 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     paddingLeft: 10
   },
+  confirm: {
+    marginTop: 20,
+    width: 150, 
+    height: 55
+  },
+  return: {
+    width: 55, 
+    height: 55,
+    marginTop: 20,
+  }
 });

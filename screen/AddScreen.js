@@ -42,7 +42,7 @@ const AddScreen = ({route}) => {
     const { data: Beer, error } = await supabase
       .from("Beer")
       .insert([
-        { title: newTitle, imageUrl: newImageUrl, note: newNote, star: stars, viscosity: newViscosity },
+        { id_user: route.params.userId, title: newTitle, imageUrl: newImageUrl, note: newNote, star: stars, viscosity: newViscosity },
       ]);
     return Beer;
   };
@@ -79,7 +79,7 @@ const AddScreen = ({route}) => {
 
 
   const editBeer = () => {
-    if(route.params !== undefined) {
+    if(!route.params.addItem) {
       setEditB(true);
       setIdUpdate(route.params.paramKey.id)
       setNewImageUrl(route.params.paramKey.imageUrl)
@@ -91,10 +91,7 @@ const AddScreen = ({route}) => {
     }
   }
 
-
-
-
- 
+  
   const getFromCamera = (image) => {
     setNewImageUrl(image)
   }
@@ -167,9 +164,6 @@ const AddScreen = ({route}) => {
         default:
       }
   };
-
-
-
 
 
 
@@ -347,7 +341,7 @@ const AddScreen = ({route}) => {
           style={styles.submitButtonA}
           onPress={() => {
             addNewBeer();
-            navigation.navigate("ListBeerScreen");
+            navigation.navigate("ListBeerScreen", { id: route.params.userId });
           }}
         >
           <Image
@@ -361,7 +355,8 @@ const AddScreen = ({route}) => {
           style={styles.submitButtonU}
           onPress={() => {
             updateNewBeer();
-            navigation.navigate("ListBeerScreen");
+            console.log('aaaaaa',route.params );
+            navigation.navigate("ListBeerScreen", { id: route.params.userId });
           }}
         >
         <Image

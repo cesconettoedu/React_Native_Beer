@@ -42,8 +42,7 @@ const ListBeerScreen = ({route}) => {
 
   //get all beers from supabase
   const getItems = async () => {
-     console.log(route.params.id);
-      let { data: Beer, error } = await supabase
+    let { data: Beer, error } = await supabase
       .from('Beer')
       .select('*')
       .eq('id_user', `${route.params.id}`)
@@ -76,7 +75,7 @@ const ListBeerScreen = ({route}) => {
     let { data: Beer, error } = await supabase
     .from('Beer')
     .select("*")
-    .eq('userName', `${userList}`)
+    .eq('id_user', `${route.params.id}`)
     .ilike('title', `%${searchList}%`)
     setBeer(Beer)
       return Beer
@@ -143,7 +142,7 @@ const ListBeerScreen = ({route}) => {
 
 
       <MenuBottom>
-        {{orderBy: orderBy, openSearch:openSearch}}
+        {{orderBy: orderBy, openSearch:openSearch, userIdLogado: route.params.id}}
       </MenuBottom>
 
 
