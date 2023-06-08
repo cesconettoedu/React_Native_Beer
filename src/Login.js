@@ -142,7 +142,6 @@ const styles = StyleSheet.create({
     height: 250,
   },
   cheersName: {
-
     textAlign: 'center',
     color: '#7FB069',
     fontSize: 23,

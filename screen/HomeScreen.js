@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, TextInput, StyleSheet, Image, TouchableOpacity } from "react-native";
-import { useIsFocused } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Register from "../src/Register";
 import Login from "../src/Login";
 
 const HomeScreen = ({navigation}) => {
 
-  const [showLogo, setShowLogo] = useState(true);
   const [showBtns, setShowBtns] = useState(true);
   const [regInp, setRegInp] = useState(false);
   const [logInp, setLogInp] = useState(false);
@@ -25,9 +23,6 @@ const HomeScreen = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-
-      {showLogo &&
-
       <View >
         <Text
           style={styles.title}
@@ -61,20 +56,12 @@ const HomeScreen = ({navigation}) => {
       }
       {logInp &&
         <Login 
-          returnToLogin = {() => {setShowBtns(true);
-            setLogInp(false);}}
+         returnToLogin = {() => {setShowBtns(true);
+           setLogInp(false);}}
         />
       }
      
       </View>
-      }
-      {!showLogo &&
-      <Image
-        style={styles.cheers}
-        source={require('../assets/cheers.gif')}
-      />
-      }
-
     </View>
   )
 }
@@ -115,7 +102,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   regbtnText: {
-    //textAlign: 'center',
     color: '#FFF'
   },
   regbtn: {
