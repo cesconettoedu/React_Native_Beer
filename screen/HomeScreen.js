@@ -47,14 +47,18 @@ const HomeScreen = ({navigation}) => {
 
 
       {showBtns &&
-        <View style={{flexDirection: 'row', justifyContent: 'space-evenly'}}>
-          <TouchableOpacity onPress={regBtnPress}>
-          <Text style={styles.regLogbtn}>Register</Text>
-          </TouchableOpacity>
-
+        <View >
+          
           <TouchableOpacity onPress={logBtnPress}>
-            <Text style={styles.regLogbtn}>Login</Text>
+            <Text style={styles.logbtn}>Login</Text>
           </TouchableOpacity>
+          
+          <View style={styles.regCont}>
+            <Text style={styles.regbtnText}>It's is your first time?  please </Text>
+            <TouchableOpacity onPress={regBtnPress}>
+              <Text style={styles.regbtn}>Register</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       } 
       {regInp &&
@@ -101,19 +105,31 @@ const styles = StyleSheet.create({
     fontSize: 40,
     fontWeight: 600
   },
-  regLogbtnCont: {
+  
+  logbtn: {
     opacity: 0.2,
-    top: 40  
-  },
-  regLogbtn: {
     alignSelf: 'center',
     color: '#69e9f5',
-    fontSize: 30,
+    fontSize: 50,
     fontWeight: 600,
     borderRadius:10,
     backgroundColor: '#8fcbbc',
     paddingRight: 10,
-    paddingLeft: 10
+    paddingLeft: 10,
+    top: 30,
+  },
+
+  regCont: {
+    justifyContent: 'center',
+    top: 80,
+    flexDirection: 'row',
+  },
+  regbtnText: {
+    //textAlign: 'center',
+    color: '#FFF'
+  },
+  regbtn: {
+    color: '#69e9f5',
   },
    enterContainer: {
     opacity: 0.2,
