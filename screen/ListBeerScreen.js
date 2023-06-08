@@ -22,13 +22,11 @@ const ListBeerScreen = ({route}) => {
   const [fullListBtn, setFullListBtn] = useState(false)
   const [userList, setUserList] = useState('')
 
-  
 
   const openSearch = (x) => {
     setSearchModal(true)
   }
 
-  
 
   const orderBy = (typeOrder) => {
       setOrder(typeOrder)
@@ -38,8 +36,7 @@ const ListBeerScreen = ({route}) => {
       }
   }
 
-
-
+  
   //get all beers from supabase
   const getItems = async () => {
     let { data: Beer, error } = await supabase

@@ -5,18 +5,12 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import Register from "../src/Register";
 import Login from "../src/Login";
 
-
-
-
 const HomeScreen = ({navigation}) => {
-
 
   const [showLogo, setShowLogo] = useState(true);
   const [showBtns, setShowBtns] = useState(true);
   const [regInp, setRegInp] = useState(false);
   const [logInp, setLogInp] = useState(false);
-
-
 
   const regBtnPress = (btns, reg) => {
    setShowBtns(false);
@@ -43,8 +37,6 @@ const HomeScreen = ({navigation}) => {
           style={styles.myLogo}
           source={require('../assets/eulogo.png')}
         />
-
-
 
       {showBtns &&
         <View >
@@ -74,7 +66,6 @@ const HomeScreen = ({navigation}) => {
         />
       }
      
-
       </View>
       }
       {!showLogo &&
@@ -87,7 +78,6 @@ const HomeScreen = ({navigation}) => {
     </View>
   )
 }
-
 
 export default HomeScreen;
 

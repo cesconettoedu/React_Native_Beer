@@ -6,12 +6,9 @@ import * as ImagePicker from "expo-image-picker";
 import CameraPhoto from '../src/CameraPhoto'
 import Slider from '@react-native-community/slider';
 
-
 import mugFull from '../assets/mugsStar/beerIconFull.png'
 import mugEmpty from '../assets/mugsStar/beerIconBlack.png'
 import bgrange from '../assets/strong/bg.png'
-
-
 
 
 const AddScreen = ({route}) => {
@@ -32,11 +29,9 @@ const AddScreen = ({route}) => {
  
   const [newViscosity, setNewViscosity] = useState(1)
 
-
   const ratio = 0.5;
   const navigation = useNavigation();
  
-
 
   const addNewBeer = async () => {
     const { data: Beer, error } = await supabase
@@ -48,8 +43,6 @@ const AddScreen = ({route}) => {
   };
 
 
-
-
   const updateNewBeer = async () => {
     const { data: Beer, error } = await supabase
     .from('Beer')
@@ -57,8 +50,6 @@ const AddScreen = ({route}) => {
     .eq('id', idUpdate)
     return Beer;
   };
-
-
 
 
   //to get image from device
@@ -74,8 +65,6 @@ const AddScreen = ({route}) => {
       setNewImageUrl(result.assets[0].uri);
     }
   };
-
-
 
 
   const editBeer = () => {
@@ -241,7 +230,6 @@ const AddScreen = ({route}) => {
           </TouchableOpacity>
         </View>
 
-
         <KeyboardAvoidingView
           style={styles.keyboardAvoid}
           behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -257,7 +245,6 @@ const AddScreen = ({route}) => {
             onChangeText={setNewTitle}
           />
 
-
           <TextInput
             style={styles.input}
             underlineColorAndroid="transparent"
@@ -268,8 +255,6 @@ const AddScreen = ({route}) => {
             onChangeText={setNewNote}
           />
         </KeyboardAvoidingView>
-
-
 
 
         <View style={styles.mugs}>
