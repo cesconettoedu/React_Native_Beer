@@ -20,7 +20,6 @@ const ListBeerScreen = ({route}) => {
   const [searchList, setSearchList] = useState ('')
 
   const [fullListBtn, setFullListBtn] = useState(false)
-  const [userList, setUserList] = useState('')
 
 
   const openSearch = (x) => {

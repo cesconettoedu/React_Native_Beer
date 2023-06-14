@@ -41,7 +41,6 @@ const styles = StyleSheet.create({
     marginRight: 8,
     backgroundColor: 'rgba(0,0,0,1)',
     borderRadius: 6,
-    
   },
   title: {
     textAlign: 'center',
@@ -52,13 +51,10 @@ const styles = StyleSheet.create({
     fontWeight: 500,
     bottom: 40
   },
-  
   imgOpen: {
     left: 17,
     width: '90%',
     height: '55%'
-
-
   }
 
 
