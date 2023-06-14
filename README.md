@@ -17,16 +17,6 @@ tem que:
 
 
 
-
-tutotial supabase:
-https://www.youtube.com/watch?v=_uIslLPirw0
-
-backend and database
-https://app.supabase.com/project/ppihnndftvaibkwoaich/api?resource=Beer
-
-
-
-
 This is to build a APK im EXPO
  ******* before start build has to change couple thinks
     - tem que deletar o  "react-native-navigation": "^7.32.1" do package.jsons
@@ -36,6 +26,12 @@ eas build -p android --profile preview
 
 
 
+
+tutotial supabase:
+https://www.youtube.com/watch?v=_uIslLPirw0
+
+backend and database
+https://app.supabase.com/project/ppihnndftvaibkwoaich/api?resource=Beer
 
 autentication supabase simples
 https://www.youtube.com/watch?v=Ow_Uzedfohk&t=478s
