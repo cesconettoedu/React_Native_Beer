@@ -6,6 +6,7 @@ import * as ImagePicker from "expo-image-picker";
 import CameraPhoto from '../src/CameraPhoto'
 import Slider from '@react-native-community/slider';
 
+import mugFullApk from '../assets/mugsStar/beerIconFullApk.png'
 import mugFull from '../assets/mugsStar/beerIconFull.png'
 import mugEmpty from '../assets/mugsStar/beerIconBlack.png'
 import bgrange from '../assets/strong/bg.png'
@@ -312,7 +313,8 @@ const AddScreen = ({route}) => {
             minimumValue={1}
             maximumValue={4}
             step={1}
-            thumbImage={mugFull}
+            thumbImage={mugFull}  //change to mugFullApk when build APK 
+            // thumbImage={mugFullApk}
             minimumTrackTintColor="rgba(0,0,0,0)"
             maximumTrackTintColor="rgba(0,0,0,0)"
             value={newViscosity}
