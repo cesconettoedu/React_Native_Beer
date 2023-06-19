@@ -8,26 +8,29 @@ export default function CardJustPic({ data }) {
  
 
   return (
-    <View style={styles.box}>
-      <View style={styles.inner}>
-        <View style={styles.imgBeer}>
-              <Image
-                source={{ uri: data.imageUrl }}
-                width={80}
-                height={110}
-                borderRadius={8}
-                resizeMode="contain"
-                alt="avatar url"
-              />
-        </View> 
-      </View>
+    <View style={styles.imgCont}>
+      <Image style={styles.imageThumbnail} source={{  uri: data.imageUrl }} />
     </View>
+    
   );
 }
 
 const styles = StyleSheet.create({
-  box: {
-    padding: 3,
+  imgCont: {
+    flex: 2, 
+    flexDirection: 'row', 
+    padding: 1,
+    marginLeft:3
+  },
+  imageThumbnail: {
+    resizeMode:"contain",  
+    // justifyContent: 'center',
+    // alignItems: 'center',
+    borderRadius: 5,
+    borderColor: '#7FB069',
+    borderWidth: 1,
+    width:110,
+    height:140
   },
  
 });

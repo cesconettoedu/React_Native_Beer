@@ -110,22 +110,40 @@ const ListBeerScreen = ({route}) => {
         onPress={() => navigation.navigate('HomeScreen')}
       />
      
+     {!visuSquare &&
       <FlatList
       data={beer}
       renderItem={ ({ item }) => (
-        <TouchableOpacity
-        key={item.id}
-        onPress={() => {setVisibleImgModal(true); setSingle(item)}}
-        >
-          {!visuSquare &&
-            <CardBeer data={item}/>
-          }
-          {visuSquare &&
-            <CardJustPic data={item}/>
-          }
-        </TouchableOpacity>      
+        <View>
+          <TouchableOpacity
+              key={item.id}
+              onPress={() => {setVisibleImgModal(true); setSingle(item)}}
+              >
+              <CardBeer data={item}/>
+          </TouchableOpacity>      
+        </View>
         )}
-      />
+       
+        />
+      }
+       {visuSquare &&
+       <FlatList
+       data={beer}
+       renderItem={ ({ item }) => (
+         <View>
+           <TouchableOpacity
+               key={item.id}
+               onPress={() => {setVisibleImgModal(true); setSingle(item)}}
+               >
+               <CardJustPic data={item}/>
+           </TouchableOpacity>      
+         </View>
+         )}
+         numColumns={3}
+         keyExtractor={(item, index) => index}
+         />
+           
+       }
      
       <Modal
           visible={visibImgleModal}
