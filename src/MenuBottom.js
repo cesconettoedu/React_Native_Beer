@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { StyleSheet, View, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-const MenuBottom = (orderBy) => {
+const MenuBottom = (orderBy, showSquare) => {
 const [ azVisible, setAzVisible] = useState(false)
 const [ listVisible, setListVisible] = useState(false)
 
@@ -11,11 +11,11 @@ const sizeIcon = 45;
 
 
 const list = (a) => {
-  orderBy.children.orderBy(false)
+  orderBy.children.showSquare(false)
   setListVisible(a)
 }
 const square = (b) => {
-  orderBy.children.orderBy(true)
+  orderBy.children.showSquare(true)
   setListVisible(b)
 }
 

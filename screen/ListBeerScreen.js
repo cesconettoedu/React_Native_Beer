@@ -39,7 +39,7 @@ const ListBeerScreen = ({route}) => {
   }
 
   const showSquare = (y) => {
-     setVisuSquare(true)
+     setVisuSquare(y)
   }
 
   
