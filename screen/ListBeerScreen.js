@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import {StyleSheet, FlatList, TouchableOpacity, Image, View , Modal} from 'react-native';
 import Header from '../src/Header';
 import CardBeer from '../src/CardBeer';
+import CardJustPic from '../src/CardJustPic';
 import MenuBottom from '../src/MenuBottom';
 import ImgModal from "../src/ImgModal";
 import { supabase } from "../supabase/supabase";
@@ -20,6 +21,8 @@ const ListBeerScreen = ({route}) => {
   const [searchList, setSearchList] = useState ('')
 
   const [fullListBtn, setFullListBtn] = useState(false)
+  
+  const [visuSquare, setVisuSquare] = useState(false)
 
 
   const openSearch = (x) => {
@@ -33,6 +36,10 @@ const ListBeerScreen = ({route}) => {
       if(typeOrder === 'title'){
         setAsc(true)
       }
+  }
+
+  const showSquare = (y) => {
+     setVisuSquare(true)
   }
 
   
@@ -92,7 +99,7 @@ const ListBeerScreen = ({route}) => {
     }else{ 
       getItems()
     }
-  },[beer, order, searchList])
+  },[beer, order, searchList, visuSquare])
 
   return (
 
@@ -110,7 +117,12 @@ const ListBeerScreen = ({route}) => {
         key={item.id}
         onPress={() => {setVisibleImgModal(true); setSingle(item)}}
         >
-          <CardBeer data={item}/>
+          {!visuSquare &&
+            <CardBeer data={item}/>
+          }
+          {visuSquare &&
+            <CardJustPic data={item}/>
+          }
         </TouchableOpacity>      
         )}
       />
@@ -138,7 +150,7 @@ const ListBeerScreen = ({route}) => {
 
 
       <MenuBottom>
-        {{orderBy: orderBy, openSearch:openSearch, userIdLogado: route.params.id}}
+        {{orderBy: orderBy, openSearch:openSearch, showSquare:showSquare, userIdLogado: route.params.id}}
       </MenuBottom>
 
 

@@ -4,9 +4,22 @@ import { useNavigation } from '@react-navigation/native';
 
 const MenuBottom = (orderBy) => {
 const [ azVisible, setAzVisible] = useState(false)
+const [ listVisible, setListVisible] = useState(false)
 
 const navigation = useNavigation();
 const sizeIcon = 45;
+
+
+const list = (a) => {
+  orderBy.children.orderBy(false)
+  setListVisible(a)
+}
+const square = (b) => {
+  orderBy.children.orderBy(true)
+  setListVisible(b)
+}
+
+
 
 const az = (x) => {
   orderBy.children.orderBy('title')
@@ -17,10 +30,32 @@ const bests = (y) => {
   setAzVisible(y)
 }
 
+
   return (
 
     
     <View style={styles.MenuBottom}>
+
+      {listVisible &&
+        <TouchableOpacity onPress={() => list(false)} >
+          <Image 
+            source = {require('../assets/menuBottom/visuList.png')} 
+            style = {{ width: sizeIcon, height: sizeIcon }}
+            />
+        </TouchableOpacity>
+      }  
+      {!listVisible &&
+        <TouchableOpacity onPress={() => square(true)} >
+          <Image 
+            source = {require('../assets/menuBottom/visuSquare.png')} 
+            style = {{ width: sizeIcon, height: sizeIcon }}
+            />
+        </TouchableOpacity>
+      }
+
+
+
+
       {azVisible &&
         <TouchableOpacity onPress={() => az(false)} >
           <Image 
