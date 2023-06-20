@@ -47,7 +47,7 @@ const bests = (y) => {
       {!listVisible &&
         <TouchableOpacity onPress={() => square(true)} >
           <Image 
-            source = {require('../assets/menuBottom/visuSquare.png')} 
+            source = {require('../assets/menuBottom/visuSquare1.png')} 
             style = {{ width: sizeIcon, height: sizeIcon }}
             />
         </TouchableOpacity>
