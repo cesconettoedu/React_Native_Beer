@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Text, Image, TouchableOpacity, Modal } from "react-native";
+import { StyleSheet, View, Image } from "react-native";
 
 
 
@@ -17,8 +17,6 @@ export default function CardJustPic({ data }) {
 
 const styles = StyleSheet.create({
   imgCont: {
-    flex: 2, 
-    flexDirection: 'row', 
     padding: 1,
     marginLeft:3
   },
