@@ -5,6 +5,7 @@ import { supabase } from '../supabase/supabase'
 import * as ImagePicker from "expo-image-picker";
 import CameraPhoto from '../src/CameraPhoto'
 import Slider from '@react-native-community/slider';
+import { v4 as uuidv4} from 'uuid';
 
 import mugFullApk from '../assets/mugsStar/beerIconFullApk.png'
 import mugFull from '../assets/mugsStar/beerIconFull.png'
@@ -20,7 +21,7 @@ const AddScreen = ({route}) => {
   const [visibleModal, setVisibleModal] = useState(false);
   const [editB, setEditB] = useState(false);
   const [idUpdate, setIdUpdate] = useState(0);
-
+  const [dataUrl, setDataUrl] = useState();
 
   const [mug1, setMug1] = useState(mugEmpty);
   const [mug2, setMug2] = useState(mugEmpty);
@@ -34,15 +35,20 @@ const AddScreen = ({route}) => {
   const navigation = useNavigation();
  
 
+  
+  
   const addNewBeer = async () => {
+   
     const { data: Beer, error } = await supabase
-      .from("Beer")
-      .insert([
-        { id_user: route.params.userId, title: newTitle, imageUrl: newImageUrl, note: newNote, star: stars, viscosity: newViscosity },
-      ]);
+    .from("Beer")
+    .insert([
+      { id_user: route.params.userId, title: newTitle, imageUrl: dataUrl, note: newNote, star: stars, viscosity: newViscosity },
+    ]);
     return Beer;
   };
+  
 
+  
 
   const updateNewBeer = async () => {
     const { data: Beer, error } = await supabase
@@ -156,7 +162,33 @@ const AddScreen = ({route}) => {
   };
 
 
+  async function uploadImages(newImageUrl) {
+   
+    let filename = uuidv4();
+    let pathUser = route.params.userId + "/" + filename + ".jpg";
+    let file = newImageUrl;
+    let formData = new FormData();
+    formData.append('Files',{
+      uri: file,
+      name: filename,
+      type: "image/jpg",
+    });
+    
+    const { data, error } = await supabase    
+      .storage
+      .from('beerImagesStorage')
+      .upload(pathUser, formData )
+    if(data) {
+      setDataUrl(data.path)
+      console.log('HAve DATA ---->', data.path);
+    } else {
+      console.log(error);
+    }
+    return data
+  }
 
+
+  
   useEffect(() => {
     editBeer()
   },[route])
@@ -327,7 +359,11 @@ const AddScreen = ({route}) => {
         <TouchableOpacity
           style={styles.submitButtonA}
           onPress={() => {
-            addNewBeer();
+            uploadImages(newImageUrl)
+              .then(() => {
+                addNewBeer();
+                
+              })
             navigation.navigate("ListBeerScreen", { id: route.params.userId });
           }}
         >
