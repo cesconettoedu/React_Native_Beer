@@ -50,17 +50,30 @@ const ListBeerScreen = ({route}) => {
       .select('*')
       .eq('id_user', `${route.params.id}`)
       .order(order ,  { ascending: asc })
-      .order('title')
+      .order('title')    
       setBeer(Beer)
       return Beer
   }
 
 
+  //to get from Storage Supabase
+  const getFromStorage = (path) => {  
+    const { data } = supabase
+      .storage
+      .from('beerImagesStorage')
+      .getPublicUrl(path)
+      return data.publicUrl
+  }
+
+
   //use to find number of beers or lenght
   let count = 0;
-  for (var k in beer) if (beer.hasOwnProperty(k)) ++count;
-
+    for (var k in beer) {
+      if (beer.hasOwnProperty(k)) ++count;
+      beer[k].url = getFromStorage(beer[k].imageUrl)
+    }
  
+
   const handleSearch = (typing) => {
     if(typing !== null) {
       setSearchList(typing)
@@ -152,7 +165,8 @@ const ListBeerScreen = ({route}) => {
           animationType="slide"
       >
         <ImgModal
-          data={single}
+          title={single.title}
+          url={single.url}
           handleClose={() => setVisibleImgModal(false)}
         />
       </Modal>

@@ -24,6 +24,7 @@ export default function CardBeer({ data }) {
   const [visibleModalConf, setVisibleModalConf] = useState(false);
   const [mugStar, setMugStar] = useState(mug0)
   const [newVisc, setNewVisc] = useState(visc1)
+  const [imageUrlStorage, setImageUrlStorage] = useState();
 
   const navigation = useNavigation();
 
@@ -71,7 +72,20 @@ export default function CardBeer({ data }) {
   }
 
 
-  const deleteBeer = async (id) => {
+  //just call 2 functions bellow
+  const deleteBeer = async (data) => {
+    deleteDatabase(data.id);
+    deleteStorageFile(data.imageUrl);
+  }
+  //to delete image file Storage 
+  const deleteStorageFile = async (path) => {
+    const { data, error } = await supabase
+    .storage
+    .from('beerImagesStorage')
+    .remove([path])
+  }
+  //to delete from database
+  const deleteDatabase = async (id) => {
     const { data: Beer, error } = await supabase
       .from('Beer')
       .delete()
@@ -90,7 +104,7 @@ export default function CardBeer({ data }) {
       <View style={styles.inner}>
         <View style={styles.imgBeer}>
               <Image
-                source={{ uri: data.imageUrl }}
+                source={{ uri: data.url }}
                 width={80}
                 height={110}
                 borderRadius={8}
@@ -162,7 +176,7 @@ export default function CardBeer({ data }) {
                   title= {data.title}
                   handleClose={() =>  cleanModal()}
                   handleCancel={() => cleanModal()}
-                  handleYes={() => deleteBeer(data.id)}
+                  handleYes={() => deleteBeer(data)}
                 />
               </Modal>
             

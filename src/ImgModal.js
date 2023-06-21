@@ -1,7 +1,7 @@
 import React from "react";
 import { SafeAreaView, View, TouchableOpacity, Text, StyleSheet, Image } from 'react-native';
 
-const ImgModal = ( {data, handleClose }) => {
+const ImgModal = ( { title, url, handleClose }) => {
 
   return (
     <SafeAreaView style={styles.container}>
@@ -9,11 +9,11 @@ const ImgModal = ( {data, handleClose }) => {
 
       <View style={styles.content}>
       
-      <Text style={styles.title}>{data.title}</Text>
+      <Text style={styles.title}>{title}</Text>
       
        <Image
             style={styles.imgOpen}  
-            source={{ uri: data.imageUrl }}
+            source={{ uri: url }}
             borderRadius={5}
             resizeMode="contain"
             alt="avatar url"

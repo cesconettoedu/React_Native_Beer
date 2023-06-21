@@ -37,18 +37,16 @@ const AddScreen = ({route}) => {
 
   
   
-  const addNewBeer = async () => {
-   
+  const addNewBeer = async (storageUrl) => {
     const { data: Beer, error } = await supabase
     .from("Beer")
     .insert([
-      { id_user: route.params.userId, title: newTitle, imageUrl: dataUrl, note: newNote, star: stars, viscosity: newViscosity },
+      { id_user: route.params.userId, title: newTitle, imageUrl: storageUrl, note: newNote, star: stars, viscosity: newViscosity },
     ]);
     return Beer;
   };
   
 
-  
 
   const updateNewBeer = async () => {
     const { data: Beer, error } = await supabase
@@ -58,7 +56,6 @@ const AddScreen = ({route}) => {
     return Beer;
   };
 
-
   //to get image from device
   const pickImage = async () => {
     // No permissions request is necessary for launching the image library
@@ -66,19 +63,18 @@ const AddScreen = ({route}) => {
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: true,
       aspect: [12, 16],
-      quality: 1,
+      quality: 0.5,
     });
     if (!result.canceled) {
       setNewImageUrl(result.assets[0].uri);
     }
   };
 
-
   const editBeer = () => {
     if(!route.params.addItem) {
       setEditB(true);
       setIdUpdate(route.params.paramKey.id)
-      setNewImageUrl(route.params.paramKey.imageUrl)
+      setNewImageUrl(route.params.paramKey.url)
       setNewTitle(route.params.paramKey.title)
       setNewNote(route.params.paramKey.note)
       setStars(route.params.paramKey.star)
@@ -87,16 +83,13 @@ const AddScreen = ({route}) => {
     }
   }
 
-  
   const getFromCamera = (image) => {
     setNewImageUrl(image)
   }
 
-
   const closeCamera = (close) => {
     setVisibleModal(false)
   }
-
 
   const mugClick = (x) => {  
       switch (x) {
@@ -161,7 +154,7 @@ const AddScreen = ({route}) => {
       }
   };
 
-
+  // Save image on Storage at Supabase
   async function uploadImages(newImageUrl) {
    
     let filename = uuidv4();
@@ -179,8 +172,8 @@ const AddScreen = ({route}) => {
       .from('beerImagesStorage')
       .upload(pathUser, formData )
     if(data) {
-      setDataUrl(data.path)
       console.log('HAve DATA ---->', data.path);
+      setDataUrl(data.path)
     } else {
       console.log(error);
     }
@@ -359,11 +352,11 @@ const AddScreen = ({route}) => {
         <TouchableOpacity
           style={styles.submitButtonA}
           onPress={() => {
+
             uploadImages(newImageUrl)
-              .then(() => {
-                addNewBeer();
-                
-              })
+            .then((data) => {
+              addNewBeer(data.path); 
+            })
             navigation.navigate("ListBeerScreen", { id: route.params.userId });
           }}
         >
