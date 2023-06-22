@@ -71,6 +71,7 @@ const ListBeerScreen = ({route}) => {
     for (var k in beer) {
       if (beer.hasOwnProperty(k)) ++count;
       beer[k].url = getFromStorage(beer[k].imageUrl)
+      
     }
  
 

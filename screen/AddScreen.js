@@ -185,9 +185,6 @@ const AddScreen = ({route}) => {
     let file = newImageUrl;
     let pathUser = route.params.paramKey.imageUrl;
     let filename = pathUser.split("/").pop();
-    console.log('filenamEEEE:', filename);
-   // let newPath = route.params.userId + "/" + filename + ".jpg";
-    console.log(pathUser);
     let formData = new FormData();
     formData.append('Files',{
       uri: file,
@@ -199,24 +196,14 @@ const AddScreen = ({route}) => {
       .storage
       .from('beerImagesStorage')
       .update(pathUser, formData)
-
+    
       return data
   }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
   
+
+
   useEffect(() => {
     editBeer()
   },[route])

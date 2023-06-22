@@ -96,7 +96,6 @@ export default function CardBeer({ data }) {
   useEffect(() => {
     StarClick(data.star)
     viscosityLike(data.viscosity)
-    
   }, [data.star,data.viscosity ]);
 
   return (
