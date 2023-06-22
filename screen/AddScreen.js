@@ -48,10 +48,10 @@ const AddScreen = ({route}) => {
   
 
 
-  const updateNewBeer = async () => {
+  const updateNewBeer = async (storageUrl) => {
     const { data: Beer, error } = await supabase
     .from('Beer')
-    .update({ title: newTitle, imageUrl: newImageUrl, note: newNote, star: stars, viscosity: newViscosity })
+    .update({ title: newTitle, imageUrl: storageUrl, note: newNote, star: stars, viscosity: newViscosity })
     .eq('id', idUpdate)
     return Beer;
   };
@@ -166,7 +166,6 @@ const AddScreen = ({route}) => {
       name: filename,
       type: "image/jpg",
     });
-    
     const { data, error } = await supabase    
       .storage
       .from('beerImagesStorage')
@@ -179,6 +178,42 @@ const AddScreen = ({route}) => {
     }
     return data
   }
+  
+  // Replace image on Storage at Supabase
+  async function upNewBeer(newImageUrl) {
+   
+    let file = newImageUrl;
+    let pathUser = route.params.paramKey.imageUrl;
+    let filename = pathUser.split("/").pop();
+    console.log('filenamEEEE:', filename);
+   // let newPath = route.params.userId + "/" + filename + ".jpg";
+    console.log(pathUser);
+    let formData = new FormData();
+    formData.append('Files',{
+      uri: file,
+      name: filename,
+      type: "image/jpg",
+    });
+    
+    const { data, error } = await supabase
+      .storage
+      .from('beerImagesStorage')
+      .update(pathUser, formData)
+
+      return data
+  }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   
@@ -352,11 +387,11 @@ const AddScreen = ({route}) => {
         <TouchableOpacity
           style={styles.submitButtonA}
           onPress={() => {
-
             uploadImages(newImageUrl)
-            .then((data) => {
-              addNewBeer(data.path); 
-            })
+              .then((data) => {
+                console.log(data);
+                addNewBeer(data.path);
+              })
             navigation.navigate("ListBeerScreen", { id: route.params.userId });
           }}
         >
@@ -370,8 +405,10 @@ const AddScreen = ({route}) => {
         <TouchableOpacity
           style={styles.submitButtonU}
           onPress={() => {
-            updateNewBeer();
-            console.log('aaaaaa',route.params );
+            upNewBeer(newImageUrl)
+            .then((data) => {
+                updateNewBeer(data.path); 
+              })
             navigation.navigate("ListBeerScreen", { id: route.params.userId });
           }}
         >
