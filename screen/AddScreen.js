@@ -399,13 +399,6 @@ const AddScreen = ({route}) => {
         {editB &&
         <TouchableOpacity
           style={styles.submitButtonU}
-          // onPress={() => {
-          //   upNewBeer(newImageUrl)
-          //   .then((data) => {
-          //       updateNewBeer(data.path); 
-          //     })
-          //   navigation.navigate("ListBeerScreen", { id: route.params.userId });
-          // }}
           onPress={() => {
             let oldPath = route.params.paramKey.imageUrl;
            
