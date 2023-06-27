@@ -171,7 +171,7 @@ const AddScreen = ({route}) => {
       .from('beerImagesStorage')
       .upload(pathUser, formData )
     if(data) {
-      console.log('HAve DATA ---->', data.path);
+      
       setDataUrl(data.path)
      
     } else {

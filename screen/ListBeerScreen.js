@@ -8,6 +8,9 @@ import ImgModal from "../src/ImgModal";
 import { supabase } from "../supabase/supabase";
 import Search from "../src/Search";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import AppLoader from "../src/AppLoader";
+
+import { useFocusEffect } from '@react-navigation/native';
 
 
 const ListBeerScreen = ({route}) => {
@@ -23,6 +26,8 @@ const ListBeerScreen = ({route}) => {
   const [fullListBtn, setFullListBtn] = useState(false)
   
   const [visuSquare, setVisuSquare] = useState(false)
+  const [loading, setLoading] = useState(true)
+  const [count, setCount] = useState(0)
 
 
   const openSearch = (x) => {
@@ -46,12 +51,22 @@ const ListBeerScreen = ({route}) => {
   //get all beers from supabase
   const getItems = async () => {
     let { data: Beer, error } = await supabase
-      .from('Beer')
-      .select('*')
-      .eq('id_user', `${route.params.id}`)
-      .order(order ,  { ascending: asc })
-      .order('title')    
+    .from('Beer')
+    .select('*')
+    .eq('id_user', `${route.params.id}`)
+    .order(order ,  { ascending: asc })
+    .order('title')    
+    
+    
+    //use to find number of beers or lenght
+      let count = 0;
+      for (var k in Beer) {
+        if (Beer.hasOwnProperty(k)) ++count;
+        Beer[k].url = getFromStorage(Beer[k].imageUrl)
+      }
+      
       setBeer(Beer)
+      setCount(Beer.length);
       return Beer
   }
 
@@ -65,15 +80,6 @@ const ListBeerScreen = ({route}) => {
       return data.publicUrl
   }
 
-
-  //use to find number of beers or lenght
-  let count = 0;
-    for (var k in beer) {
-      if (beer.hasOwnProperty(k)) ++count;
-      beer[k].url = getFromStorage(beer[k].imageUrl)
-      
-    }
- 
 
   const handleSearch = (typing) => {
     if(typing !== null) {
@@ -95,6 +101,7 @@ const ListBeerScreen = ({route}) => {
     .eq('id_user', `${route.params.id}`)
     .ilike('title', `%${searchList}%`)
     setBeer(Beer)
+    setCount(Beer.length);
       return Beer
   }
 
@@ -107,16 +114,29 @@ const ListBeerScreen = ({route}) => {
   }
 
 
+  // when screen in focus run the Loading Beer one time
+  useFocusEffect(
+    React.useCallback(() => {
+      setTimeout(() => { 
+        setLoading(false);         
+      }, 4000);
+      setLoading(true)
+    }, [])
+
+  );
+
+
   useEffect(() => {
     if(searchList){
       getSearchBeer()
     }else{ 
-      getItems()
+      getItems()  
     }
+    
   },[beer, order, searchList, visuSquare])
 
   return (
-
+    <>
     <View style={styles.container}>
      
       <Header
@@ -200,6 +220,10 @@ const ListBeerScreen = ({route}) => {
 
 
     </View>
+    
+    {loading ? <AppLoader/> : null}
+
+    </>
   );
 }
 
