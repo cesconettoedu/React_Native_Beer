@@ -173,6 +173,7 @@ const AddScreen = ({route}) => {
     if(data) {
       console.log('HAve DATA ---->', data.path);
       setDataUrl(data.path)
+     
     } else {
       console.log(error);
     }
@@ -180,28 +181,35 @@ const AddScreen = ({route}) => {
   }
   
   // Replace image on Storage at Supabase
-  async function upNewBeer(newImageUrl) {
+  // async function upNewBeer(newImageUrl) {
    
-    let file = newImageUrl;
-    let pathUser = route.params.paramKey.imageUrl;
-    let filename = pathUser.split("/").pop();
-    let formData = new FormData();
-    formData.append('Files',{
-      uri: file,
-      name: filename,
-      type: "image/jpg",
-    });
+  //   let file = newImageUrl;
+  //   let pathUser = route.params.paramKey.imageUrl;
+  //   let filename = pathUser.split("/").pop();
+  //   let formData = new FormData();
+  //   formData.append('Files',{
+  //     uri: file,
+  //     name: filename,
+  //     type: "image/jpg",
+  //   });
     
+  //   const { data, error } = await supabase
+  //     .storage
+  //     .from('beerImagesStorage')
+  //     .update(pathUser, formData)
+    
+  //     return data
+  // }
+
+
+  //to delete image file Storage 
+  const deleteImageStorageFile = async (dataUrl) => {
+    console.log("data url", dataUrl);
     const { data, error } = await supabase
-      .storage
-      .from('beerImagesStorage')
-      .update(pathUser, formData)
-    
-      return data
+    .storage
+    .from('beerImagesStorage')
+    .remove([dataUrl])
   }
-
-
-  
 
 
   useEffect(() => {
@@ -391,11 +399,25 @@ const AddScreen = ({route}) => {
         {editB &&
         <TouchableOpacity
           style={styles.submitButtonU}
+          // onPress={() => {
+          //   upNewBeer(newImageUrl)
+          //   .then((data) => {
+          //       updateNewBeer(data.path); 
+          //     })
+          //   navigation.navigate("ListBeerScreen", { id: route.params.userId });
+          // }}
           onPress={() => {
-            upNewBeer(newImageUrl)
-            .then((data) => {
-                updateNewBeer(data.path); 
+            let oldPath = route.params.paramKey.imageUrl;
+           
+            uploadImages(newImageUrl)
+              .then((data) => {
+               updateNewBeer(data.path);
               })
+              .then(() => { 
+                deleteImageStorageFile(oldPath)  
+              })
+
+
             navigation.navigate("ListBeerScreen", { id: route.params.userId });
           }}
         >
