@@ -20,7 +20,7 @@ tem que:
 This is to build a APK im EXPO
  ******* before start build has to change couple thinks
     - tem que deletar o  "react-native-navigation": "^7.32.1" do package.jsons
-    - tem que trocar o thumbImage na linha 317 por causa do tamanho
+    - tem que trocar o thumbImage na linha 358 na AddScreen por causa do tamanho
 
 eas build -p android --profile preview
 
