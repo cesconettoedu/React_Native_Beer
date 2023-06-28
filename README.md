@@ -7,12 +7,12 @@ to open only celphone fisic: expo start
 to open na web: expo start --web
 
 <!--
-expo updategit 
+expo updategit
 link do video: https://www.youtube.com/watch?v=2ICOVstF6rU
 tem que:
   eas login (logar)
     depois
-  eas update --branch preview --message "Scale of Strongest beer not work yet"
+  eas update --branch preview --message "UPADTE 280623"
 
 
 
@@ -21,7 +21,7 @@ This is to build a APK im EXPO
  ******* before start build has to change couple thinks
     - tem que deletar o  "react-native-navigation": "^7.32.1" do package.jsons
     - tem que trocar o thumbImage na linha 317 por causa do tamanho
- 
+
 eas build -p android --profile preview
 
 
