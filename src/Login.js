@@ -3,6 +3,8 @@ import { View, StyleSheet, TouchableOpacity, Text, TextInput, Image } from "reac
 import { supabase } from "../supabase/supabase";
 import { useIsFocused } from "@react-navigation/native";
 import { useNavigation } from "@react-navigation/native";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 const Login = (props) => {
 
@@ -23,12 +25,48 @@ const Login = (props) => {
     return users;
   };
 
+
+
+
+  const storeUserPass = async (value) => {
+    try {
+      await AsyncStorage.setItem('userName', newUser);
+      await AsyncStorage.setItem('userPass', newPass);
+    } catch (err) {
+      alert(err)
+    }
+  };
+
+  const loadUserPass = async () => {
+
+  try {
+    const value1 = await AsyncStorage.getItem('userName');
+    const value2 = await AsyncStorage.getItem('userPass');
+    if (value1 !== null && value2 !== null) {
+      setNewUser(value1);
+      setNewPass(value2);
+    }
+  } catch (err) {
+    alert(err)
+  }
+};
+
+
+
+
   useEffect(() => {
     setTimeout(() => {
       setShowLogo(false);
     }, 1000);
   }, [isFocused]);
 
+
+  useEffect(() => {
+    loadUserPass();
+  }, []);
+
+
+ 
   return (
     <View>
       {!showLogo && (
@@ -81,6 +119,7 @@ const Login = (props) => {
                     }
                   });
               }
+              storeUserPass(newUser);
             }}
           >
             <Image
