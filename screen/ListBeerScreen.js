@@ -58,10 +58,8 @@ const ListBeerScreen = ({route}) => {
     .order('title')    
     
     
-    //use to find number of beers or lenght
-      let count = 0;
-      for (var k in Beer) {
-        if (Beer.hasOwnProperty(k)) ++count;
+    //use to get Url 
+      for (var k in Beer) {        
         Beer[k].url = getFromStorage(Beer[k].imageUrl)
       }
       
@@ -119,7 +117,7 @@ const ListBeerScreen = ({route}) => {
     React.useCallback(() => {
       setTimeout(() => { 
         setLoading(false);         
-      }, 4000);
+      }, 4500);
       setLoading(true)
     }, [])
 

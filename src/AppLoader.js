@@ -5,7 +5,7 @@ import LottieView from 'lottie-react-native';
 const AppLoader = () => {
   return (
     <View style={ [ StyleSheet.absoluteFillObject, styles.container]}>
-      <LottieView source={require('../assets/beerGetFill.json')} autoPlay loop />
+      <LottieView source={require('../assets/beerGetFill1.json')} autoPlay loop />
 
     </View>
   )

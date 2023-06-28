@@ -204,7 +204,7 @@ const AddScreen = ({route}) => {
 
   //to delete image file Storage 
   const deleteImageStorageFile = async (dataUrl) => {
-    console.log("data url", dataUrl);
+    //console.log("data url", dataUrl);
     const { data, error } = await supabase
     .storage
     .from('beerImagesStorage')
@@ -384,7 +384,6 @@ const AddScreen = ({route}) => {
           onPress={() => {
             uploadImages(newImageUrl)
               .then((data) => {
-                console.log(data);
                 addNewBeer(data.path);
               })
             navigation.navigate("ListBeerScreen", { id: route.params.userId });
