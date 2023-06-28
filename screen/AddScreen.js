@@ -21,7 +21,6 @@ const AddScreen = ({route}) => {
   const [visibleModal, setVisibleModal] = useState(false);
   const [editB, setEditB] = useState(false);
   const [idUpdate, setIdUpdate] = useState(0);
-  const [dataUrl, setDataUrl] = useState();
 
   const [mug1, setMug1] = useState(mugEmpty);
   const [mug2, setMug2] = useState(mugEmpty);
@@ -182,9 +181,7 @@ const AddScreen = ({route}) => {
       .storage
       .from('beerImagesStorage')
       .upload(pathUser, formData )
-    if(data) {
-      setDataUrl(data.path);      
-    } else {
+    if(!data) {
       console.log(error);
     }
     return data
