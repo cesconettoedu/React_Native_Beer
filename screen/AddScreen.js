@@ -38,20 +38,32 @@ const AddScreen = ({route}) => {
   
   
   const addNewBeer = async (storageUrl) => {
+    let url = getFromStorage(storageUrl);
     const { data: Beer, error } = await supabase
     .from("Beer")
     .insert([
-      { id_user: route.params.userId, title: newTitle, imageUrl: storageUrl, note: newNote, star: stars, viscosity: newViscosity },
+      { id_user: route.params.userId, title: newTitle, imageUrl: storageUrl, note: newNote, star: stars, viscosity: newViscosity, fullUrl: url },
     ]);
     return Beer;
   };
   
+    
+ //to get the fullUrl from Storage
+   const getFromStorage = (path) => {  
+    const { data } = supabase
+      .storage
+      .from('beerImagesStorage')
+      .getPublicUrl(path)
+      return data.publicUrl   
+  }
+
 
 
   const updateNewBeer = async (storageUrl) => {
+    let url = getFromStorage(storageUrl);
     const { data: Beer, error } = await supabase
     .from('Beer')
-    .update({ title: newTitle, imageUrl: storageUrl, note: newNote, star: stars, viscosity: newViscosity })
+    .update({ title: newTitle, imageUrl: storageUrl, note: newNote, star: stars, viscosity: newViscosity, fullUrl: url  })
     .eq('id', idUpdate)
     return Beer;
   };
@@ -171,35 +183,12 @@ const AddScreen = ({route}) => {
       .from('beerImagesStorage')
       .upload(pathUser, formData )
     if(data) {
-      
-      setDataUrl(data.path)
-     
+      setDataUrl(data.path);      
     } else {
       console.log(error);
     }
     return data
   }
-  
-  // Replace image on Storage at Supabase
-  // async function upNewBeer(newImageUrl) {
-   
-  //   let file = newImageUrl;
-  //   let pathUser = route.params.paramKey.imageUrl;
-  //   let filename = pathUser.split("/").pop();
-  //   let formData = new FormData();
-  //   formData.append('Files',{
-  //     uri: file,
-  //     name: filename,
-  //     type: "image/jpg",
-  //   });
-    
-  //   const { data, error } = await supabase
-  //     .storage
-  //     .from('beerImagesStorage')
-  //     .update(pathUser, formData)
-    
-  //     return data
-  // }
 
 
   //to delete image file Storage 

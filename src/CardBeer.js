@@ -103,7 +103,7 @@ export default function CardBeer({ data }) {
       <View style={styles.inner}>
         <View style={styles.imgBeer}>
               <Image
-                source={{ uri: data.url }}
+                source={{ uri: data.fullUrl }}
                 width={80}
                 height={110}
                 borderRadius={8}

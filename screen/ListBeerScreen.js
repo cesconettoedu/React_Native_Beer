@@ -57,25 +57,9 @@ const ListBeerScreen = ({route}) => {
     .order(order ,  { ascending: asc })
     .order('title')    
     
-    
-    //use to get Url 
-      for (var k in Beer) {        
-        Beer[k].url = getFromStorage(Beer[k].imageUrl)
-      }
-      
       setBeer(Beer)
       setCount(Beer.length);
       return Beer
-  }
-
-
-  //to get from Storage Supabase
-  const getFromStorage = (path) => {  
-    const { data } = supabase
-      .storage
-      .from('beerImagesStorage')
-      .getPublicUrl(path)
-      return data.publicUrl
   }
 
 
@@ -117,7 +101,7 @@ const ListBeerScreen = ({route}) => {
     React.useCallback(() => {
       setTimeout(() => { 
         setLoading(false);         
-      }, 4500);
+      }, 3000);
       setLoading(true)
     }, [])
 
@@ -131,7 +115,7 @@ const ListBeerScreen = ({route}) => {
       getItems()  
     }
     
-  },[beer, order, searchList, visuSquare])
+  },[beer, searchList])
 
   return (
     <>
@@ -185,7 +169,7 @@ const ListBeerScreen = ({route}) => {
       >
         <ImgModal
           title={single.title}
-          url={single.url}
+          url={single.fullUrl}
           handleClose={() => setVisibleImgModal(false)}
         />
       </Modal>

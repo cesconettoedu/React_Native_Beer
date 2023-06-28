@@ -9,7 +9,7 @@ export default function CardJustPic({ data }) {
 
   return (
     <View style={styles.imgCont}>
-      <Image style={styles.imageThumbnail} source={{  uri: data.url }} />
+      <Image style={styles.imageThumbnail} source={{  uri: data.fullUrl }} />
     </View>
     
   );
