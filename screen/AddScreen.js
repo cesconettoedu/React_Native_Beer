@@ -86,7 +86,7 @@ const AddScreen = ({route}) => {
     if(!route.params.addItem) {
       setEditB(true);
       setIdUpdate(route.params.paramKey.id)
-      setNewImageUrl(route.params.paramKey.url)
+      setNewImageUrl(route.params.paramKey.fullUrl)
       setNewTitle(route.params.paramKey.title)
       setNewNote(route.params.paramKey.note)
       setStars(route.params.paramKey.star)

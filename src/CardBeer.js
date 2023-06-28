@@ -24,7 +24,6 @@ export default function CardBeer({ data }) {
   const [visibleModalConf, setVisibleModalConf] = useState(false);
   const [mugStar, setMugStar] = useState(mug0)
   const [newVisc, setNewVisc] = useState(visc1)
-  const [imageUrlStorage, setImageUrlStorage] = useState();
 
   const navigation = useNavigation();
 
@@ -159,7 +158,7 @@ export default function CardBeer({ data }) {
                 <EditDelModal
                   title= {data.title}
                   handleClose={() => setVisibleModal(false)}
-                  handleEdit={() => navigation.navigate('EditScreen', { paramKey: data, userId: data.id_user, addItem: false  })} 
+                  handleEdit={() => { navigation.navigate('EditScreen', { paramKey: data, userId: data.id_user, addItem: false  }), setVisibleModal(false)}} 
                   handleDelete={() => setVisibleModalConf(true)}
                 />
               </Modal>
