@@ -354,8 +354,8 @@ const AddScreen = ({route}) => {
             minimumValue={1}
             maximumValue={4}
             step={1}
-            //thumbImage={mugFull}  //change to mugFullApk when build APK 
-            thumbImage={mugFullApk}
+            thumbImage={mugFull}  //change to mugFullApk when build APK 
+            // thumbImage={mugFullApk}
             minimumTrackTintColor="rgba(0,0,0,0)"
             maximumTrackTintColor="rgba(0,0,0,0)"
             value={newViscosity}
