@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {StyleSheet, FlatList, TouchableOpacity, Image, View , Modal} from 'react-native';
+import {StyleSheet, FlatList, TouchableOpacity, Image, View , Modal, SafeAreaView, StatusBar} from 'react-native';
 import Header from '../src/Header';
 import CardBeer from '../src/CardBeer';
 import CardJustPic from '../src/CardJustPic';
@@ -118,8 +118,13 @@ const ListBeerScreen = ({route}) => {
   },[beer, searchList])
 
   return (
-    <>
-    <View style={styles.container}>
+
+    <SafeAreaView style={styles.container}>
+       <StatusBar
+        animated={true}
+        backgroundColor="#7FB069"
+        
+      />
      
       <Header
         quantity={count}
@@ -201,11 +206,11 @@ const ListBeerScreen = ({route}) => {
       </Modal>    
 
 
-    </View>
     
     {loading ? <AppLoader/> : null}
 
-    </>
+    </SafeAreaView>
+   
   );
 }
 
@@ -218,7 +223,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 5,
     backgroundColor: "#212427",
-    marginTop: "13%"
+    
   },
   fullList:{
     left: 110,
