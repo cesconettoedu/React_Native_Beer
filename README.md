@@ -1,12 +1,12 @@
-Open account on expo, download the app
+![screen1](https://github.com/cesconettoedu/React_Native_Beer/assets/99515575/0873ec50-06c0-4bae-832e-885d961598e8)
 
-Create a account at supabase
+![screen2](https://github.com/cesconettoedu/React_Native_Beer/assets/99515575/d9644fd1-ee44-4014-a895-17ec31b63e64)
 
-to open only celphone fisic: expo start
+![screen3](https://github.com/cesconettoedu/React_Native_Beer/assets/99515575/ec0342e1-3bff-46d8-977b-92d9a1790731)
 
-to open na web: expo start --web
+![screen4](https://github.com/cesconettoedu/React_Native_Beer/assets/99515575/190c7c89-135e-4de0-8d39-9746dfe0f87a)
 
-Working in progressss.....
+![supabse](https://github.com/cesconettoedu/React_Native_Beer/assets/99515575/ac639a9f-2134-4a86-bc1c-a158a04094df)
 
 <!--
 expo updategit
