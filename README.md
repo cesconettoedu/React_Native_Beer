@@ -1,6 +1,4 @@
-![screen1](https://github.com/cesconettoedu/React_Native_Beer/assets/99515575/0873ec50-06c0-4bae-832e-885d961598e8)
-
-![screen2](https://github.com/cesconettoedu/React_Native_Beer/assets/99515575/d9644fd1-ee44-4014-a895-17ec31b63e64)
+![screen1](https://github.com/cesconettoedu/React_Native_Beer/assets/99515575/0873ec50-06c0-4bae-832e-885d961598e8) ![screen2](https://github.com/cesconettoedu/React_Native_Beer/assets/99515575/d9644fd1-ee44-4014-a895-17ec31b63e64)
 
 ![screen3](https://github.com/cesconettoedu/React_Native_Beer/assets/99515575/ec0342e1-3bff-46d8-977b-92d9a1790731)
 
