@@ -6,6 +6,8 @@ to open only celphone fisic: expo start
 
 to open na web: expo start --web
 
+Working in progressss.....
+
 <!--
 expo updategit
 link do video: https://www.youtube.com/watch?v=2ICOVstF6rU
