@@ -1,3 +1,8 @@
+Android application using React Native,
+Expo and Supabase (MySql based - supabase.com).
+
+Learning React Native building a full stack android application using Supabase as backend database, authenticating users, saving files, using AsyncStorage to keep the user information.
+
 https://github.com/cesconettoedu/React_Native_Beer/assets/99515575/8dc90a0a-078d-4662-b796-14b8e2a5cfcb
 
 ![screen1](https://github.com/cesconettoedu/React_Native_Beer/assets/99515575/0873ec50-06c0-4bae-832e-885d961598e8) ![screen2](https://github.com/cesconettoedu/React_Native_Beer/assets/99515575/d9644fd1-ee44-4014-a895-17ec31b63e64)
